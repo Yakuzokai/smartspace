@@ -259,7 +259,10 @@ flowchart TD
     REG_ERROR --> REGISTER
     
     ROLE -->|Customer| CUST_DASH["🏠 Customer Dashboard"]
-    ROLE -->|Admin| ADMIN_DASH["🔑 Admin Dashboard"]
+    ROLE -->|Superadmin| SUPER_DASH["👑 Superadmin Console"]
+    ROLE -->|Admin| ADMIN_DASH["👔 Admin Operations"]
+    ROLE -->|Staff| STAFF_DASH["📦 Staff Orders & Inventory"]
+    ROLE -->|Content Manager| CONTENT_DASH["🎨 Catalog & 3D Assets"]
 
     style SESSION fill:#4CAF50,color:#fff
     style ERROR fill:#F44336,color:#fff
@@ -696,7 +699,7 @@ CREATE TABLE users (
     name              VARCHAR(255) NOT NULL,
     email             VARCHAR(255) NOT NULL UNIQUE,
     password          VARCHAR(255) NOT NULL,
-    role_id           BIGINT UNSIGNED NOT NULL DEFAULT 2, -- 1=admin, 2=customer
+    role_id           BIGINT UNSIGNED NOT NULL DEFAULT 5, -- 1=superadmin, 2=admin, 3=staff, 4=content_manager, 5=customer
     phone             VARCHAR(20) NULL,
     avatar            VARCHAR(500) NULL,
     preferences       JSON NULL, -- {preferred_style, preferred_colors, budget_range}
@@ -795,13 +798,22 @@ CREATE TABLE orders (
 
 ```sql
 CREATE TABLE roles (
-    id         BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name       VARCHAR(50) NOT NULL UNIQUE,
-    slug       VARCHAR(50) NOT NULL UNIQUE,
-    created_at TIMESTAMP NULL,
-    updated_at TIMESTAMP NULL
+    id          BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name        VARCHAR(50) NOT NULL UNIQUE,
+    slug        VARCHAR(50) NOT NULL UNIQUE,
+    description VARCHAR(255) NULL,
+    created_at  TIMESTAMP NULL,
+    updated_at  TIMESTAMP NULL
 );
 ```
+
+| ID | Name | Slug | Scope & Responsibilities |
+|:---:|:---|:---|:---|
+| **1** | **Superadmin** | `superadmin` | System owner: admin/staff user management, security audit logs, API key configs, backup & system settings |
+| **2** | **Admin** | `admin` | Business operations: sales analytics, customer oversight, inventory health, order lifecycle management |
+| **3** | **Staff** | `staff` | Order fulfillment & warehouse operations: order status updates (processing/ready/shipped), stock adjustments |
+| **4** | **Content Manager** | `content_manager` | Catalog & 3D assets: furniture CRUD, specifications, materials, categories, uploading & calibrating 3D `.glb` models |
+| **5** | **Customer** | `customer` | Shopper: browse catalog, 3D room planner, space compatibility check, AI room analysis, favorites, place orders |
 
 #### `categories`
 
@@ -1222,30 +1234,56 @@ CREATE TABLE activity_logs (
 
 ---
 
-### 🛡️ Admin Endpoints
+### 🛡️ Management & Administration Endpoints
 
-| Method | Endpoint | Description | Auth |
+#### 🎨 Catalog & 3D Assets (Content Manager, Admin, Superadmin)
+
+| Method | Endpoint | Description | Permitted Roles |
 |:---|:---|:---|:---|
-| `GET` | `/api/v1/admin/dashboard` | Dashboard stats | 🔑 |
-| `POST` | `/api/v1/admin/furniture` | Create furniture | 🔑 |
-| `PUT` | `/api/v1/admin/furniture/{id}` | Update furniture | 🔑 |
-| `DELETE` | `/api/v1/admin/furniture/{id}` | Delete furniture | 🔑 |
-| `POST` | `/api/v1/admin/furniture/{id}/images` | Upload images | 🔑 |
-| `DELETE` | `/api/v1/admin/furniture/{id}/images/{imgId}` | Delete image | 🔑 |
-| `POST` | `/api/v1/admin/furniture/{id}/model` | Upload GLB | 🔑 |
-| `POST` | `/api/v1/admin/categories` | Create category | 🔑 |
-| `PUT` | `/api/v1/admin/categories/{id}` | Update category | 🔑 |
-| `DELETE` | `/api/v1/admin/categories/{id}` | Delete category | 🔑 |
-| `GET` | `/api/v1/admin/orders` | All orders | 🔑 |
-| `PUT` | `/api/v1/admin/orders/{id}/status` | Update status | 🔑 |
-| `GET` | `/api/v1/admin/customers` | List customers | 🔑 |
-| `GET` | `/api/v1/admin/customers/{id}` | Customer detail | 🔑 |
-| `GET` | `/api/v1/admin/inventory` | Inventory overview | 🔑 |
-| `PUT` | `/api/v1/admin/inventory/{furnitureId}` | Update stock | 🔑 |
-| `GET` | `/api/v1/admin/analytics/rooms` | Room analytics | 🔑 |
-| `GET` | `/api/v1/admin/analytics/furniture` | Furniture analytics | 🔑 |
+| `POST` | `/api/v1/admin/furniture` | Create furniture item | 🎨 👔 👑 |
+| `PUT` | `/api/v1/admin/furniture/{id}` | Update furniture details & specs | 🎨 👔 👑 |
+| `DELETE` | `/api/v1/admin/furniture/{id}` | Archive / delete furniture | 🎨 👔 👑 |
+| `POST` | `/api/v1/admin/furniture/{id}/images` | Upload 2D product images | 🎨 👔 👑 |
+| `DELETE` | `/api/v1/admin/furniture/{id}/images/{imgId}` | Delete product image | 🎨 👔 👑 |
+| `POST` | `/api/v1/admin/furniture/{id}/model` | Upload & calibrate 3D `.glb` model | 🎨 👔 👑 |
+| `POST` | `/api/v1/admin/categories` | Create furniture category | 🎨 👔 👑 |
+| `PUT` | `/api/v1/admin/categories/{id}` | Update category | 🎨 👔 👑 |
+| `DELETE` | `/api/v1/admin/categories/{id}` | Delete category | 🎨 👔 👑 |
 
-> **Legend:** ❌ = No auth · ✅ = Authenticated · 👤 = Customer · 🔑 = Admin
+#### 📦 Orders & Inventory Operations (Staff, Admin, Superadmin)
+
+| Method | Endpoint | Description | Permitted Roles |
+|:---|:---|:---|:---|
+| `GET` | `/api/v1/admin/orders` | View all customer orders & filters | 📦 👔 👑 |
+| `GET` | `/api/v1/admin/orders/{id}` | View detailed order & room snapshot | 📦 👔 👑 |
+| `PUT` | `/api/v1/admin/orders/{id}/status` | Update status (confirmed, processing, ready, etc.) | 📦 👔 👑 |
+| `GET` | `/api/v1/admin/inventory` | Inventory stock overview & low stock alerts | 📦 👔 👑 |
+| `PUT` | `/api/v1/admin/inventory/{furnitureId}` | Adjust stock count & availability | 📦 👔 👑 |
+
+#### 👔 Business Operations & Analytics (Admin, Superadmin)
+
+| Method | Endpoint | Description | Permitted Roles |
+|:---|:---|:---|:---|
+| `GET` | `/api/v1/admin/dashboard` | Executive KPI stats & sales dashboard | 👔 👑 |
+| `GET` | `/api/v1/admin/customers` | List registered customers & order history | 👔 👑 |
+| `GET` | `/api/v1/admin/customers/{id}` | Customer detail profile & room plans | 👔 👑 |
+| `PUT` | `/api/v1/admin/customers/{id}/status` | Activate / suspend customer account | 👔 👑 |
+| `GET` | `/api/v1/admin/analytics/rooms` | Room Planner usage & popular layouts | 👔 👑 |
+| `GET` | `/api/v1/admin/analytics/furniture` | Top viewed, placed, and purchased items | 👔 👑 |
+
+#### 👑 System Ownership & Security (Superadmin Only)
+
+| Method | Endpoint | Description | Permitted Roles |
+|:---|:---|:---|:---|
+| `GET` | `/api/v1/admin/users` | List all system users & staff accounts | 👑 |
+| `POST` | `/api/v1/admin/users` | Create staff / content manager / admin account | 👑 |
+| `PUT` | `/api/v1/admin/users/{id}/role` | Change user role or permissions | 👑 |
+| `DELETE` | `/api/v1/admin/users/{id}` | Deactivate / remove staff account | 👑 |
+| `GET` | `/api/v1/admin/audit-logs` | Security & activity audit trail | 👑 |
+| `GET` | `/api/v1/admin/system/health` | AI service, DB, and cache connection health | 👑 |
+| `PUT` | `/api/v1/admin/system/settings` | Update platform settings & AI API configurations | 👑 |
+
+> **Role Legend:** 👑 = Superadmin · 👔 = Admin · 📦 = Staff · 🎨 = Content Manager · 👤 = Customer · 🟢 = Public · 🔒 = Authenticated User
 
 ---
 
@@ -1686,7 +1724,7 @@ PUBLIC
   /login                     → Login
   /register                  → Register
 
-CUSTOMER (auth required)
+CUSTOMER (customer role required)
   /dashboard                 → Customer Dashboard
   /rooms                     → My Room Designs
   /rooms/new                 → Create Room
@@ -1698,16 +1736,29 @@ CUSTOMER (auth required)
   /orders                    → My Orders
   /profile                   → Edit Profile
 
-ADMIN (admin role required)
-  /admin                     → Admin Dashboard
-  /admin/furniture            → Furniture Management
-  /admin/furniture/new        → Add Furniture
-  /admin/furniture/:id/edit   → Edit Furniture
-  /admin/categories           → Category Management
-  /admin/inventory            → Inventory
-  /admin/orders               → Order Management
-  /admin/customers            → Customer Management
-  /admin/analytics            → Analytics
+MANAGEMENT PORTAL (Protected by EnsureRole / Vue Router Navigation Guards)
+  /admin                     → Unified Admin/Staff Shell (sidebar items filtered by role)
+
+  🎨 Content Manager & Above (`content_manager`, `admin`, `superadmin`):
+  /admin/furniture            → Furniture Catalog Management
+  /admin/furniture/new        → Add Furniture Item & Specs
+  /admin/furniture/:id/edit   → Edit Furniture Details
+  /admin/furniture/:id/model  → 3D GLB Model Uploader & Calibrator
+  /admin/categories           → Category & Style Taxonomy Management
+
+  📦 Staff & Above (`staff`, `admin`, `superadmin`):
+  /admin/orders               → Order Processing & Status Updates
+  /admin/inventory            → Warehouse Stock Management & Adjustments
+
+  👔 Admin & Superadmin (`admin`, `superadmin`):
+  /admin/dashboard            → Executive Dashboard & Sales KPI
+  /admin/customers            → Customer Accounts & Order History
+  /admin/analytics            → Room Analytics & Product Trends
+
+  👑 Superadmin Only (`superadmin`):
+  /admin/users                → Staff & Admin User Accounts (RBAC)
+  /admin/audit-logs           → Security & Activity Audit Trail
+  /admin/settings             → AI API Configuration & System Settings
 ```
 
 ### Component Hierarchy
@@ -1798,7 +1849,7 @@ App.vue
 
 | Store | Scope | Key State |
 |:---|:---|:---|
-| `useAuthStore` | Global | user, isAuthenticated, role |
+| `useAuthStore` | Global | user, isAuthenticated, role, permissions, hasRole(), can() |
 | `useCatalogStore` | Feature | furniture list, filters, pagination |
 | `useRoomPlannerStore` | Feature | room dims, furniture placements, compatibility |
 | `useFavoritesStore` | Feature | favorite IDs |
@@ -1827,19 +1878,22 @@ app/
 │   │   │   ├── OrderController.php
 │   │   │   ├── AIProxyController.php
 │   │   │   └── ProfileController.php
-│   │   └── Admin/                     ← Admin endpoints
+│   │   └── Admin/                     ← Management endpoints
 │   │       ├── DashboardController.php
 │   │       ├── FurnitureManagementController.php
 │   │       ├── CategoryManagementController.php
 │   │       ├── InventoryController.php
 │   │       ├── OrderManagementController.php
 │   │       ├── CustomerController.php
-│   │       └── AnalyticsController.php
+│   │       ├── AnalyticsController.php
+│   │       ├── UserController.php             ← Superadmin staff & role mgmt
+│   │       └── SystemSettingsController.php   ← Superadmin system & AI config
 │   │
 │   ├── Requests/                      ← FormRequest validation
 │   ├── Resources/                     ← API Resources / DTOs
 │   └── Middleware/
-│       ├── EnsureAdmin.php
+│       ├── EnsureRole.php             ← Multi-role authorization (role:...)
+│       ├── EnsureAdmin.php            ← Legacy/convenience alias
 │       └── TrackActivity.php
 │
 ├── Models/                            ← 15+ Eloquent models
@@ -1903,6 +1957,64 @@ class AIServiceClient
 }
 ```
 
+### UserRole Enum
+
+```php
+namespace App\Enums;
+
+enum UserRole: string
+{
+    case SUPERADMIN      = 'superadmin';
+    case ADMIN           = 'admin';
+    case STAFF           = 'staff';
+    case CONTENT_MANAGER = 'content_manager';
+    case CUSTOMER        = 'customer';
+
+    public function label(): string
+    {
+        return match($this) {
+            self::SUPERADMIN      => 'Superadmin',
+            self::ADMIN           => 'Admin',
+            self::STAFF           => 'Staff',
+            self::CONTENT_MANAGER => 'Content Manager',
+            self::CUSTOMER        => 'Customer',
+        };
+    }
+}
+```
+
+### EnsureRole Middleware
+
+```php
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class EnsureRole
+{
+    /**
+     * Handle an incoming request.
+     * Usage in routes: middleware('role:superadmin,admin')
+     */
+    public function handle(Request $request, Closure $next, string ...$roles): Response
+    {
+        $user = $request->user();
+
+        if (!$user || !in_array($user->role->slug, $roles, true)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Unauthorized: Insufficient role permissions for this action.',
+                'code'    => 'ERR_ROLE_UNAUTHORIZED',
+            ], Response::HTTP_FORBIDDEN); // 403
+        }
+
+        return $next($request);
+    }
+}
+```
+
 ---
 
 ## 10 — Security Plan
@@ -1915,8 +2027,27 @@ class AIServiceClient
 | **CSRF** | Sanctum CSRF token cookie flow |
 | **Password Hashing** | bcrypt (Laravel default) |
 | **Sessions** | Server-side (database driver) |
-| **Role-Based Access** | `EnsureAdmin` middleware + policies |
+| **Role-Based Access (RBAC)** | `EnsureRole` middleware (`role:slug1,slug2`) + Model Policies |
 | **Route Protection** | `auth:sanctum` on protected routes |
+
+### 🛡️ Role-Based Access Control (RBAC) Matrix
+
+| Module / Action | 👑 Superadmin | 👔 Admin | 📦 Staff | 🎨 Content Manager | 👤 Customer |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| **Staff & User Role Management** | ✅ Full | ❌ | ❌ | ❌ | ❌ |
+| **System Settings & AI API Keys** | ✅ Full | ❌ | ❌ | ❌ | ❌ |
+| **Audit Logs & Security Trail** | ✅ Full | 👁️ View Only | ❌ | ❌ | ❌ |
+| **Executive KPI & Sales Analytics** | ✅ Full | ✅ Full | ❌ | ❌ | ❌ |
+| **Customer Profile Management** | ✅ Full | ✅ Full | 👁️ View Only | ❌ | 👤 Own Only |
+| **Orders: View All** | ✅ Full | ✅ Full | ✅ Full | ❌ | 👤 Own Only |
+| **Orders: Update Status** | ✅ Full | ✅ Full | ✅ Full | ❌ | ❌ (Cancel only) |
+| **Inventory: View Stock** | ✅ Full | ✅ Full | ✅ Full | 👁️ View Only | 👁️ Stock Status |
+| **Inventory: Adjust Stock Levels** | ✅ Full | ✅ Full | ✅ Full | ❌ | ❌ |
+| **Furniture: Create / Edit / Delete** | ✅ Full | ✅ Full | ❌ | ✅ Full | ❌ |
+| **3D GLB Model: Upload & Calibrate** | ✅ Full | ✅ Full | ❌ | ✅ Full | ❌ |
+| **Categories & Style Taxonomy** | ✅ Full | ✅ Full | ❌ | ✅ Full | 👁️ View Only |
+| **3D Room Planner & Space Engine** | 🧪 Test Mode | 🧪 Test Mode | 👁️ View Shared | 🧪 Test Mode | ✅ Full Access |
+| **AI Room Analysis & Suggestions** | 🧪 Test Mode | 🧪 Test Mode | ❌ | 🧪 Test Mode | ✅ Full Access |
 
 ### Threat Mitigation
 
@@ -2184,19 +2315,20 @@ gantt
 | 1.2 | Initialize Vue 3 + Vite + TypeScript + Tailwind 4 |
 | 1.3 | Create all 16+ database migrations |
 | 1.4 | Create Eloquent models with relationships |
-| 1.5 | Create seeders (roles, categories, 30+ furniture items) |
+| 1.5 | Create seeders (5 roles, 5 test users, categories, 30+ furniture items) |
 | 1.6 | Configure Sanctum for SPA auth |
 | 1.7 | Build auth endpoints (register, login, logout, profile) |
 | 1.8 | Build Vue auth pages (login, register) |
 | 1.9 | Create shared BaseComponents |
 | 1.10 | Build basic catalog page (grid, pagination) |
-| 1.11 | Configure Vue Router with auth guards |
+| 1.11 | Configure Vue Router with 5-role RBAC guards |
 
 **Deliverables:**
 - [x] User can register and login
 - [x] Catalog shows furniture from DB
 - [x] Basic filtering + pagination
-- [x] Admin & customer roles
+- [x] 5 RBAC roles (Superadmin, Admin, Staff, Content Manager, Customer)
+- [x] Dynamic navigation guards in Vue Router
 
 ---
 
@@ -2794,19 +2926,25 @@ uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload
 
 ## 21 — Seeder Data Specification
 
-### Roles (2 records)
+### Roles (5 records)
 
-| ID | Name | Slug |
-|:---|:---|:---|
-| 1 | Admin | `admin` |
-| 2 | Customer | `customer` |
+| ID | Name | Slug | Description |
+|:---:|:---|:---|:---|
+| 1 | Superadmin | `superadmin` | System owner, staff account mgmt, audit logs, AI API configs |
+| 2 | Admin | `admin` | Business operations, sales analytics, promotions, order management |
+| 3 | Staff | `staff` | Order fulfillment, status progression, warehouse inventory adjustments |
+| 4 | Content Manager | `content_manager` | Catalog furniture CRUD, specifications, 3D GLB model calibration |
+| 5 | Customer | `customer` | Shopper, 3D room planner, space compatibility, orders & favorites |
 
-### Test Users (2 records)
+### Test Users (5 records)
 
-| Email | Password | Role |
-|:---|:---|:---|
-| `admin@SmartSpace.com` | `password` | Admin |
-| `customer@SmartSpace.com` | `password` | Customer |
+| Email | Password | Role | Description / Purpose |
+|:---|:---|:---|:---|
+| `superadmin@smartspace.com` | `password123` | Superadmin | Full system console, user management, audit logs |
+| `admin@smartspace.com` | `password123` | Admin | Operations dashboard, reports, customer management |
+| `staff@smartspace.com` | `password123` | Staff | Order processing, warehouse inventory counts |
+| `content@smartspace.com` | `password123` | Content Manager | Furniture catalog, 3D GLB models & materials |
+| `customer@smartspace.com` | `password123` | Customer | Room planner, AI recommendations, checkout |
 
 ### Categories (8 parent categories with subcategories)
 
