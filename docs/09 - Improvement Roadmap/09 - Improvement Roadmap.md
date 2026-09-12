@@ -22,35 +22,47 @@ See also: [[09 - Improvement Roadmap/09 - Project Updates|📋 Recent Updates Lo
   - [x] Created clean numbered documentation structure in Obsidian.
   - [x] Initial file structure scaffolded and committed to GitHub `main`.
 
-- [ ] **Milestone 1: Database Migrations & Eloquent Models**
-  - [ ] Write all 10 lean migrations.
-  - [ ] Eloquent models with relationship methods and attribute casting.
-  - [ ] Realistic furniture seeders with accurate dimensional data.
+- [x] **Milestone 1: Database Migrations & Eloquent Models**
+  - [x] 11 database migration scripts (10 SmartSpace domain + 1 Sanctum infrastructure).
+  - [x] Eloquent models with relationship methods, normalized bounding box accessors, and hidden raw AI responses.
+  - [x] Curated seeders with 40 representative furniture items across 9 categories.
+  - [x] Automated PHPUnit test suite (5 passed, 18 assertions).
 
-- [ ] **Milestone 2: Deterministic Geometry Engine (`SpaceCompatibilityService.php`)**
-  - [ ] AABB boundary containment validation math.
-  - [ ] 3D bounding box collision detection between items.
-  - [ ] Front/side clearance scoring algorithm.
-  - [ ] Unit test suite for edge-case spatial arrangements.
+- [x] **Milestone 2A: Deterministic Geometry Engine (`SpaceCompatibilityService.php`)**
+  - [x] AABB boundary containment validation math (Three.js center-origin & corner-origin).
+  - [x] 3D/2D bounding box collision detection between placed items.
+  - [x] Front/side clearance scoring algorithm ($c_{\text{front}} \ge 75\text{ cm}, c_{\text{side}} \ge 60\text{ cm}$).
+  - [x] Space utilization ratio ($R_{\text{walk}} \ge 0.40$) and room-type category appropriateness.
+  - [x] Comprehensive PHPUnit test suite (8 passed, 38 assertions; 13 total passed across suite).
 
-- [ ] **Milestone 3: FastAPI Microservice & Multi-Provider Layer**
-  - [ ] Vision analysis route using Gemini 2.0 Flash multimodal API.
-  - [ ] Rule-based and mock fallback providers.
-  - [ ] Laravel `AIServiceClient.php` gateway and response caching.
+- [x] **Milestone 2B: REST API & Sanctum Authentication**
+  - [x] Sanctum auth endpoints (register, login, logout, profile).
+  - [x] Furniture catalog API with pagination, category, style, and physical dimensional filters (`max_width_cm`, `max_depth_cm`, `max_height_cm`).
+  - [x] Room projects API with transactional 3D layout updates and automatic `SpaceCompatibilityService` certification.
+  - [x] Protected project spatial validation endpoint (`POST /room-projects/{id}/validate`).
+  - [x] Favorites API with instant toggle.
+  - [x] Automated PHPUnit API Feature test suite (9 passed, 311 assertions; 22 total passed across application).
 
-- [ ] **Milestone 4: Frontend Catalog & 3D Product Inspector**
-  - [ ] Pinia stores for user auth and catalog search.
-  - [ ] Single item Three.js OrbitControls GLB viewer with dimension overlay.
+- [ ] **Milestone 3: Vue 3 + Three.js Frontend**
+  - [ ] Furniture catalog grid, search, and filter UI.
+  - [ ] Single item Three.js OrbitControls GLB viewer with dimension annotations.
+  - [ ] Interactive 3D Room Planner with drag, drop, rotation, and wall constraints.
+  - [ ] Real-time client HUD (`useSpaceCompatibility.ts`) for optimistic 60 FPS feedback.
+  - [ ] Project persistence (Save/Load design).
 
-- [ ] **Milestone 5: Three.js Interactive 3D Room Planner**
-  - [ ] Configurable room boundary rendering (walls, floor, scale grid).
-  - [ ] Drag-and-drop raycast placement, rotation, and wall snapping.
-  - [ ] Client HUD (`useSpaceCompatibility.ts`) for real-time 60 FPS feedback.
-  - [ ] Persistent save/load project workflow.
+- [ ] **Milestone 4: FastAPI AI Microservice & Multi-Provider Layer**
+  - [ ] Vision room photo analysis using Gemini 2.0 Flash.
+  - [ ] Rule-based and mock fallback providers for zero downtime.
+  - [ ] Laravel `AIServiceClient.php` proxy integration.
+
+- [ ] **Milestone 5: AI-to-Furniture Recommendations**
+  - [ ] Geometry-constrained recommendation filtering.
+  - [ ] Room style and color harmony matching.
+  - [ ] Curated room packages.
 
 - [ ] **Milestone 6: System Integration & Capstone Defense Prep**
-  - [ ] End-to-end user evaluation tests.
-  - [ ] Performance benchmarks (Three.js FPS, API latency, fallback trigger verification).
+  - [ ] End-to-end integration and user evaluation testing.
+  - [ ] Performance benchmarks (Three.js FPS, API latency, fallback reliability).
 
 ---
 

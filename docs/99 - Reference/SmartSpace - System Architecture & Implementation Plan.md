@@ -25,6 +25,93 @@ version: "1.0"
 > [!abstract] Project Summary
 > A web-based intelligent furniture catalog and room visualization platform that lets customers **browse furniture**, **visualize it in 3D rooms**, **check if it fits**, **get AI-powered style recommendations**, **plan budgets**, and **order/reserve** — all in one system.
 
+> [!IMPORTANT]
+> ### FIGMA VISUAL SOURCE OF TRUTH
+>
+> Use the provided SmartSpace Figma design ([Figma Design Reference](https://www.figma.com/make/u19FNiUxMHnCNXsA3khsAJ/Create-new-design?t=80LDP4ZSLAhuBPh1-0)) as the **primary visual and UX reference** for the frontend.
+>
+> Recreate the Figma design's:
+> * Overall visual hierarchy
+> * Page layouts
+> * Navigation structure
+> * Typography
+> * Spacing and proportions
+> * Card styles
+> * Border radius (12–16px rounded cards)
+> * Button styles
+> * Color usage (Deep Forest Green `#173F35`, Dark Green `#0F2F28`, Warm Beige `#D8B98A`, Cream `#F7F4EE`, Off White `#FCFCFA`, Charcoal `#252A27`, Muted Gray `#737A76`, Light Border `#E5E3DD`)
+> * Hero composition ("Design a Space That Fits You." + "AI recommends · You decide · Geometry verifies.")
+> * Furniture card presentation
+> * Product-detail composition
+> * My Spaces layout
+> * Modal design
+> * Responsive behavior
+> * Architectural/minimalist aesthetic
+> * Logo and SmartSpace branding
+>
+> **Do NOT copy the Figma-generated React source code.**
+>
+> The Figma prototype is a **design reference only**. The production application must remain:
+> ```text
+> Vue 3
+> TypeScript
+> Vite
+> Tailwind CSS
+> Pinia
+> Vue Router
+> Axios
+> Laravel 11 REST API
+> ```
+>
+> The Figma prototype currently uses React/ReactDOM, so its implementation architecture must be ignored. Preserve the Figma visual identity while replacing all mock/static data with the real Laravel API.
+>
+> **Core Architectural Principle:**
+> > **Figma controls how SmartSpace looks. Our architecture controls how SmartSpace works.**
+>
+> - **Figma** → visual design, UX, layout, branding
+> - **Vue** → components, pages, state, routing
+> - **Pinia** → application/project/catalog state
+> - **Laravel** → real data and business logic
+> - **Three.js** → actual 3D visualization
+> - **SpaceCompatibilityService** → authoritative spatial verification
+> - **AI** → perception and recommendations only
+>
+> **CRITICAL SPATIAL INVARIANT:**
+> > **Never replace the deterministic geometry engine with AI-generated spatial calculations.**
+> > The furniture must remain at its actual physical dimensions and locked `1.000` scale, while the backend remains the authority for compatibility.
+>
+> ```text
+>                     SMARTSPACE
+>                         │
+>                         ▼
+>              SPATIAL PLANNING FIRST
+>                         │
+>              ┌──────────┴──────────┐
+>              ▼                     ▼
+>        🤖 AI-ASSISTED         🖐 MANUAL
+>        Room Analysis          Planning
+>              │                     │
+>              └──────────┬──────────┘
+>                         ▼
+>                   3D ROOM PLANNER
+>                         │
+>                         ▼
+>               DETERMINISTIC ENGINE
+>                         │
+>         ┌───────────────┼───────────────┐
+>         ▼               ▼               ▼
+>    Boundary Fit     Collision       Clearance
+>                         │
+>                         ▼
+>                 Compatibility Score
+>                         │
+>                         ▼
+>                 Curated Furniture
+>                         │
+>                         ▼
+>                Future Purchasing
+> ```
+
 ---
 
 ## 📑 Table of Contents

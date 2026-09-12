@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Authoritative SmartSpace Palette */
+    --color-forest: #173F35;
+    --color-dark-green: #0F2F28;
+    --color-warm-beige: #D8B98A;
+    --color-cream: #F7F4EE;
+    --color-off-white: #FCFCFA;
+    --color-charcoal: #252A27;
+    --color-muted-gray: #737A76;
+    --color-light-border: #E5E3DD;
+
+    /* Semantic Aliases */
+    --color-bg: #FCFCFA;
+    --color-surface: #F7F4EE;
+    --color-surface-hover: #ece6da;
+    --color-card: #F7F4EE;
+    --color-brand: #173F35;
+    --color-brand-hover: #0F2F28;
+    --color-accent: #D8B98A;
+    --color-border: #E5E3DD;
+    --color-text-primary: #252A27;
+    --color-text-secondary: #737A76;
+    --color-text-muted: #737A76;
+  }
+
+  body {
+    @apply bg-off-white text-charcoal selection:bg-forest selection:text-cream;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Minimalist subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F4EE;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E5E3DD;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #D8B98A;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(247, 244, 238, 0.88);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(229, 227, 221, 0.9);
+  }
+
+  .glass-card {
+    background: rgba(247, 244, 238, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid #E5E3DD;
+  }
+
+  .glass-card-hover {
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card-hover:hover {
+    background: #F7F4EE;
+    border-color: #D8B98A;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -6px rgba(37, 42, 39, 0.08), 0 0 18px -4px rgba(216, 185, 138, 0.25);
+  }
+}

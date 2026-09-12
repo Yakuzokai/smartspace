@@ -115,33 +115,32 @@ Browse Catalog → Define/Analyze Space → Filter/Recommend → 3D Interactive 
   - [x] Architectural pivot to spatial geometry + AI recommendations.
   - [x] Streamlined folder structure across `backend/`, `frontend/`, `ai-service/`, `docs/`, `assets/`.
   - [x] Initial file structure committed and pushed to GitHub (`main` branch).
-- [ ] **Milestone 1: Database Foundation & Models**
-  - [ ] 10 database migration scripts.
-  - [ ] Eloquent models with relationship mappings and casts.
-  - [ ] Realistic seeders (Categories, 30+ dimensioned furniture items, test user accounts).
-- [ ] **Milestone 2: Deterministic Space Compatibility Engine**
-  - [ ] Implement `SpaceCompatibilityService.php` with AABB collision and clearance math.
-  - [ ] Write unit tests for boundary checks, overlap detection, and explainable breakdowns.
-- [ ] **Milestone 3: AI Microservice (FastAPI)**
-  - [ ] Pydantic request/response schemas.
-  - [ ] Implement `gemini_provider.py` with vision prompt engineering.
-  - [ ] Implement `rule_based.py` and `mock_provider.py` fallback layers.
-  - [ ] Laravel `AIServiceClient.php` proxy integration.
-- [ ] **Milestone 4: Frontend Catalog & 3D Single Product Viewer**
-  - [ ] Pinia stores for auth and catalog.
-  - [ ] Three.js single-item GLB viewer with dimension annotations.
-- [ ] **Milestone 5: Three.js Interactive 3D Room Planner**
-  - [ ] Room canvas with wall and floor grid rendering.
-  - [ ] Furniture drag, drop, rotate, and snap controls.
-  - [ ] Real-time client HUD (`useSpaceCompatibility.ts`).
-  - [ ] Project persistence (Save/Load room layout).
+- [x] **Milestone 1: Database Foundation & Models**
+  - [x] 11 database migration scripts (10 SmartSpace domain + 1 Sanctum infrastructure).
+  - [x] Eloquent models with relationship mappings, normalized bounding box accessors, and hidden raw AI responses.
+  - [x] Curated seeders (Roles, 4 root + 9 child categories, 40 dimensioned furniture items, test user accounts, starter room project).
+  - [x] Automated PHPUnit test suite with 18 passing assertions.
+- [x] **Milestone 2A: Deterministic Geometry Engine (`SpaceCompatibilityService.php`)**
+  - [x] Implemented `SpaceCompatibilityService.php` with AABB boundary check, collision, clearance corridors, utilization, and fitness.
+  - [x] Created comprehensive unit test suite (`SpaceCompatibilityServiceTest.php`) with 8 passed tests (38 assertions).
+- [x] **Milestone 2B: REST API & Sanctum Authentication**
+  - [x] Sanctum auth endpoints, furniture catalog filtering with dimensional search, project management with transactional layouts, and favorites.
+  - [x] Created `ApiV1Test.php` with 9 tests passing (311 assertions; 22 total passed across application).
+- [ ] **Milestone 3: Vue 3 + Three.js Frontend**
+  - [ ] Catalog UI, 3D GLB viewer, interactive room canvas, and client HUD (`useSpaceCompatibility.ts`).
+- [ ] **Milestone 4: FastAPI AI Microservice & Multi-Provider Layer**
+  - [ ] Gemini 2.0 Flash multimodal vision perception with rule-based and mock fallbacks.
+- [ ] **Milestone 5: AI-to-Furniture Recommendations**
+  - [ ] Geometry-constrained recommendation filtering and style matching.
 - [ ] **Milestone 6: System Integration, Evaluation & Defense Preparation**
-  - [ ] End-to-end integration testing.
-  - [ ] Performance benchmarking (Three.js FPS, API latency, AI fallback reliability).
+  - [ ] End-to-end user evaluation and performance benchmarking.
 
 ---
 
 ## 📝 Changelog
 
+* **2026-09-12 (Milestone 2B Complete)**: Built complete REST API layer (Sanctum authentication, category tree, furniture catalog with physical dimensional boundaries `max_width_cm`, `max_depth_cm`, `max_height_cm`, transactional room project layout sync with automated `SpaceCompatibilityService` certification, on-demand validation endpoint, and favorites toggle). Comprehensive test suite passes 22 tests (367 assertions).
+* **2026-09-12 (Milestone 2A Complete)**: Implemented authoritative deterministic spatial compatibility engine in `SpaceCompatibilityService.php` (boundary fit, 3D AABB collision, front/side clearance corridors, space utilization ratio, and room category fitness). Verified with 8 unit tests; total suite reaches 13 passing tests with 56 assertions.
+* **2026-09-12 (Milestone 1 Complete)**: Bootstrapped Laravel 11, configured MySQL, ran 11 migrations (10 domain + 1 Sanctum), built Eloquent models with normalized bounding-box accessors, seeded 40 curated furniture pieces across 9 categories with representative dimensions, and verified with 5 PHPUnit tests (18 assertions).
 * **2026-09-12 (Commit `b4aca88`)**: Reorganized project documentation, moving full architecture specification to `docs/`.
 * **2026-09-12 (Commit `89de1b8`)**: Initial scaffolding of all 113 core directories and empty structure files across backend, frontend, AI microservice, and documentation.
