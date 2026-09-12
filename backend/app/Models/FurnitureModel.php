@@ -32,4 +32,19 @@ class FurnitureModel extends Model
     {
         return $this->belongsTo(Furniture::class);
     }
+
+    protected function modelPath(): \Illuminate\Database\Eloquent\Casts\Attribute
+    {
+        return \Illuminate\Database\Eloquent\Casts\Attribute::make(
+            get: function (?string $value) {
+                if (!$value) {
+                    return null;
+                }
+                $relativePath = ltrim(str_replace('/storage/', '', $value), '/');
+                return \Illuminate\Support\Facades\Storage::disk('public')->exists($relativePath)
+                    ? $value
+                    : null;
+            }
+        );
+    }
 }

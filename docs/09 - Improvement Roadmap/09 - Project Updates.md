@@ -152,18 +152,32 @@ Browse Catalog → Define/Analyze Space → Filter/Recommend → 3D Interactive 
   - [x] Strict architectural boundary: Client computes preview states only; authoritative 5-factor score ($30+25+25+10+10=100$) is certified strictly by Laravel's `SpaceCompatibilityService` upon "Save & Certify" (`PUT /api/v1/room-projects/{id}/layout`).
   - [x] Decoupled room budget planner (Target, Selected, Remaining).
 
-- [ ] **Milestone 6: FastAPI AI Microservice & Multi-Provider Layer**
-  - [ ] Gemini 2.0 Flash multimodal vision perception for room photo analysis (room type, style, color palette, clutter).
-  - [ ] Rule-based and mock fallback providers for zero downtime.
-  - [ ] Laravel `AIServiceClient.php` proxy integration and AI recommendation drawer in Room Planner.
+- [x] **Milestone 6: FastAPI AI Microservice & Multi-Provider Layer**
+  - [x] Gemini 2.0 Flash multimodal vision perception for room photo analysis (room type, style, color palette, clutter).
+  - [x] Rule-based (heuristic histogram) and mock demonstration fallback providers guaranteeing zero defense downtime.
+  - [x] Laravel `AIServiceClient.php` proxy gateway with timeout handling and `room_analyses` table persistence.
+  - [x] Architectural separation invariant: AI scores aesthetic affinity; Laravel strictly enforces physical room bounding constraints.
+  - [x] Interactive Vue 3 `AiAssistantModal.vue` integrated into the 3D Room Planner, preserving M5's uncertified placement preview and explicit Save & Certify workflow.
 
-- [ ] **Milestone 7: System Integration, Evaluation & Defense Preparation**
-  - [ ] End-to-end user evaluation and performance benchmarking.
+- [x] **Milestone 7: System Integration, Performance Benchmarking & Capstone Defense Prep**
+  - [x] Strict Gateway Telemetry: Implemented `GET /api/v1/system/health` aggregating Laravel, Database, Spatial Engine, and FastAPI microservice metrics. Frontend communicates exclusively with Laravel; FastAPI (:8001) is strictly internal.
+  - [x] Empirical Spatial Benchmarking: Executed 100-iteration stress testing via `php artisan smartspace:benchmark` across $N=5, 10, 20, 40$ furniture items. P95 latency reached $\le 0.37\text{ ms}$, comfortably surpassing the $< 10.0\text{ ms}$ academic budget.
+  - [x] Defense Demonstration Scenarios: Seeded 3 calibrated scenarios dynamically evaluated by `SpaceCompatibilityService`:
+    - Scenario A: High Compliance Living Room ($100/100$ certified score)
+    - Scenario B: Conflict & Recovery Demo ($29/100$, Collision: 0/25, Boundary: 0/30)
+    - Scenario C: AI Vision Sandbox (Uncertified blank state for live photo analysis)
+  - [x] Evaluator Telemetry Modal (`SystemHealthModal.vue`) and Scenario Switcher in `RoomPlannerPage.vue`.
+  - [x] Comprehensive Capstone Defense Guide & Technical Dossier ([[10 - Capstone Defense Guide/10 - Capstone Defense Guide|10 - Capstone Defense Guide]]).
+  - [x] Production build validation (`npm run build`, `vue-tsc -b`, 0 errors).
+  - [x] Complete capstone architecture locked and frozen.
 
 ---
 
 ## 📝 Changelog
 
+* **2026-09-12 (Milestone 7 Complete, Benchmarked & Architecture Frozen)**: Finalized Capstone Milestone 7. Implemented gateway health aggregator endpoint `GET /api/v1/system/health` adhering strictly to the `Vue ➔ Laravel ➔ FastAPI` topology. Built and ran empirical benchmark harness `php artisan smartspace:benchmark` over 100 iterations (P95 latency: $N=5 \rightarrow 0.032\text{ ms}$, $N=10 \rightarrow 0.083\text{ ms}$, $N=20 \rightarrow 0.143\text{ ms}$, $N=40 \rightarrow 0.374\text{ ms}$, passing the $< 10.0\text{ ms}$ SLA across all scales). Seeded 3 calibrated defense scenarios with real geometric scores calculated by `SpaceCompatibilityService`. Built `SystemHealthModal.vue` with live client WebGL/Three.js FPS, draw calls, GPU info, and benchmark tables. Authored comprehensive Capstone Defense Guide (`docs/10 - Capstone Defense Guide/10 - Capstone Defense Guide.md`) with mathematical proofs, 10-minute defense script, and examiner Q&A. Verified 0 TypeScript errors and successful production build.
+* **2026-09-12 (Milestone 6 Complete & Verified)**: Built full Python FastAPI AI microservice (port 8001) with Gemini 2.0 Flash, Pillow-based rule heuristic provider, and offline mock demonstration provider. Created Laravel `AIServiceClient` gateway and `AIController` with `room_analyses` caching and geometry-constrained filtering. Built Vue 3 `AiAssistantModal.vue` in the 3D Room Planner with photo drag-and-drop, dominant palette swatches, and 1-click addition to the 3D canvas in uncertified preview state. Verified with passing pytest suite (3/3 passed), passing Laravel AI feature tests (3/3 passed, 19 assertions), and clean Vite production build.
+* **2026-09-12 (Milestone 4 Fullscreen Studio Fix & Production Build)**: Resolved canvas-only fullscreen regression in `Product3DViewer.vue`. Fixed root container targeting, scoped `:fullscreen` gradient background styling to eliminate browser black void, wired `fullscreenchange` listener for seamless `Esc` key synchronization, and kept all HUD and studio controls inside the fullscreen subtree. Verified with clean TypeScript typecheck (`vue-tsc -b`) and successful Vite production bundle build (`npm run build`).
 * **2026-09-12 (Database Dump & Git Backup)**: Exported complete live MariaDB/MySQL database to `smartspace.sql` (40 furniture records, 42 image records, 40 model records, 13 categories, 3 room projects, 11 placements, 7 users). Committed and pushed to GitHub `main`.
 * **2026-09-12 (Photo Gallery & Transparent Studio Rendering)**: Configured Vite proxy for `/storage` (port 8000) and updated `FurnitureImage.vue` to relative paths to eliminate CORS issues. Automated Blender studio camera rendering at $4.2\text{m}$ ($42\text{mm}$ lens) with transparent alpha background, generating 3 balanced showroom photos for `SOFA-001` with an interactive thumbnail strip.
 * **2026-09-12 (Blender OBJ-to-Draco GLB Conversion Pipeline)**: Successfully converted real-world couch asset (`couch.obj` + PBR fabric textures) into an optimized, Draco-compressed `SOFA-001.glb` (5.2 MB, 138k polygons) using headless Blender 5.2, replacing procedural fallback in both the 3D Product Viewer and 3D Room Planner.

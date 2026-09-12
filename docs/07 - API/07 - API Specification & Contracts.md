@@ -47,6 +47,48 @@ Back to [[00 - Home|🏠 Documentation Hub]]
 * `POST /api/v1/ai/analyze-room` — Upload room image $\rightarrow$ proxies to FastAPI $\rightarrow$ caches in `room_analyses`.
 * `POST /api/v1/ai/recommendations` — Solicits furniture items matching room constraints.
 
+### System Telemetry & Health (`/api/v1/system`)
+* `GET  /api/v1/system/health` — **Gateway Subsystem Health Aggregator**: Centralized operational health and latency probe across Laravel API Gateway, MySQL PDO connection, Deterministic Spatial Compatibility Engine, and internal FastAPI AI Microservice (:8001). Frontend never accesses port 8001 directly.
+  * **Sample Output Schema**:
+    ```json
+    {
+      "status": "operational",
+      "timestamp": "2026-09-13T01:25:00+08:00",
+      "topology": "Vue 3 -> Laravel 11 Gateway -> FastAPI Microservice",
+      "subsystems": {
+        "gateway": {
+          "name": "SmartSpace API Gateway",
+          "status": "operational",
+          "environment": "local",
+          "php_version": "8.5.0",
+          "laravel_version": "11.46.0",
+          "latency_ms": 0.52
+        },
+        "database": {
+          "name": "MySQL Relational Store",
+          "status": "operational",
+          "driver": "mysql",
+          "database": "smartspace",
+          "latency_ms": 1.15
+        },
+        "spatial_engine": {
+          "name": "Deterministic Spatial Compatibility Service",
+          "status": "operational",
+          "algorithm": "Rotation-Aware Pairwise AABB Geometry",
+          "evaluation_mode": "Deterministic Mathematics",
+          "fixed_scale": "1.000 (Database-Authoritative)"
+        },
+        "ai_microservice": {
+          "name": "FastAPI AI Perception & Recommendation Microservice",
+          "status": "operational",
+          "url": "http://127.0.0.1:8001",
+          "latency_ms": 12.4,
+          "provider": "rule_based",
+          "resilience": "Graceful Degradation with Automatic Fallback"
+        }
+      }
+    }
+    ```
 
 ---
 

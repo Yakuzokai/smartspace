@@ -111,6 +111,21 @@ class Furniture extends Model
         );
     }
 
+    protected function glbModelPath(): Attribute
+    {
+        return Attribute::make(
+            get: function (?string $value) {
+                if (!$value) {
+                    return null;
+                }
+                $relativePath = ltrim(str_replace('/storage/', '', $value), '/');
+                return \Illuminate\Support\Facades\Storage::disk('public')->exists($relativePath)
+                    ? $value
+                    : null;
+            }
+        );
+    }
+
     /* -------------------------------------------------------------------------- */
     /*                               Relationships                                */
     /* -------------------------------------------------------------------------- */
@@ -138,6 +153,11 @@ class Furniture extends Model
     public function activeModel(): HasOne
     {
         return $this->hasOne(FurnitureModel::class)->latestOfMany();
+    }
+
+    public function model3d(): HasOne
+    {
+        return $this->activeModel();
     }
 
     public function favorites(): HasMany

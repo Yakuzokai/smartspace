@@ -44,7 +44,7 @@ export function useModelLoader() {
     const targetH = Number(furniture.dimensions?.height_m ?? (furniture.dimensions?.height_cm ? furniture.dimensions.height_cm / 100 : 0.75))
     const colorHex = furniture.color_hex || '#A8A6A1'
 
-    let glbPath = furniture.model_3d?.path || (furniture.sku ? `/storage/furniture/models/${furniture.sku}.glb` : undefined)
+    let glbPath = furniture.model_3d?.path || (furniture as any).glb_model_path || undefined
     // Strip localhost:8000 or 127.0.0.1:8000 to use Vite's same-origin proxy and avoid CORS
     if (glbPath && glbPath.includes('/storage/')) {
       glbPath = glbPath.substring(glbPath.indexOf('/storage/'))

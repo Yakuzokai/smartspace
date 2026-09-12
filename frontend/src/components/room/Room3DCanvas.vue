@@ -330,6 +330,37 @@ function setLighting(preset: LightingPreset) {
 function resetView() {
   sceneCtx?.resetCamera()
 }
+
+function getWebGLMetrics() {
+  if (!sceneCtx?.renderer) return null
+  const r = sceneCtx.renderer
+  const gl = r.getContext()
+  let gpu = 'WebGL 2.0 Hardware Accelerated'
+  try {
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info')
+    if (debugInfo) {
+      gpu = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || gpu
+    }
+  } catch {
+    // Fallback if extension blocked
+  }
+
+  return {
+    gpu,
+    geometries: r.info.memory.geometries,
+    textures: r.info.memory.textures,
+    drawCalls: r.info.render.calls,
+    triangles: r.info.render.triangles,
+    frame: r.info.render.frame,
+    pixelRatio: r.getPixelRatio(),
+    placedItemCount: props.placedItems.length,
+  }
+}
+
+defineExpose({
+  sceneCtx,
+  getWebGLMetrics,
+})
 </script>
 
 <template>

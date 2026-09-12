@@ -9,6 +9,7 @@ const props = defineProps<{
   furniture: Furniture
 }>()
 
+const viewerContainer = ref<HTMLDivElement | null>(null)
 const canvasContainer = ref<HTMLDivElement | null>(null)
 const isLoading = ref(true)
 const isProcedural = ref(false)
@@ -43,10 +44,12 @@ const heightCm = computed(() => Number(props.furniture.dimensions?.height_cm ?? 
 onMounted(() => {
   initThreeScene()
   loadModel()
+  document.addEventListener('fullscreenchange', handleFullscreenChange)
 })
 
 onBeforeUnmount(() => {
   disposeThreeScene()
+  document.removeEventListener('fullscreenchange', handleFullscreenChange)
 })
 
 watch(
@@ -290,16 +293,21 @@ function toggleAutoRotate() {
   }
 }
 
+function handleFullscreenChange() {
+  isFullscreen.value = document.fullscreenElement === viewerContainer.value
+}
+
 function toggleFullscreen() {
-  if (!canvasContainer.value) return
+  const target = viewerContainer.value || canvasContainer.value
+  if (!target) return
   if (!document.fullscreenElement) {
-    canvasContainer.value.requestFullscreen().catch((err) => {
+    target.requestFullscreen().catch((err) => {
       console.warn('Fullscreen error:', err)
     })
-    isFullscreen.value = true
   } else {
-    document.exitFullscreen()
-    isFullscreen.value = false
+    document.exitFullscreen().catch((err) => {
+      console.warn('Exit fullscreen error:', err)
+    })
   }
 }
 
@@ -329,6 +337,7 @@ function disposeThreeScene() {
 
 <template>
   <div
+    ref="viewerContainer"
     class="relative w-full rounded-3xl overflow-hidden bg-gradient-to-b from-[#F5F2EC] to-[#ECE7DE] border border-light-border shadow-card flex flex-col transition-all"
     :class="isFullscreen ? 'fixed inset-0 z-50 rounded-none h-screen' : 'h-[480px] sm:h-[540px]'"
   >
@@ -509,3 +518,15 @@ function disposeThreeScene() {
     </div>
   </div>
 </template>
+
+<style scoped>
+:fullscreen,
+:-webkit-full-screen {
+  background-color: #F5F2EC !important;
+  background-image: linear-gradient(to bottom, #F5F2EC, #ECE7DE) !important;
+  border-radius: 0 !important;
+  border: none !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+</style>

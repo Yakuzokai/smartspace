@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AIController;
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\FavoriteController;
@@ -13,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+use App\Http\Controllers\Api\V1\SystemHealthController;
+
 Route::prefix('v1')->group(function () {
 
-    // 1. System Health Check
+    // 1. Basic Health & Aggregated System Telemetry (Milestone 7)
     Route::get('/health', function () {
         return response()->json([
             'status' => 'healthy',
@@ -23,6 +26,7 @@ Route::prefix('v1')->group(function () {
             'timestamp' => now()->toIso8601String(),
         ]);
     });
+    Route::get('/system/health', [SystemHealthController::class, 'show']);
 
     // 2. Public Authentication Endpoints
     Route::prefix('auth')->group(function () {
@@ -57,5 +61,9 @@ Route::prefix('v1')->group(function () {
         // Customer Favorites
         Route::get('/favorites', [FavoriteController::class, 'index']);
         Route::post('/favorites/toggle/{furnitureId}', [FavoriteController::class, 'toggle']);
+
+        // AI Perception & Recommendations (Milestone 6)
+        Route::post('/ai/analyze-room', [AIController::class, 'analyzeRoom']);
+        Route::post('/ai/recommendations', [AIController::class, 'recommendations']);
     });
 });

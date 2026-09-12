@@ -31,12 +31,13 @@ docs/
 ├── 📁 02 - Services/                           ← Frontend, Laravel API, and FastAPI AI microservice responsibilities
 ├── 📁 03 - Messaging/                          ← HTTP REST protocols, Sanctum session auth, internal service proxying
 ├── 📁 04 - Data/                               ← 10-table lean MVP database schema & ERD
-├── 📁 05 - Infrastructure/                     ← Local dev environment, port assignments & setup instructions
+├── 📁 05 - Infrastructure/                     ← Local dev environment, port assignments, batch files & setup
 ├── 📁 06 - Reliability/                        ← Multi-provider AI fallbacks (Gemini, Rule-Based, Mock) & error handling
-├── 📁 07 - API/                                ← REST API endpoints & FastAPI JSON request/response contracts
+├── 📁 07 - API/                                ← REST API endpoints, health telemetry & FastAPI JSON contracts
 ├── 📁 08 - Operations/                         ← Blender 3D asset modeling workflow & seeding operations
 ├── 📁 09 - Improvement Roadmap/                ← Phased development timeline, milestones & updates
-└── 📁 99 - Reference/                         ← Deterministic geometry math, original specification & archive
+├── 📁 10 - Capstone Defense Guide/             ← Oral defense script, mathematical proofs, benchmarks & examiner Q&A
+└── 📁 99 - Reference/                          ← Deterministic geometry math, original specification & archive
 ```
 
 ---
@@ -49,11 +50,12 @@ docs/
 | **02 - Services** | Breakdown of Vue 3 SPA, Laravel 11 Backend & FastAPI AI service | [[02 - Services/02 - Services Overview\|02 - Services Overview]] |
 | **03 - Messaging** | Communication protocols, cookie auth flow & Laravel-to-FastAPI proxy | [[03 - Messaging/03 - Messaging & Protocols\|03 - Messaging & Protocols]] |
 | **04 - Data** | 10 lean MVP tables, ERD diagram & placement coordinate schemas | [[04 - Data/04 - Data Architecture & ERD\|04 - Data Architecture & ERD]] |
-| **05 - Infrastructure** | Development prerequisites (PHP 8.3, Node 20+, Python 3.11+, MySQL 8) & ports | [[05 - Infrastructure/05 - Infrastructure & Setup\|05 - Infrastructure & Setup]] |
+| **05 - Infrastructure** | Development setup, port allocations (8000, 8001, 5173) & `start.bat`/`stop.bat` | [[05 - Infrastructure/05 - Infrastructure & Setup\|05 - Infrastructure & Setup]] |
 | **06 - Reliability** | Zero-downtime AI fallback (Gemini $\rightarrow$ Rule-Based $\rightarrow$ Mock) & degradation | [[06 - Reliability/06 - Reliability & AI Fallbacks\|06 - Reliability & AI Fallbacks]] |
-| **07 - API** | Public, customer, and AI microservice endpoints & validation contracts | [[07 - API/07 - API Specification & Contracts\|07 - API Specification & Contracts]] |
+| **07 - API** | Public, customer, telemetry (`/system/health`), and AI endpoints | [[07 - API/07 - API Specification & Contracts\|07 - API Specification & Contracts]] |
 | **08 - Operations** | Blender asset modeling (PBR, Draco GLB, $<30\text{k}$ polys) & seeding | [[08 - Operations/08 - 3D Asset Pipeline & Operations\|08 - 3D Asset Pipeline & Operations]] |
-| **09 - Improvement Roadmap** | 8-phase timeline, active milestones & deferred e-commerce backlog | [[09 - Improvement Roadmap/09 - Improvement Roadmap\|09 - Improvement Roadmap]] |
+| **09 - Improvement Roadmap** | M0–M7 completed milestones, empirical benchmarks & updates log | [[09 - Improvement Roadmap/09 - Improvement Roadmap\|09 - Improvement Roadmap]] |
+| **10 - Capstone Defense Guide** | 10-min oral defense script, mathematical proofs, benchmarks & examiner Q&A | [[10 - Capstone Defense Guide/10 - Capstone Defense Guide\|10 - Capstone Defense Guide]] |
 | **99 - Reference** | Space compatibility formula math & original specification archive | [[99 - Reference/99 - Space Compatibility Math\|99 - Space Compatibility Math]] |
 
 ---

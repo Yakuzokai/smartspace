@@ -707,7 +707,11 @@ class FurnitureSeeder extends Seeder
 
             $sku = $itemData['sku'];
             $itemData['category_id'] = $categoryId;
-            $itemData['glb_model_path'] = "/storage/furniture/models/{$sku}.glb";
+            
+            // Only assign glb_model_path if physical file exists on disk
+            $glbRelative = "furniture/models/{$sku}.glb";
+            $hasGlb = file_exists(storage_path("app/public/{$glbRelative}"));
+            $itemData['glb_model_path'] = $hasGlb ? "/storage/furniture/models/{$sku}.glb" : null;
 
             $furniture = Furniture::firstOrCreate(['sku' => $sku], $itemData);
 
@@ -723,19 +727,21 @@ class FurnitureSeeder extends Seeder
                 ]
             );
 
-            // Seed 3D GLB model record with Draco optimization flags
-            FurnitureModel::firstOrCreate(
-                [
-                    'furniture_id' => $furniture->id,
-                    'format' => 'glb',
-                ],
-                [
-                    'model_path' => "/storage/furniture/models/{$sku}.glb",
-                    'file_size_mb' => round(1.5 + (crc32($sku) % 200) / 100, 2),
-                    'is_optimized' => true,
-                    'draco_compressed' => true,
-                ]
-            );
+            // Seed 3D GLB model record only if physical model exists
+            if ($hasGlb) {
+                FurnitureModel::firstOrCreate(
+                    [
+                        'furniture_id' => $furniture->id,
+                        'format' => 'glb',
+                    ],
+                    [
+                        'model_path' => "/storage/furniture/models/{$sku}.glb",
+                        'file_size_mb' => round(filesize(storage_path("app/public/{$glbRelative}")) / (1024 * 1024), 2),
+                        'is_optimized' => true,
+                        'draco_compressed' => true,
+                    ]
+                );
+            }
         }
     }
 }

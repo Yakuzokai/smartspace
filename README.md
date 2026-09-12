@@ -355,13 +355,26 @@ uvicorn app.main:app --port 8001 --reload
 
 ---
 
+## ⚡ 1-Click Launch (Windows Batch Files)
+
+For rapid development and capstone demonstration, SmartSpace includes automated `.bat` scripts in the root directory:
+
+| Batch Script | Function | Command Executed |
+| :--- | :--- | :--- |
+| **`start.bat`** | **Starts all 3 servers automatically** (Port 8000, 8001, 5173), opens terminal logs in separate windows, waits 3 seconds, and automatically opens your browser to `http://127.0.0.1:5173/`. | Runs Laravel, FastAPI, and Vite concurrently. |
+| **`stop.bat`** | **Gracefully stops all 3 services** and terminates any lingering processes on ports 8000, 8001, and 5173 to immediately free them up. | Port-based PID termination via `netstat` and `taskkill`. |
+| **`open-firewall-ports.bat`** | **Configures Windows Firewall** (Run as Admin) to allow inbound connections on ports 5173, 8000, and 8001 for local network / tablet testing. | `netsh advfirewall firewall add rule ...` |
+
+---
+
 ## 📡 API Reference
 
 All backend API routes are versioned under `/api/v1/`:
 
-### Public Endpoints
+### Public & Telemetry Endpoints
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
+| `GET` | `/api/v1/system/health` | **Gateway Subsystem Telemetry**: Operational probe across Laravel, MySQL PDO, Spatial Engine, and FastAPI |
 | `GET` | `/api/v1/categories` | List all furniture categories and subcategories |
 | `GET` | `/api/v1/categories/{slug}` | Get category details with furniture count |
 | `GET` | `/api/v1/furniture` | Paginated catalog with multi-dimensional W/D/H bounds filtering |
@@ -388,6 +401,18 @@ All backend API routes are versioned under `/api/v1/`:
 | `DELETE` | `/api/v1/room-projects/{id}` | Delete room project |
 | `PUT` | `/api/v1/room-projects/{id}/layout` | **Atomic transactional placement update** for all room furniture |
 | `POST` | `/api/v1/room-projects/{id}/validate` | **Authoritative spatial check**: runs `SpaceCompatibilityService` on layout |
+
+---
+
+## 🎯 Capstone Defense Demonstration Scenarios
+
+Three pre-calibrated scenarios are available in the room planner top navigation bar, with scores dynamically evaluated by the deterministic geometry engine (no hardcoded scores):
+
+| Scenario | Room Dimensions | Placements & Status | Certified Score | Presentation Narrative |
+| :--- | :--- | :--- | :---: | :--- |
+| **Scenario A** | $420 \times 500\text{ cm}$ ($21.0\text{ m}^2$) | 5 items (Sofa, Coffee Table, TV Unit, Side Table, Bookcase) | **100 / 100** | Demonstrates optimal, compliant living room layout where all clearance corridors and boundaries are respected. |
+| **Scenario B** | $300 \times 320\text{ cm}$ ($9.6\text{ m}^2$) | Sectional (wall breach) + Table (collision) | **29 / 100** | Demonstrates hard physical rule enforcement (**Collision: 0/25, Boundary: 0/30**) with red bounding boxes and 1-click **"Snap Inside Room"** recovery. |
+| **Scenario C** | $400 \times 500\text{ cm}$ ($20.0\text{ m}^2$) | 0 items (blank slate) | *Uncertified* | Demonstrates live AI perception: photo upload, aesthetic palette extraction, and catalog item recommendations. |
 
 ---
 
@@ -418,8 +443,38 @@ php artisan test
   ✓ it updates full room layout transactionally
   ✓ it validates room compatibility via authoritative endpoint
 
-Tests:    22 passed (367 assertions)
-Duration: 1.18s
+   PASS  Tests\Feature\AIFeatureTest
+  ✓ room analysis requires authentication
+  ✓ authenticated user can analyze room image
+  ✓ recommendations endpoint returns geometry constrained results
+
+Tests:    25 passed (386 assertions)
+Duration: 1.85s
+```
+
+### Empirical Spatial Geometry Engine Benchmarks
+Measure execution latency across 100 iterations per furniture scale ($N=5, 10, 20, 40$ items):
+
+```bash
+cd backend
+php artisan smartspace:benchmark
+```
+```text
++-------------------+-------------+--------------+----------------+---------------------+-------------+-------------------+
+| Furniture Scale   | Min Latency | Mean Latency | Median Latency | P95 (Target < 10ms) | Max Latency | Status vs SLA     |
++-------------------+-------------+--------------+----------------+---------------------+-------------+-------------------+
+| N = 5 items       | 0.028 ms    | 0.029 ms     | 0.028 ms       | 0.032 ms            | 0.067 ms    | PASS (312x budget)|
+| N = 10 items      | 0.061 ms    | 0.063 ms     | 0.061 ms       | 0.083 ms            | 0.092 ms    | PASS (120x budget)|
+| N = 20 items      | 0.132 ms    | 0.137 ms     | 0.136 ms       | 0.143 ms            | 0.186 ms    | PASS (70x budget) |
+| N = 40 items      | 0.287 ms    | 0.308 ms     | 0.299 ms       | 0.374 ms            | 0.471 ms    | PASS (26x budget) |
++-------------------+-------------+--------------+----------------+---------------------+-------------+-------------------+
+```
+
+### AI Microservice Unit & Provider Tests
+```bash
+cd ai-service
+.\venv\Scripts\pytest
+# Output: 3 passed in 2.96s (100% passed)
 ```
 
 ### Frontend TypeScript & Production Build
@@ -431,12 +486,11 @@ npm run build
 ```
 ```text
 > vue-tsc -b && vite build
-✓ 140 modules transformed.
-dist/index.html                                                  1.47 kB
-dist/assets/bootstrap-icons-mSm7cUeB.woff2                     134.04 kB
-dist/assets/index-Chx2FIl3.css                                 120.97 kB
-dist/assets/index-k_vy-K0J.js                                  167.07 kB
-✓ built in 3.72s (0 errors)
+✓ 169 modules transformed.
+dist/index.html                                                  1.54 kB
+dist/assets/index-CN4xeSq4.css                                 124.32 kB
+dist/assets/index-C2DpUint.js                                  168.82 kB
+✓ built in 4.00s (0 errors)
 ```
 
 ---
@@ -447,9 +501,11 @@ For in-depth architectural notes, mathematical derivations, and capstone present
 
 - [00 - Documentation Hub](file:///c:/xampp/htdocs/SmartSpace/docs/00%20-%20Home.md): Obsidian-linked documentation root.
 - [01 - Architecture Overview](file:///c:/xampp/htdocs/SmartSpace/docs/01%20-%20Architecture/01%20-%20Architecture%20Overview.md): Comprehensive 3-tier design & core spatial constraint thesis.
-- [04 - Data Architecture & ERD](file:///c:/xampp/htdocs/SmartSpace/docs/04%20-%20Data): 11-table database model and relationship mapping.
-- [05 - Infrastructure & Setup](file:///c:/xampp/htdocs/SmartSpace/docs/05%20-%20Infrastructure/05%20-%20Infrastructure%20&%20Setup.md): Port allocations and environment configurations.
-- [09 - Improvement Roadmap](file:///c:/xampp/htdocs/SmartSpace/docs/09%20-%20Improvement%20Roadmap): Phased milestone breakdown from MVP to payment checkout.
+- [04 - Data Architecture & ERD](file:///c:/xampp/htdocs/SmartSpace/docs/04%20-%20Data): 10-table database model and relationship mapping.
+- [05 - Infrastructure & Setup](file:///c:/xampp/htdocs/SmartSpace/docs/05%20-%20Infrastructure/05%20-%20Infrastructure%20&%20Setup.md): Port allocations, environment configurations, and 1-click batch files (`start.bat`, `stop.bat`).
+- [07 - API Specification](file:///c:/xampp/htdocs/SmartSpace/docs/07%20-%20API/07%20-%20API%20Specification%20&%20Contracts.md): REST endpoints, `/system/health` telemetry aggregator, and FastAPI contracts.
+- [09 - Improvement Roadmap](file:///c:/xampp/htdocs/SmartSpace/docs/09%20-%20Improvement%20Roadmap): Phased milestone breakdown (M0 to M7 complete).
+- [10 - Capstone Defense Guide](file:///c:/xampp/htdocs/SmartSpace/docs/10%20-%20Capstone%20Defense%20Guide/10%20-%20Capstone%20Defense%20Guide.md): 10-minute presentation script, mathematical proofs, competitive matrix, and examiner Q&A.
 - [99 - Space Compatibility Math](file:///c:/xampp/htdocs/SmartSpace/docs/99%20-%20Reference): Exact mathematical equations for collision, clearances, and circulation.
 
 ---

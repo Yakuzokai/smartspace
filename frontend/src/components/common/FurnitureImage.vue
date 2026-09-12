@@ -18,7 +18,7 @@ const imageError = ref(false)
 const imageLoaded = ref(false)
 
 const computedSrc = computed(() => {
-  if (!props.src) return null
+  if (!props.src || typeof props.src !== 'string') return null
   if (props.src.startsWith('http://') || props.src.startsWith('https://')) {
     return props.src
   }

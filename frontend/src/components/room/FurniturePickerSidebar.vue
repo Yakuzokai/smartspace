@@ -161,11 +161,19 @@ const filteredCount = computed(() => furnitureList.value.length)
                 :src="item.primary_image"
                 :alt="item.name"
                 class="w-full h-full object-cover"
+                @error="(e: Event) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const fallback = target.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'block';
+                }"
               />
               <div
-                v-else
                 class="w-6 h-6 rounded-full border border-charcoal/20 shadow-sm"
-                :style="{ backgroundColor: item.color_hex || '#A8A6A1' }"
+                :style="{
+                  backgroundColor: item.color_hex || '#A8A6A1',
+                  display: item.primary_image ? 'none' : 'block'
+                }"
               ></div>
               <span
                 class="absolute bottom-0.5 right-0.5 text-[8px] font-mono px-1 rounded bg-dark-green text-cream"

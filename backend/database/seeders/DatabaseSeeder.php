@@ -108,7 +108,7 @@ class DatabaseSeeder extends Seeder
         if ($armchair) {
             RoomProjectFurniture::firstOrCreate(
                 ['room_project_id' => $project->id, 'furniture_id' => $armchair->id],
-                ['position_x' => -1.5, 'position_y' => 0.0, 'position_z' => 0.4, 'rotation_y' => 60.0, 'scale' => 1.0]
+                ['position_x' => -1.25, 'position_y' => 0.0, 'position_z' => 0.4, 'rotation_y' => 60.0, 'scale' => 1.0]
             );
         }
 
@@ -123,5 +123,8 @@ class DatabaseSeeder extends Seeder
         if ($desk) {
             Favorite::firstOrCreate(['user_id' => $customer->id, 'furniture_id' => $desk->id]);
         }
+
+        // 7. Defense Demonstration Scenarios
+        $this->call(DefenseDemoScenariosSeeder::class);
     }
 }

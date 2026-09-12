@@ -81,6 +81,11 @@ class RoomProject extends Model
         return $this->hasMany(RoomProjectFurniture::class);
     }
 
+    public function placements(): HasMany
+    {
+        return $this->furniturePlacements();
+    }
+
     public function roomAnalyses(): HasMany
     {
         return $this->hasMany(RoomAnalysis::class);
