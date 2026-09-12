@@ -63,11 +63,16 @@ SERVICE_API_KEY=smartspace_internal_secret_key
 ```bash
 # 1️⃣ Start MySQL (via XAMPP Control Panel)
 
-# 2️⃣ Start Backend (Terminal 1)
+# 2️⃣ Quick Database Setup (Import Snapshot or Migrate)
+# Option A: Instant import with 40 curated furniture, models, and test users
+mysql -u root smartspace < smartspace.sql
+
+# Option B: Clean migration and seed
 cd backend
 composer install
 php artisan key:generate
-php artisan migrate --seed
+php artisan migrate:fresh --seed
+php artisan storage:link
 php artisan serve --port=8000
 
 # 3️⃣ Start Frontend (Terminal 2)
@@ -82,3 +87,16 @@ venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --port 8001 --reload
 ```
+
+---
+
+## 4. Local Storage Symlink & Static Assets
+
+Laravel stores uploaded models and images in `backend/storage/app/public/`. Ensure the symlink exists so assets can be resolved:
+```bash
+cd backend
+php artisan storage:link
+```
+This maps `backend/public/storage` $\rightarrow$ `backend/storage/app/public`.
+Vite dev server proxies `/storage` calls directly to port 8000 without CORS configuration headaches.
+

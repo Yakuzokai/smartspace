@@ -23,20 +23,30 @@ Back to [[00 - Home|🏠 Documentation Hub]]
 * `GET  /api/v1/auth/me` — Return authenticated user profile and active role.
 
 ### Furniture Catalog (`/api/v1/furniture`)
-* `GET  /api/v1/categories` — Category tree with parent/child structure.
-* `GET  /api/v1/furniture` — Filtered catalog search (`category_id`, `style`, `min_price`, `max_width`, etc.).
-* `GET  /api/v1/furniture/{id}` — Single furniture item details, dimensions, and 3D GLB model path.
+* `GET  /api/v1/categories` — Hierarchical category tree with child subcategories.
+* `GET  /api/v1/categories/{idOrSlug}` — Single category details with associated furniture count.
+* `GET  /api/v1/furniture` — Filtered catalog search (`category_id`, `style`, `min_price`, `max_price`, `max_width_cm`, `max_depth_cm`, `max_height_cm`).
+* `GET  /api/v1/furniture/featured` — Curated highlights for the landing page hero carousel.
+* `GET  /api/v1/furniture/styles` — List of unique architectural styles present in catalog.
+* `GET  /api/v1/furniture/{id}` — Single furniture item details, dimensions, multi-angle images, and 3D GLB model path.
 
 ### Room Projects (`/api/v1/room-projects`)
 * `GET  /api/v1/room-projects` — List user's saved room designs.
-* `POST /api/v1/room-projects` — Create a new room project.
-* `GET  /api/v1/room-projects/{id}` — Load room project with full furniture placements array.
-* `PUT  /api/v1/room-projects/{id}` — Update room dimensions or furniture layout.
-* `DELETE /api/v1/room-projects/{id}` — Remove a room project.
+* `POST /api/v1/room-projects` — Create a new room project with custom dimensions ($W \times L \times H$ in cm).
+* `GET  /api/v1/room-projects/{id}` — Load room project with full furniture placements array, active score, and breakdown.
+* `PUT  /api/v1/room-projects/{id}` — Update room metadata or dimensions.
+* `PUT  /api/v1/room-projects/{id}/layout` — **Transactional 3D layout sync**: Accepts array of placed items ($X, Y, Z, \theta$), syncs placements in a database transaction, and automatically runs `SpaceCompatibilityService` certification.
+* `POST /api/v1/room-projects/{id}/validate` — On-demand spatial validation returning instant 5-factor score without persisting.
+* `DELETE /api/v1/room-projects/{id}` — Remove a room project and all associated placements.
+
+### Customer Favorites (`/api/v1/favorites`)
+* `GET  /api/v1/favorites` — List authenticated customer's favorited furniture items.
+* `POST /api/v1/favorites/toggle/{furnitureId}` — Atomic toggle (add/remove) of a furniture item in favorites.
 
 ### AI Proxy & Recommendations (`/api/v1/ai`)
 * `POST /api/v1/ai/analyze-room` — Upload room image $\rightarrow$ proxies to FastAPI $\rightarrow$ caches in `room_analyses`.
 * `POST /api/v1/ai/recommendations` — Solicits furniture items matching room constraints.
+
 
 ---
 

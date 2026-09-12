@@ -64,3 +64,25 @@ The browser **never** speaks to the AI microservice or the MySQL database direct
       ]);
   ```
 * **Failure Handling**: If FastAPI is down or times out, Laravel traps the `ConnectionException` and gracefully degrades by returning fallback mock/rule-based metadata with `_mock: true`.
+
+---
+
+## 4. Static Asset Delivery & Vite Storage Proxy
+
+* **Asset Categories**: Draco-compressed 3D models (`.glb`) in `backend/storage/app/public/furniture/models/` and showroom WebP renders in `backend/storage/app/public/furniture/images/`.
+* **CORS Challenge**: PHP's built-in development server (`php artisan serve`) bypasses Laravel HTTP middleware for static disk files in `/storage`, omitting the `Access-Control-Allow-Origin: *` header needed by Three.js `GLTFLoader`.
+* **Solution (Vite Reverse Proxy)**:
+  In `frontend/vite.config.ts`, Vite proxies `/storage` directly to `http://127.0.0.1:8000`:
+  ```typescript
+  server: {
+    port: 5173,
+    proxy: {
+      '/storage': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+      },
+    },
+  }
+  ```
+  The frontend uses relative URLs (e.g., `/storage/furniture/models/SOFA-001.glb`), requesting assets from the exact same origin (`http://localhost:5173`), thereby eliminating CORS restrictions completely.
+

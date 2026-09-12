@@ -172,16 +172,18 @@ Where:
 ## 🚀 System Milestones & Progress
 
 ```text
-[✓] Milestone 1:  Database Architecture & 40 Curated Items (11 tables, locked scale)
+[✓] Milestone 1:  Database Architecture & 40 Curated Items (11 tables, locked scale 1.000)
 [✓] Milestone 2A: Deterministic Geometry Engine (SpaceCompatibilityService, 5-step score)
-[✓] Milestone 2B: REST API & Sanctum Authentication (20 endpoints, W/D/H bounds filtering)
-[✓] Milestone 3:  Vue 3 + Catalog UI (Pinia, Tailwind, Bootstrap Icons, Dual Room Gateway)
-[🔨] Milestone 4:  Three.js 3D Individual Furniture Viewer (OrbitControls, Draco GLB, HUD)
-[ ] Milestone 5:  Interactive 3D Room Planner (Three.js room canvas, live compatibility HUD)
-[ ] Milestone 6:  AI Room Perception Microservice (FastAPI + Gemini 2.0 Flash + Fallback)
-[ ] Milestone 7:  Inventory Management
-[ ] Milestone 8:  Cart, Orders & PayMongo Payment Integration
+[✓] Milestone 2B: REST API & Sanctum Authentication (20 endpoints, transactional layout sync, spatial validation)
+[✓] Milestone 3:  Vue 3 + Catalog UI (Pinia, Tailwind, Bootstrap Icons, Figma design tokens)
+[✓] Milestone 4:  Three.js 3D Individual Furniture Viewer (OrbitControls, Draco GLB, 4 camera / 3 lighting presets, HUD)
+[✓] Milestone 5:  Interactive 3D Room Planner (3D/2D views, free dragging, rotation-aware AABB, snap-back, certified score)
+[ ] Milestone 6:  FastAPI AI Perception Microservice (Gemini 2.0 Flash + Rule-Based + Mock fallback layer)
+[ ] Milestone 7:  System Integration, Evaluation & Defense Preparation
+── Post-Capstone Phase 2 (Deferred) ──
+[ ] Phase 2:      Cart, Orders, PayMongo Payment & Warehouse Logistics
 ```
+
 
 ---
 
@@ -267,10 +269,16 @@ Styles represented include **Scandinavian, Minimalist, Industrial, Modern, Conte
 ---
 
 ### Step 1: Database Setup (MySQL)
-
-Create the database in MySQL (via phpMyAdmin, MySQL Workbench, or CLI):
+ 
+Create the database in MySQL (via phpMyAdmin or CLI):
 ```sql
 CREATE DATABASE IF NOT EXISTS smartspace CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+**Quick Restore (Recommended):**  
+Import the committed production snapshot containing all 40 curated furniture items, multi-angle images, models, test room projects, and users:
+```bash
+mysql -u root smartspace < smartspace.sql
 ```
 
 ---
@@ -290,12 +298,19 @@ cp .env.example .env
 # Generate application encryption key
 php artisan key:generate
 
-# Run database migrations and seed 40 curated furniture items
+# If not using smartspace.sql, run migrations and seeders:
 php artisan migrate:fresh --seed
+
+# Create storage symlink for static 3D models and photos
+php artisan storage:link
 
 # Start the Laravel development server (runs on http://127.0.0.1:8000)
 php artisan serve --port=8000
 ```
+
+> **Note on Static 3D Assets & Images:**  
+> Vite's development server (`frontend/vite.config.ts`) proxies `/storage` requests directly to `http://127.0.0.1:8000`. This enables seamless loading of Draco-compressed `.glb` models and showroom images without cross-origin (CORS) complications.
+
 
 > **Default Customer Credentials for Testing:**  
 > - **Email**: `customer@smartspace.local`  

@@ -66,3 +66,29 @@ All 3D coordinate placements in `room_project_furniture` use the standard Three.
 * **`position_y`**: Elevation off the floor (default $0.00\text{ m}$ for floor-standing furniture).
 * **`position_z`**: Depth translation across room length (in meters).
 * **`rotation_y`**: Rotation angle around the vertical Y-axis (in radians or degrees).
+
+---
+
+## 4. Database Backup & Snapshot (`smartspace.sql`)
+
+A complete, production-ready snapshot of the live MariaDB / MySQL database is version-controlled at repository root: [`smartspace.sql`](file:///c:/xampp/htdocs/SmartSpace/smartspace.sql).
+
+### Table Record Summary:
+| Table Name | Row Count | Primary Contents |
+|:---|:---:|:---|
+| `categories` | 13 | 4 root + 9 child furniture categories |
+| `furniture` | 40 | Catalog with real metric dimensions, materials, styles & pricing |
+| `furniture_images` | 42 | Product showroom photographs & multi-angle gallery renders |
+| `furniture_models` | 40 | WebGL GLB paths and Draco compression metadata |
+| `users` | 7 | Test customers (`alex@example.com`) and administrators |
+| `room_projects` | 3 | Dimensioned user rooms (e.g. Nordik Living Room $4.5\text{m} \times 5.0\text{m}$) |
+| `room_project_furniture` | 11 | Placed pieces with certified coordinates, rotation, and locked scale 1.000 |
+| `favorites` | 3 | Customer wishlists |
+| `personal_access_tokens` | 20 | Active Laravel Sanctum API tokens |
+| `roles` | 2 | `admin` and `customer` |
+
+To restore or import via phpMyAdmin:
+```bash
+mysql -u root smartspace < smartspace.sql
+```
+Or import via phpMyAdmin at [http://localhost/phpmyadmin](http://localhost/phpmyadmin).

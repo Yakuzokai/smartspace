@@ -126,21 +126,52 @@ Browse Catalog → Define/Analyze Space → Filter/Recommend → 3D Interactive 
 - [x] **Milestone 2B: REST API & Sanctum Authentication**
   - [x] Sanctum auth endpoints, furniture catalog filtering with dimensional search, project management with transactional layouts, and favorites.
   - [x] Created `ApiV1Test.php` with 9 tests passing (311 assertions; 22 total passed across application).
-- [ ] **Milestone 3: Vue 3 + Three.js Frontend**
-  - [ ] Catalog UI, 3D GLB viewer, interactive room canvas, and client HUD (`useSpaceCompatibility.ts`).
-- [ ] **Milestone 4: FastAPI AI Microservice & Multi-Provider Layer**
-  - [ ] Gemini 2.0 Flash multimodal vision perception with rule-based and mock fallbacks.
-- [ ] **Milestone 5: AI-to-Furniture Recommendations**
-  - [ ] Geometry-constrained recommendation filtering and style matching.
-- [ ] **Milestone 6: System Integration, Evaluation & Defense Preparation**
+- [x] **Milestone 3: Vue 3 + Three.js Frontend Foundation & Catalog**
+  - [x] Implemented Vue 3 + TypeScript SPA adhering strictly to Figma visual identity (Deep Forest Green `#173F35`, Warm Beige `#D8B98A`, Cream `#F7F4EE`).
+  - [x] Built responsive catalog grid with live keyword search, category drawer, price sorting, and physical dimensional filters (`max_width_cm`, etc.).
+  - [x] User authentication (Login, Register, Logout) via Laravel Sanctum cookies/tokens with robust session deserialization.
+  - [x] Favorites management with instant Pinia state synchronization.
+
+- [x] **Milestone 4: Interactive Three.js 3D Furniture Viewer**
+  - [x] Dedicated 3D product inspection studio on `/furniture/:id` with dual-mode toggle (Photo Gallery vs 3D Model).
+  - [x] Reusable `useModelLoader.ts` with in-memory caching and Google Draco decompression.
+  - [x] Built dimension-certified architectural procedural fallback for un-modeled catalog pieces.
+  - [x] OrbitControls with rotation, pan, zoom damping, and auto-turntable.
+  - [x] 4 camera presets (Front, Side, Top, 3/4) and 3 lighting presets (Showroom, Daylight, Golden Hour).
+  - [x] Authoritative HUD displaying physical dimensions ($W \times D \times H$ in cm), wireframe bounding box, and locked `scale = 1.000`.
+
+- [x] **Milestone 5: Interactive 3D Room Planner & Deterministic Certification**
+  - [x] Parametric room scene builder (`useRoomScene.ts`) with floor grid, baseboards, and cutaway south wall for unobstructed camera orbiting.
+  - [x] Dual camera modes: 3D Orbit Perspective and 2D Top-Down Architectural Blueprint.
+  - [x] 4 architectural room lighting modes: Showroom Studio, Daylight, Golden Hour, Evening Ambient.
+  - [x] Catalog drawer (`FurniturePickerSidebar.vue`) with category filters and instant "+ Add to Room".
+  - [x] Interactive manipulation (`useFurniturePlacement.ts`): floor-plane raycast dragging with **free movement** (no silent boundary snapping).
+  - [x] Trigonometric rotation-aware AABB calculations ($w_{\text{rot}} = |w\cos\theta| + |d\sin\theta|$, $d_{\text{rot}} = |w\sin\theta| + |d\cos\theta|$).
+  - [x] Real-time client preview feedback: `status = 'out_of_bounds'` triggers red bounding box and provides an explicit **"⎋ Snap Inside Room"** action.
+  - [x] Multiple instances supported via unique client `uuid: string`.
+  - [x] Strict architectural boundary: Client computes preview states only; authoritative 5-factor score ($30+25+25+10+10=100$) is certified strictly by Laravel's `SpaceCompatibilityService` upon "Save & Certify" (`PUT /api/v1/room-projects/{id}/layout`).
+  - [x] Decoupled room budget planner (Target, Selected, Remaining).
+
+- [ ] **Milestone 6: FastAPI AI Microservice & Multi-Provider Layer**
+  - [ ] Gemini 2.0 Flash multimodal vision perception for room photo analysis (room type, style, color palette, clutter).
+  - [ ] Rule-based and mock fallback providers for zero downtime.
+  - [ ] Laravel `AIServiceClient.php` proxy integration and AI recommendation drawer in Room Planner.
+
+- [ ] **Milestone 7: System Integration, Evaluation & Defense Preparation**
   - [ ] End-to-end user evaluation and performance benchmarking.
 
 ---
 
 ## 📝 Changelog
 
-* **2026-09-12 (Milestone 2B Complete)**: Built complete REST API layer (Sanctum authentication, category tree, furniture catalog with physical dimensional boundaries `max_width_cm`, `max_depth_cm`, `max_height_cm`, transactional room project layout sync with automated `SpaceCompatibilityService` certification, on-demand validation endpoint, and favorites toggle). Comprehensive test suite passes 22 tests (367 assertions).
-* **2026-09-12 (Milestone 2A Complete)**: Implemented authoritative deterministic spatial compatibility engine in `SpaceCompatibilityService.php` (boundary fit, 3D AABB collision, front/side clearance corridors, space utilization ratio, and room category fitness). Verified with 8 unit tests; total suite reaches 13 passing tests with 56 assertions.
-* **2026-09-12 (Milestone 1 Complete)**: Bootstrapped Laravel 11, configured MySQL, ran 11 migrations (10 domain + 1 Sanctum), built Eloquent models with normalized bounding-box accessors, seeded 40 curated furniture pieces across 9 categories with representative dimensions, and verified with 5 PHPUnit tests (18 assertions).
+* **2026-09-12 (Database Dump & Git Backup)**: Exported complete live MariaDB/MySQL database to `smartspace.sql` (40 furniture records, 42 image records, 40 model records, 13 categories, 3 room projects, 11 placements, 7 users). Committed and pushed to GitHub `main`.
+* **2026-09-12 (Photo Gallery & Transparent Studio Rendering)**: Configured Vite proxy for `/storage` (port 8000) and updated `FurnitureImage.vue` to relative paths to eliminate CORS issues. Automated Blender studio camera rendering at $4.2\text{m}$ ($42\text{mm}$ lens) with transparent alpha background, generating 3 balanced showroom photos for `SOFA-001` with an interactive thumbnail strip.
+* **2026-09-12 (Blender OBJ-to-Draco GLB Conversion Pipeline)**: Successfully converted real-world couch asset (`couch.obj` + PBR fabric textures) into an optimized, Draco-compressed `SOFA-001.glb` (5.2 MB, 138k polygons) using headless Blender 5.2, replacing procedural fallback in both the 3D Product Viewer and 3D Room Planner.
+* **2026-09-12 (Milestone 5 Locked & Verified)**: Finalized 3D Room Planner specification and implementation. Locked free floor dragging, rotation-aware trigonometric AABB calculations, out-of-bounds explicit snap-back, and `PlacementStatus` types in `project.ts`. Verified 100/100 certified engine compatibility.
+* **2026-09-12 (Milestone 4 Complete)**: Implemented Three.js 3D Furniture Viewer with Draco GLB loading, dimension-certified procedural fallbacks, OrbitControls, 4 camera presets, 3 lighting presets, bounding box HUD, and locked `scale = 1.000`.
+* **2026-09-12 (Milestone 3 Complete)**: Built complete Vue 3 + TypeScript frontend matching Figma design tokens (Forest Green, Warm Beige, Cream, Off-White), responsive catalog, search, favorites, and Sanctum auth.
+* **2026-09-12 (Milestone 2B Complete)**: Built complete REST API layer (Sanctum authentication, category tree, furniture catalog with physical dimensional boundaries, transactional room project layout sync with automated `SpaceCompatibilityService` certification, validation endpoint, and favorites toggle). Comprehensive test suite passes 22 tests (367 assertions).
+* **2026-09-12 (Milestone 2A Complete)**: Implemented authoritative deterministic spatial compatibility engine in `SpaceCompatibilityService.php`. Verified with 8 unit tests (56 assertions).
+* **2026-09-12 (Milestone 1 Complete)**: Bootstrapped Laravel 11, configured MySQL, ran 11 migrations, built Eloquent models, seeded 40 curated furniture pieces across 9 categories.
 * **2026-09-12 (Commit `b4aca88`)**: Reorganized project documentation, moving full architecture specification to `docs/`.
 * **2026-09-12 (Commit `89de1b8`)**: Initial scaffolding of all 113 core directories and empty structure files across backend, frontend, AI microservice, and documentation.
