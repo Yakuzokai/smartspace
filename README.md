@@ -506,7 +506,21 @@ For in-depth architectural notes, mathematical derivations, and capstone present
 - [07 - API Specification](file:///c:/xampp/htdocs/SmartSpace/docs/07%20-%20API/07%20-%20API%20Specification%20&%20Contracts.md): REST endpoints, `/system/health` telemetry aggregator, and FastAPI contracts.
 - [09 - Improvement Roadmap](file:///c:/xampp/htdocs/SmartSpace/docs/09%20-%20Improvement%20Roadmap): Phased milestone breakdown (M0 to M7 complete).
 - [10 - Capstone Defense Guide](file:///c:/xampp/htdocs/SmartSpace/docs/10%20-%20Capstone%20Defense%20Guide/10%20-%20Capstone%20Defense%20Guide.md): 10-minute presentation script, mathematical proofs, competitive matrix, and examiner Q&A.
+- [11 - AI 3D Model Generation Guide](file:///c:/xampp/htdocs/SmartSpace/docs/11%20-%20AI%203D%20Model%20Generation/Google_Colab_TripoSR_Guide.md): Option B Google Colab free T4 GPU pipeline for 2D photo to 3D GLB model generation and SmartSpace synchronization.
 - [99 - Space Compatibility Math](file:///c:/xampp/htdocs/SmartSpace/docs/99%20-%20Reference): Exact mathematical equations for collision, clearances, and circulation.
+
+---
+
+## 🤖 Option B: AI 3D Model Generation Pipeline (`ai` Branch)
+
+For machines without dedicated NVIDIA GPUs (e.g. integrated AMD graphics), SmartSpace includes a turnkey cloud pipeline powered by **TripoSR** on **Google Colab's free T4 GPU**:
+
+1. Open [`SmartSpace_AI_3D_Generator.ipynb`](file:///c:/xampp/htdocs/SmartSpace/SmartSpace_AI_3D_Generator.ipynb) in Google Colab with GPU runtime enabled.
+2. Select a catalog SKU (e.g. `COFF-001`) or upload any furniture photo.
+3. Generate the textured 3D `.glb` mesh in ~5-10 seconds and download it.
+4. Place the `.glb` into `backend/storage/app/public/furniture/models/<SKU>.glb`.
+5. Run `sync-models.bat` (or `php artisan furniture:sync-models`) to link the model into SmartSpace.
+6. Open Three.js 3D Room Planner — `useModelLoader.ts` automatically rescales and locks the geometry to verified catalog dimensions!
 
 ---
 
