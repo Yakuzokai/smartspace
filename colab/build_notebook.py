@@ -36,7 +36,8 @@ notebook = {
                 "\n",
                 "!git clone https://github.com/VAST-AI-Research/TripoSR.git\n",
                 "%cd TripoSR\n",
-                "!pip install -q -U \"numpy>=2.0.0\" \"scipy>=1.14.0\" trimesh einops omegaconf \"rembg[gpu,cli]\" pygltflib PyMCubes\n",
+                "!pip install -q -U \"numpy>=2.0.0\" \"scipy>=1.14.0\" trimesh einops omegaconf rembg onnxruntime pygltflib PyMCubes\n",
+                "!pip uninstall -y -q onnxruntime-gpu 2>/dev/null || true\n",
                 "!pip install -q --no-build-isolation git+https://github.com/tatsy/torchmcubes.git || echo 'Using PyMCubes fallback'\n",
                 "print(\"\\n[OK] Environment ready!\")"
             ]
