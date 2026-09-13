@@ -36,8 +36,8 @@ notebook = {
                 "\n",
                 "!git clone https://github.com/VAST-AI-Research/TripoSR.git\n",
                 "%cd TripoSR\n",
-                "!pip install -q einops omegaconf \"rembg[gpu,cli]\" trimesh pygltflib\n",
-                "print(\"\\n[\u2713] Environment ready!\")"
+                "!pip install -q \"numpy<2.0.0\" scipy einops omegaconf \"rembg[gpu,cli]\" trimesh pygltflib\n",
+                "print(\"\\n[OK] Environment ready!\")"
             ]
         },
         {
