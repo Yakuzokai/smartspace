@@ -65,7 +65,7 @@ def main():
 
     # Step 4: Extract textured mesh
     print(f"[*] Extracting isosurface mesh (resolution={args.mc_resolution})...")
-    meshes = model.extract_mesh(scene_codes, resolution=args.mc_resolution)
+    meshes = model.extract_mesh(scene_codes, True, resolution=args.mc_resolution)
     mesh = meshes[0]
 
     # Convert to trimesh
