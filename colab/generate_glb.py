@@ -68,30 +68,13 @@ def main():
     meshes = model.extract_mesh(scene_codes, True, resolution=args.mc_resolution)
     mesh = meshes[0]
 
-    # Convert to trimesh
-    vertices = mesh.vertices.detach().cpu().numpy()
-    faces = mesh.faces.detach().cpu().numpy()
-    vertex_colors = mesh.vertex_colors.detach().cpu().numpy()
-
-    # Convert RGB/RGBA [0, 1] to uint8 [0, 255]
-    if vertex_colors.max() <= 1.0:
-        vertex_colors = (vertex_colors * 255).astype(np.uint8)
-
-    t_mesh = trimesh.Trimesh(
-        vertices=vertices,
-        faces=faces,
-        vertex_colors=vertex_colors,
-        process=True
-    )
-
-    # Orient mesh so it sits upright (+Y is up in Three.js)
-    # TripoSR coordinates: center mesh at origin
-    t_mesh.apply_translation(-t_mesh.centroid)
+    # Center mesh at origin
+    mesh.apply_translation(-mesh.centroid)
 
     # Export to GLB
     print(f"[*] Exporting GLB to: {output_path}")
     os.makedirs(os.path.dirname(output_path) if os.path.dirname(output_path) else ".", exist_ok=True)
-    t_mesh.export(output_path, file_type="glb")
+    mesh.export(output_path, file_type="glb")
 
     elapsed = time.time() - t0
     file_size_mb = os.path.getsize(output_path) / (1024 * 1024)
