@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2026 at 09:43 AM
+-- Generation Time: Sep 15, 2026 at 03:06 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,19 +44,19 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `parent_id`, `name`, `slug`, `description`, `icon`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Living Room', 'living-room', 'Furniture and accessories for communal lounging and living spaces.', 'couch', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(2, 1, 'Sofas & Lounging', 'sofas-lounging', '2-seaters, 3-seaters, modular sectionals, and daybeds.', 'sofa', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(3, 1, 'Coffee & Side Tables', 'coffee-side-tables', 'Low central tables, nesting sets, and side tables.', 'table', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(4, 1, 'Media & TV Units', 'media-tv-units', 'Entertainment centers, credenzas, and media benches.', 'tv', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(5, 1, 'Accent & Storage Units', 'accent-storage', 'Bookcases, room dividers, armchairs, and entryway units.', 'archive', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(6, NULL, 'Bedroom', 'bedroom', 'Bedframes, storage beds, and nightstands for sleeping quarters.', 'bed', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(7, 6, 'Beds & Mattresses', 'beds-mattresses', 'Single, queen, king, and platform storage beds.', 'bed-double', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(8, 6, 'Nightstands & Bedside Storage', 'nightstands', 'Compact bedside drawers, floating shelves, and nightstands.', 'clock', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(9, NULL, 'Home Office', 'home-office', 'Desks, computer workstations, and ergonomic workspace furniture.', 'laptop', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(10, 9, 'Desks & Workstations', 'desks-workstations', 'Compact writing desks, executive desks, and sit-stand desks.', 'briefcase', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(11, NULL, 'Dining', 'dining', 'Dining tables and chairs for meals and entertaining.', 'utensils', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(12, 11, 'Dining Tables', 'dining-tables', 'Circular, rectangular, and extendable dining tables.', 'table-restaurant', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(13, 11, 'Dining Chairs', 'dining-chairs', 'Ergonomic, upholstered, and minimalist dining seating.', 'chair', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33');
+(1, NULL, 'Living Room', 'living-room', 'Furniture and accessories for communal lounging and living spaces.', 'couch', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(2, 1, 'Sofas & Lounging', 'sofas-lounging', '2-seaters, 3-seaters, modular sectionals, and daybeds.', 'sofa', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(3, 1, 'Coffee & Side Tables', 'coffee-side-tables', 'Low central tables, nesting sets, and side tables.', 'table', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(4, 1, 'Media & TV Units', 'media-tv-units', 'Entertainment centers, credenzas, and media benches.', 'tv', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(5, 1, 'Accent & Storage Units', 'accent-storage', 'Bookcases, room dividers, armchairs, and entryway units.', 'archive', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(6, NULL, 'Bedroom', 'bedroom', 'Bedframes, storage beds, and nightstands for sleeping quarters.', 'bed', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(7, 6, 'Beds & Mattresses', 'beds-mattresses', 'Single, queen, king, and platform storage beds.', 'bed-double', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(8, 6, 'Nightstands & Bedside Storage', 'nightstands', 'Compact bedside drawers, floating shelves, and nightstands.', 'clock', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(9, NULL, 'Home Office', 'home-office', 'Desks, computer workstations, and ergonomic workspace furniture.', 'laptop', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(10, 9, 'Desks & Workstations', 'desks-workstations', 'Compact writing desks, executive desks, and sit-stand desks.', 'briefcase', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(11, NULL, 'Dining', 'dining', 'Dining tables and chairs for meals and entertaining.', 'utensils', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(12, 11, 'Dining Tables', 'dining-tables', 'Circular, rectangular, and extendable dining tables.', 'table-restaurant', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(13, 11, 'Dining Chairs', 'dining-chairs', 'Ergonomic, upholstered, and minimalist dining seating.', 'chair', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01');
 
 -- --------------------------------------------------------
 
@@ -76,9 +76,9 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`id`, `user_id`, `furniture_id`, `created_at`) VALUES
-(1, 2, 1, '2026-09-12 01:25:33'),
-(2, 2, 12, '2026-09-12 01:25:33'),
-(3, 2, 25, '2026-09-12 01:25:33');
+(1, 2, 1, '2026-09-12 12:57:01'),
+(2, 2, 12, '2026-09-12 12:57:01'),
+(3, 2, 25, '2026-09-12 12:57:01');
 
 -- --------------------------------------------------------
 
@@ -113,46 +113,46 @@ CREATE TABLE `furniture` (
 --
 
 INSERT INTO `furniture` (`id`, `category_id`, `sku`, `name`, `description`, `price`, `width_cm`, `height_cm`, `depth_cm`, `clearance_front_cm`, `clearance_side_cm`, `style`, `material`, `color`, `color_hex`, `glb_model_path`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 2, 'SOFA-001', 'Nordik 3-Seater Minimalist Sofa', 'Tailored three-seater sofa featuring clean architectural lines, high-density resilience foam, and tapered solid ash legs.', 849.00, 210.00, 82.00, 88.00, 80.00, 50.00, 'scandinavian', 'Linen Fabric & Ash Wood', 'Warm Grey', '#A8A6A1', '/storage/furniture/models/SOFA-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(2, 2, 'SOFA-002', 'Loft 2-Seater Compact Studio Sofa', 'Compact deep-seat loveseat ideal for urban apartments and smaller living spaces, upholstered in tactile boucle.', 580.00, 152.00, 78.00, 82.00, 70.00, 40.00, 'minimalist', 'Boucle Fabric', 'Cream White', '#F3EFEA', '/storage/furniture/models/SOFA-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(3, 2, 'SOFA-003', 'Manhattan L-Shaped Sectional Sofa', 'Generous family-sized corner sectional with right-hand chaise, wrapped in hand-finished top-grain saddle leather.', 1850.00, 280.00, 84.00, 165.00, 90.00, 60.00, 'modern', 'Top-Grain Leather', 'Cognac Brown', '#8B4513', '/storage/furniture/models/SOFA-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(4, 2, 'SOFA-004', 'Ironworks Industrial Tufted Loveseat', 'Rugged industrial loveseat pairing distressed caramel leather cushions with a welded blackened steel frame.', 920.00, 165.00, 80.00, 86.00, 75.00, 50.00, 'industrial', 'Aged Leather & Black Steel', 'Charcoal Brown', '#3E3430', '/storage/furniture/models/SOFA-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(5, 2, 'SOFA-005', 'Kyoto Low Platform Daybed', 'Zen-inspired minimalist daybed with an oiled American walnut frame and a supportive natural cotton futon cushion.', 740.00, 195.00, 65.00, 80.00, 70.00, 40.00, 'minimalist', 'Natural Walnut & Cotton', 'Sand Beige', '#D2B48C', '/storage/furniture/models/SOFA-005.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(6, 2, 'SOFA-006', 'Chesterfield Heritage 3-Seater', 'Classic rolled-arm sofa featuring deep button-tufted upholstery in rich jewel-tone velvet.', 1450.00, 225.00, 76.00, 92.00, 85.00, 60.00, 'classic', 'Deep Buttoned Velvet', 'Forest Green', '#1E3F20', '/storage/furniture/models/SOFA-006.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(7, 3, 'COFF-001', 'Aura Oval Glass & Oak Coffee Table', 'Organic oval silhouette featuring a floating tempered glass surface resting on a sculptural solid white oak base.', 290.00, 110.00, 42.00, 60.00, 50.00, 50.00, 'scandinavian', 'Tempered Glass & Solid Oak', 'Natural Oak', '#C8B195', '/storage/furniture/models/COFF-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(8, 3, 'COFF-002', 'Mono Block Minimalist Low Table', 'Architectural monolith table with a seamless micro-cement finish, grounding the living space in pure geometry.', 340.00, 90.00, 36.00, 90.00, 45.00, 45.00, 'minimalist', 'Micro-cement Finish', 'Matte Slate', '#4A5056', '/storage/furniture/models/COFF-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(9, 3, 'COFF-003', 'Factory Round Nesting Tables (Pair)', 'Two nesting circular accent tables crafted from reclaimed teak planks with hand-welded iron band frames.', 260.00, 80.00, 45.00, 80.00, 40.00, 40.00, 'industrial', 'Reclaimed Teak & Matte Black Iron', 'Distressed Teak', '#634735', '/storage/furniture/models/COFF-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(10, 3, 'COFF-004', 'Verona Marble Rectangular Coffee Table', 'Honed Italian Carrara marble slab mounted on an understated satin brass architectural underframe.', 620.00, 120.00, 40.00, 65.00, 50.00, 50.00, 'modern', 'Carrara Marble & Brass', 'Carrara White', '#F0EEE9', '/storage/furniture/models/COFF-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(11, 4, 'TV-001', 'Horizon 180 Floating Wall Console', 'Wall-mounted floating media unit with integrated cable raceway, push-to-open acoustic fabric drop-down fronts.', 420.00, 180.00, 32.00, 38.00, 80.00, 30.00, 'minimalist', 'Matte Lacquer & Oak Veneer', 'Arctic White / Oak', '#F8F8F8', '/storage/furniture/models/TV-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(12, 4, 'TV-002', 'Oslo Low Media Bench 200cm', 'Substantial Nordic entertainment credenza featuring tambour slatted sliding doors and wire-pass dividers.', 680.00, 200.00, 48.00, 45.00, 90.00, 40.00, 'scandinavian', 'Solid White Oak & Slatted Doors', 'Nordic Oak', '#DEC5A5', '/storage/furniture/models/TV-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(13, 4, 'TV-003', 'Brooklyn Steel-Mesh Credenza', 'Heavy-gauge steel frame with perforated mesh doors allowing remote control IR pass-through, topped with aged elm.', 540.00, 160.00, 60.00, 42.00, 75.00, 30.00, 'industrial', 'Perforated Steel & Elm Wood', 'Industrial Black', '#262626', '/storage/furniture/models/TV-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(14, 4, 'TV-004', 'Palais Walnut Sideboard Console', 'Substantial mid-century influenced sideboard with bookmatched walnut veneer and brushed antique brass pulls.', 890.00, 175.00, 75.00, 46.00, 80.00, 35.00, 'classic', 'American Walnut & Brass Knobs', 'Dark Walnut', '#442B15', '/storage/furniture/models/TV-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(15, 7, 'BED-001', 'Fjord Single Platform Bed (90x200)', 'Clean-lined solid birch bed frame designed for standard single 90x200 cm mattresses with integrated posture slats.', 380.00, 98.00, 90.00, 208.00, 60.00, 60.00, 'scandinavian', 'Solid Birch', 'Light Birch', '#E6DAC8', '/storage/furniture/models/BED-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(16, 7, 'BED-002', 'Astrid Queen Upholstered Bed (160x200)', 'Curved shelter headboard upholstered in durable heathered woven fabric with padded perimeter rails.', 790.00, 172.00, 110.00, 215.00, 75.00, 60.00, 'modern', 'Textured Woven Fabric & Foam', 'Muted Sand', '#D7CEC7', '/storage/furniture/models/BED-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(17, 7, 'BED-003', 'Skan King Hydraulic Storage Bed (180x200)', 'Effortless gas-lift hydraulic mechanism revealing cavernous under-bed storage without sacrificing clean Nordic aesthetics.', 1150.00, 194.00, 105.00, 216.00, 80.00, 65.00, 'scandinavian', 'Oak Veneer with Gas-Lift Storage', 'Natural Oak', '#C2A382', '/storage/furniture/models/BED-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(18, 7, 'BED-004', 'Zen Low Tatami Platform King (180x200)', 'Ultra-low Japanese minimalist platform bed with an extended perimeter ledge crafted from sustainably harvested cedar.', 690.00, 210.00, 30.00, 220.00, 60.00, 50.00, 'minimalist', 'Solid Cedar & Ash', 'Raw Wood', '#CEB89E', '/storage/furniture/models/BED-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(19, 7, 'BED-005', 'Grand Master Tufted King Bed (180x200)', 'High diamond-tufted linen headboard with handcrafted fluted posts for an elegant master bedroom aesthetic.', 1320.00, 196.00, 140.00, 222.00, 85.00, 70.00, 'classic', 'Padded Linen & Carved Wood', 'Oatmeal', '#E3DAC9', '/storage/furniture/models/BED-005.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(20, 8, 'NST-001', 'Aero Floating Bedside Shelf', 'Wall-hung curved nightstand with concealed soft-close drawer, keeping floor space completely open.', 95.00, 42.00, 18.00, 32.00, 50.00, 20.00, 'minimalist', 'Bent Ash Plywood', 'Natural Ash', '#DFD2C0', '/storage/furniture/models/NST-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(21, 8, 'NST-002', 'Linnea 2-Drawer Oak Nightstand', 'Classic Scandinavian bedside chest with dovetailed joinery and recessed brass finger pulls.', 165.00, 48.00, 54.00, 40.00, 55.00, 25.00, 'scandinavian', 'Solid Oak & Brass Pulls', 'Honey Oak', '#C99E6B', '/storage/furniture/models/NST-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(22, 8, 'NST-003', 'Foundry Open Wire Bedside Cube', 'Minimalist open-cage bedside locker featuring blackened iron mesh and a removable solid mango wood top.', 120.00, 40.00, 50.00, 38.00, 45.00, 20.00, 'industrial', 'Powder-coated Steel & Mango Wood', 'Matte Black', '#222222', '/storage/furniture/models/NST-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(23, 8, 'NST-004', 'Grace Fluted Cylinder Pedestal', 'Round architectural nightstand with textured fluted casing and an inset engineered white stone top.', 210.00, 38.00, 52.00, 38.00, 45.00, 20.00, 'modern', 'Fluted Ceramic & Marble Top', 'Ivory White', '#F5F5F0', '/storage/furniture/models/NST-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(24, 10, 'DSK-001', 'Solo Compact Study Desk 100x50', 'Slender workspace desk specifically proportioned for bedrooms and studio apartments with an integrated monitor shelf.', 185.00, 100.00, 75.00, 50.00, 80.00, 30.00, 'minimalist', 'Laminate & White Steel Frame', 'White / Birch', '#EBEAE6', '/storage/furniture/models/DSK-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(25, 10, 'DSK-002', 'ErgoPro Motorized Sit-Stand Desk 140x70', 'Dual-motor electric height-adjustable desk with memory presets, solid walnut desktop, and anti-collision sensor.', 580.00, 140.00, 72.00, 70.00, 90.00, 40.00, 'modern', 'Solid Walnut Top & Dual Motor Base', 'Warm Walnut', '#5C4033', '/storage/furniture/models/DSK-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(26, 10, 'DSK-003', 'Architect Drafting Studio Desk', 'Industrial drafting table with adjustable incline top, cast-iron crank wheels, and rustic pine timbers.', 440.00, 150.00, 76.00, 75.00, 85.00, 40.00, 'industrial', 'Cast Iron Trestles & Rustic Pine', 'Raw Pine / Cast Iron', '#876543', '/storage/furniture/models/DSK-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(27, 10, 'DSK-004', 'Executive L-Shaped Corner Workstation', 'Comprehensive executive desk providing generous desktop area and integrated lockable filing drawers.', 790.00, 180.00, 75.00, 140.00, 95.00, 50.00, 'modern', 'Smoked Oak & Charcoal Metal', 'Smoked Oak', '#3B332C', '/storage/furniture/models/DSK-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(28, 12, 'DTB-001', 'Circa 4-Seater Round Dining Table', 'Warm round solid ash table with conical pedestal base, maximizing knee clearance and intimacy in compact dining nooks.', 520.00, 110.00, 75.00, 110.00, 80.00, 80.00, 'scandinavian', 'Solid Ash with Pedestal Base', 'Blonde Ash', '#E2D3B8', '/storage/furniture/models/DTB-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(29, 12, 'DTB-002', 'Kanso 6-Seater Rectangular Dining Table', 'Pure minimalist dining table crafted from wide planks of solid European white oak with soft radius edges.', 740.00, 160.00, 76.00, 90.00, 85.00, 60.00, 'minimalist', 'Solid White Oak', 'Natural Oak', '#CCB290', '/storage/furniture/models/DTB-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(30, 12, 'DTB-003', 'Bastion 8-Seater Extendable Dining Table', 'Substantial live-edge walnut dining table with a butterfly internal extension mechanism expanding up to 260 cm.', 1180.00, 200.00, 76.00, 95.00, 90.00, 70.00, 'industrial', 'Live-Edge Walnut & U-Steel Legs', 'Deep Walnut', '#4A3525', '/storage/furniture/models/DTB-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(31, 13, 'DCH-001', 'Fawn Scandinavian Spindle Dining Chair', 'Timeless Windsor-inspired dining chair with turned beech spindles and a saddled ergonomic wooden seat.', 95.00, 46.00, 82.00, 49.00, 50.00, 20.00, 'scandinavian', 'Bentwood Beech', 'Natural Beech', '#D8C6A5', '/storage/furniture/models/DCH-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(32, 13, 'DCH-002', 'Port Upholstered Curved Back Armchair', 'Plush wrap-around curved back dining chair providing generous lumbar support during long dinner parties.', 155.00, 56.00, 78.00, 54.00, 55.00, 25.00, 'modern', 'Tweed Fabric & Matte Black Legs', 'Charcoal Grey', '#404040', '/storage/furniture/models/DCH-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(33, 13, 'DCH-003', 'Cantilever Chrome Leatherette Chair', 'Bauhaus-influenced S-curve tubular steel cantilever chair providing comfortable natural flex.', 130.00, 48.00, 84.00, 52.00, 50.00, 20.00, 'modern', 'Tubular Steel & Saddle Faux Leather', 'Caramel Brown', '#A0522D', '/storage/furniture/models/DCH-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(34, 13, 'DCH-004', 'Bento Minimalist Molded Shell Chair', 'Ultra-lightweight stackable molded polypropylene chair with matte texture and solid beech dowel legs.', 75.00, 48.00, 79.00, 47.00, 45.00, 20.00, 'minimalist', 'Recycled Polypropylene & Wood', 'Chalk White', '#F0EDE6', '/storage/furniture/models/DCH-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(35, 13, 'DCH-005', 'Bistro Wire Metal Dining Chair', 'Geometric wire grid chair with an electroplated gunmetal finish and a magnetic vegan leather seat cushion.', 88.00, 44.00, 80.00, 46.00, 45.00, 20.00, 'industrial', 'Welded Steel Rod with Leather Pad', 'Gunmetal Grey', '#33373B', '/storage/furniture/models/DCH-005.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(36, 13, 'DCH-006', 'Heritage Oak Dining Bench 140cm', 'Sturdy solid oak bench that slides completely under 160+ cm dining tables when not in active use.', 210.00, 140.00, 46.00, 36.00, 40.00, 20.00, 'scandinavian', 'Solid Oak with Rounded Edges', 'Natural Oak', '#CDB18B', '/storage/furniture/models/DCH-006.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(37, 5, 'STG-001', 'Gridline Tall Open Modular Bookcase', 'Architectural steel frame bookcase featuring 5 staggered shelves of natural ash, perfect for room zoning.', 340.00, 90.00, 190.00, 34.00, 70.00, 25.00, 'minimalist', 'Powder-coated Steel & Ash Shelves', 'Matte Black & Ash', '#2A2927', '/storage/furniture/models/STG-001.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(38, 5, 'STG-002', 'Lattice Timber Room Divider / Screen', 'Freestanding vertical timber slat screen with an integrated planter box for creating privacy and zones in open plans.', 390.00, 120.00, 175.00, 30.00, 60.00, 30.00, 'scandinavian', 'Vertical Oak Slats & Planter Box', 'Nordic Oak', '#D5BE9E', '/storage/furniture/models/STG-002.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(39, 5, 'STG-003', 'Hygge Cocoon Reading Armchair', 'Comfortable reading accent chair upholstered in plush shearling fleece with a 360-degree silent swivel oak base.', 540.00, 84.00, 92.00, 82.00, 75.00, 40.00, 'scandinavian', 'Shearling Fleece & Oak Swivel Base', 'Warm Oatmeal', '#EAE6DF', '/storage/furniture/models/STG-003.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(40, 5, 'STG-004', 'Foyer Entryway Bench & Coat Rack', 'Multifunctional entry hall unit with a lower slatted shoe bench, cushioned seat, and 6 cast-iron coat hooks.', 260.00, 100.00, 180.00, 40.00, 70.00, 20.00, 'industrial', 'Reclaimed Pine & Black Iron Pipes', 'Dark Oak / Iron', '#3A2E28', '/storage/furniture/models/STG-004.glb', 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33');
+(1, 2, 'SOFA-001', 'Nordik 3-Seater Minimalist Sofa', 'Tailored three-seater sofa featuring clean architectural lines, high-density resilience foam, and tapered solid ash legs.', 849.00, 210.00, 82.00, 88.00, 80.00, 50.00, 'scandinavian', 'Linen Fabric & Ash Wood', 'Warm Grey', '#A8A6A1', '/storage/furniture/models/SOFA-001.glb', 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(2, 2, 'SOFA-002', 'Loft 2-Seater Compact Studio Sofa', 'Compact deep-seat loveseat ideal for urban apartments and smaller living spaces, upholstered in tactile boucle.', 580.00, 152.00, 78.00, 82.00, 70.00, 40.00, 'minimalist', 'Boucle Fabric', 'Cream White', '#F3EFEA', '/storage/furniture/models/SOFA-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(3, 2, 'SOFA-003', 'Manhattan L-Shaped Sectional Sofa', 'Generous family-sized corner sectional with right-hand chaise, wrapped in hand-finished top-grain saddle leather.', 1850.00, 280.00, 84.00, 165.00, 90.00, 60.00, 'modern', 'Top-Grain Leather', 'Cognac Brown', '#8B4513', '/storage/furniture/models/SOFA-003.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(4, 2, 'SOFA-004', 'Ironworks Industrial Tufted Loveseat', 'Rugged industrial loveseat pairing distressed caramel leather cushions with a welded blackened steel frame.', 920.00, 165.00, 80.00, 86.00, 75.00, 50.00, 'industrial', 'Aged Leather & Black Steel', 'Charcoal Brown', '#3E3430', '/storage/furniture/models/SOFA-004.glb', 1, '2026-09-12 04:57:01', '2026-09-15 02:15:47'),
+(5, 2, 'SOFA-005', 'Kyoto Low Platform Daybed', 'Zen-inspired minimalist daybed with an oiled American walnut frame and a supportive natural cotton futon cushion.', 740.00, 195.00, 65.00, 80.00, 70.00, 40.00, 'minimalist', 'Natural Walnut & Cotton', 'Sand Beige', '#D2B48C', '/storage/furniture/models/SOFA-005.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(6, 2, 'SOFA-006', 'Chesterfield Heritage 3-Seater', 'Classic rolled-arm sofa featuring deep button-tufted upholstery in rich jewel-tone velvet.', 1450.00, 225.00, 76.00, 92.00, 85.00, 60.00, 'classic', 'Deep Buttoned Velvet', 'Forest Green', '#1E3F20', '/storage/furniture/models/SOFA-006.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:25:35'),
+(7, 3, 'COFF-001', 'Aura Oval Glass & Oak Coffee Table', 'Organic oval silhouette featuring a floating tempered glass surface resting on a sculptural solid white oak base.', 290.00, 110.00, 42.00, 60.00, 50.00, 50.00, 'scandinavian', 'Tempered Glass & Solid Oak', 'Natural Oak', '#C8B195', '/storage/furniture/models/COFF-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(8, 3, 'COFF-002', 'Mono Block Minimalist Low Table', 'Architectural monolith table with a seamless micro-cement finish, grounding the living space in pure geometry.', 340.00, 90.00, 36.00, 90.00, 45.00, 45.00, 'minimalist', 'Micro-cement Finish', 'Matte Slate', '#4A5056', '/storage/furniture/models/COFF-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(9, 3, 'COFF-003', 'Factory Round Nesting Tables (Pair)', 'Two nesting circular accent tables crafted from reclaimed teak planks with hand-welded iron band frames.', 260.00, 80.00, 45.00, 80.00, 40.00, 40.00, 'industrial', 'Reclaimed Teak & Matte Black Iron', 'Distressed Teak', '#634735', '/storage/furniture/models/COFF-003.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:34'),
+(10, 3, 'COFF-004', 'Verona Marble Rectangular Coffee Table', 'Honed Italian Carrara marble slab mounted on an understated satin brass architectural underframe.', 620.00, 120.00, 40.00, 65.00, 50.00, 50.00, 'modern', 'Carrara Marble & Brass', 'Carrara White', '#F0EEE9', '/storage/furniture/models/COFF-004.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(11, 4, 'TV-001', 'Horizon 180 Floating Wall Console', 'Wall-mounted floating media unit with integrated cable raceway, push-to-open acoustic fabric drop-down fronts.', 420.00, 180.00, 32.00, 38.00, 80.00, 30.00, 'minimalist', 'Matte Lacquer & Oak Veneer', 'Arctic White / Oak', '#F8F8F8', '/storage/furniture/models/TV-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(12, 4, 'TV-002', 'Oslo Low Media Bench 200cm', 'Substantial Nordic entertainment credenza featuring tambour slatted sliding doors and wire-pass dividers.', 680.00, 200.00, 48.00, 45.00, 90.00, 40.00, 'scandinavian', 'Solid White Oak & Slatted Doors', 'Nordic Oak', '#DEC5A5', '/storage/furniture/models/TV-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(13, 4, 'TV-003', 'Brooklyn Steel-Mesh Credenza', 'Heavy-gauge steel frame with perforated mesh doors allowing remote control IR pass-through, topped with aged elm.', 540.00, 160.00, 60.00, 42.00, 75.00, 30.00, 'industrial', 'Perforated Steel & Elm Wood', 'Industrial Black', '#262626', '/storage/furniture/models/TV-003.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(14, 4, 'TV-004', 'Palais Walnut Sideboard Console', 'Substantial mid-century influenced sideboard with bookmatched walnut veneer and brushed antique brass pulls.', 890.00, 175.00, 75.00, 46.00, 80.00, 35.00, 'classic', 'American Walnut & Brass Knobs', 'Dark Walnut', '#442B15', '/storage/furniture/models/TV-004.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(15, 7, 'BED-001', 'Fjord Single Platform Bed (90x200)', 'Clean-lined solid birch bed frame designed for standard single 90x200 cm mattresses with integrated posture slats.', 380.00, 98.00, 90.00, 208.00, 60.00, 60.00, 'scandinavian', 'Solid Birch', 'Light Birch', '#E6DAC8', '/storage/furniture/models/BED-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(16, 7, 'BED-002', 'Astrid Queen Upholstered Bed (160x200)', 'Curved shelter headboard upholstered in durable heathered woven fabric with padded perimeter rails.', 790.00, 172.00, 110.00, 215.00, 75.00, 60.00, 'modern', 'Textured Woven Fabric & Foam', 'Muted Sand', '#D7CEC7', '/storage/furniture/models/BED-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(17, 7, 'BED-003', 'Skan King Hydraulic Storage Bed (180x200)', 'Effortless gas-lift hydraulic mechanism revealing cavernous under-bed storage without sacrificing clean Nordic aesthetics.', 1150.00, 194.00, 105.00, 216.00, 80.00, 65.00, 'scandinavian', 'Oak Veneer with Gas-Lift Storage', 'Natural Oak', '#C2A382', '/storage/furniture/models/BED-003.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:34'),
+(18, 7, 'BED-004', 'Zen Low Tatami Platform King (180x200)', 'Ultra-low Japanese minimalist platform bed with an extended perimeter ledge crafted from sustainably harvested cedar.', 690.00, 210.00, 30.00, 220.00, 60.00, 50.00, 'minimalist', 'Solid Cedar & Ash', 'Raw Wood', '#CEB89E', '/storage/furniture/models/BED-004.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:34'),
+(19, 7, 'BED-005', 'Grand Master Tufted King Bed (180x200)', 'High diamond-tufted linen headboard with handcrafted fluted posts for an elegant master bedroom aesthetic.', 1320.00, 196.00, 140.00, 222.00, 85.00, 70.00, 'classic', 'Padded Linen & Carved Wood', 'Oatmeal', '#E3DAC9', '/storage/furniture/models/BED-005.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:31:28'),
+(20, 8, 'NST-001', 'Aero Floating Bedside Shelf', 'Wall-hung curved nightstand with concealed soft-close drawer, keeping floor space completely open.', 95.00, 42.00, 18.00, 32.00, 50.00, 20.00, 'minimalist', 'Bent Ash Plywood', 'Natural Ash', '#DFD2C0', '/storage/furniture/models/NST-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(21, 8, 'NST-002', 'Linnea 2-Drawer Oak Nightstand', 'Classic Scandinavian bedside chest with dovetailed joinery and recessed brass finger pulls.', 165.00, 48.00, 54.00, 40.00, 55.00, 25.00, 'scandinavian', 'Solid Oak & Brass Pulls', 'Honey Oak', '#C99E6B', '/storage/furniture/models/NST-002.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(22, 8, 'NST-003', 'Foundry Open Wire Bedside Cube', 'Minimalist open-cage bedside locker featuring blackened iron mesh and a removable solid mango wood top.', 120.00, 40.00, 50.00, 38.00, 45.00, 20.00, 'industrial', 'Powder-coated Steel & Mango Wood', 'Matte Black', '#222222', '/storage/furniture/models/NST-003.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(23, 8, 'NST-004', 'Grace Fluted Cylinder Pedestal', 'Round architectural nightstand with textured fluted casing and an inset engineered white stone top.', 210.00, 38.00, 52.00, 38.00, 45.00, 20.00, 'modern', 'Fluted Ceramic & Marble Top', 'Ivory White', '#F5F5F0', '/storage/furniture/models/NST-004.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(24, 10, 'DSK-001', 'Solo Compact Study Desk 100x50', 'Slender workspace desk specifically proportioned for bedrooms and studio apartments with an integrated monitor shelf.', 185.00, 100.00, 75.00, 50.00, 80.00, 30.00, 'minimalist', 'Laminate & White Steel Frame', 'White / Birch', '#EBEAE6', '/storage/furniture/models/DSK-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(25, 10, 'DSK-002', 'ErgoPro Motorized Sit-Stand Desk 140x70', 'Dual-motor electric height-adjustable desk with memory presets, solid walnut desktop, and anti-collision sensor.', 580.00, 140.00, 72.00, 70.00, 90.00, 40.00, 'modern', 'Solid Walnut Top & Dual Motor Base', 'Warm Walnut', '#5C4033', '/storage/furniture/models/DSK-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(26, 10, 'DSK-003', 'Architect Drafting Studio Desk', 'Industrial drafting table with adjustable incline top, cast-iron crank wheels, and rustic pine timbers.', 440.00, 150.00, 76.00, 75.00, 85.00, 40.00, 'industrial', 'Cast Iron Trestles & Rustic Pine', 'Raw Pine / Cast Iron', '#876543', '/storage/furniture/models/DSK-003.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(27, 10, 'DSK-004', 'Executive L-Shaped Corner Workstation', 'Comprehensive executive desk providing generous desktop area and integrated lockable filing drawers.', 790.00, 180.00, 75.00, 140.00, 95.00, 50.00, 'modern', 'Smoked Oak & Charcoal Metal', 'Smoked Oak', '#3B332C', '/storage/furniture/models/DSK-004.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(28, 12, 'DTB-001', 'Circa 4-Seater Round Dining Table', 'Warm round solid ash table with conical pedestal base, maximizing knee clearance and intimacy in compact dining nooks.', 520.00, 110.00, 75.00, 110.00, 80.00, 80.00, 'scandinavian', 'Solid Ash with Pedestal Base', 'Blonde Ash', '#E2D3B8', '/storage/furniture/models/DTB-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(29, 12, 'DTB-002', 'Kanso 6-Seater Rectangular Dining Table', 'Pure minimalist dining table crafted from wide planks of solid European white oak with soft radius edges.', 740.00, 160.00, 76.00, 90.00, 85.00, 60.00, 'minimalist', 'Solid White Oak', 'Natural Oak', '#CCB290', '/storage/furniture/models/DTB-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(30, 12, 'DTB-003', 'Bastion 8-Seater Extendable Dining Table', 'Substantial live-edge walnut dining table with a butterfly internal extension mechanism expanding up to 260 cm.', 1180.00, 200.00, 76.00, 95.00, 90.00, 70.00, 'industrial', 'Live-Edge Walnut & U-Steel Legs', 'Deep Walnut', '#4A3525', '/storage/furniture/models/DTB-003.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(31, 13, 'DCH-001', 'Fawn Scandinavian Spindle Dining Chair', 'Timeless Windsor-inspired dining chair with turned beech spindles and a saddled ergonomic wooden seat.', 95.00, 46.00, 82.00, 49.00, 50.00, 20.00, 'scandinavian', 'Bentwood Beech', 'Natural Beech', '#D8C6A5', '/storage/furniture/models/DCH-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(32, 13, 'DCH-002', 'Port Upholstered Curved Back Armchair', 'Plush wrap-around curved back dining chair providing generous lumbar support during long dinner parties.', 155.00, 56.00, 78.00, 54.00, 55.00, 25.00, 'modern', 'Tweed Fabric & Matte Black Legs', 'Charcoal Grey', '#404040', '/storage/furniture/models/DCH-002.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(33, 13, 'DCH-003', 'Cantilever Chrome Leatherette Chair', 'Bauhaus-influenced S-curve tubular steel cantilever chair providing comfortable natural flex.', 130.00, 48.00, 84.00, 52.00, 50.00, 20.00, 'modern', 'Tubular Steel & Saddle Faux Leather', 'Caramel Brown', '#A0522D', '/storage/furniture/models/DCH-003.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(34, 13, 'DCH-004', 'Bento Minimalist Molded Shell Chair', 'Ultra-lightweight stackable molded polypropylene chair with matte texture and solid beech dowel legs.', 75.00, 48.00, 79.00, 47.00, 45.00, 20.00, 'minimalist', 'Recycled Polypropylene & Wood', 'Chalk White', '#F0EDE6', '/storage/furniture/models/DCH-004.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(35, 13, 'DCH-005', 'Bistro Wire Metal Dining Chair', 'Geometric wire grid chair with an electroplated gunmetal finish and a magnetic vegan leather seat cushion.', 88.00, 44.00, 80.00, 46.00, 45.00, 20.00, 'industrial', 'Welded Steel Rod with Leather Pad', 'Gunmetal Grey', '#33373B', '/storage/furniture/models/DCH-005.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(36, 13, 'DCH-006', 'Heritage Oak Dining Bench 140cm', 'Sturdy solid oak bench that slides completely under 160+ cm dining tables when not in active use.', 210.00, 140.00, 46.00, 36.00, 40.00, 20.00, 'scandinavian', 'Solid Oak with Rounded Edges', 'Natural Oak', '#CDB18B', '/storage/furniture/models/DCH-006.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(37, 5, 'STG-001', 'Gridline Tall Open Modular Bookcase', 'Architectural steel frame bookcase featuring 5 staggered shelves of natural ash, perfect for room zoning.', 340.00, 90.00, 190.00, 34.00, 70.00, 25.00, 'minimalist', 'Powder-coated Steel & Ash Shelves', 'Matte Black & Ash', '#2A2927', '/storage/furniture/models/STG-001.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(38, 5, 'STG-002', 'Lattice Timber Room Divider / Screen', 'Freestanding vertical timber slat screen with an integrated planter box for creating privacy and zones in open plans.', 390.00, 120.00, 175.00, 30.00, 60.00, 30.00, 'scandinavian', 'Vertical Oak Slats & Planter Box', 'Nordic Oak', '#D5BE9E', '/storage/furniture/models/STG-002.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35'),
+(39, 5, 'STG-003', 'Hygge Cocoon Reading Armchair', 'Comfortable reading accent chair upholstered in plush shearling fleece with a 360-degree silent swivel oak base.', 540.00, 84.00, 92.00, 82.00, 75.00, 40.00, 'scandinavian', 'Shearling Fleece & Oak Swivel Base', 'Warm Oatmeal', '#EAE6DF', '/storage/furniture/models/STG-003.glb', 1, '2026-09-12 04:57:01', '2026-09-14 21:34:30'),
+(40, 5, 'STG-004', 'Foyer Entryway Bench & Coat Rack', 'Multifunctional entry hall unit with a lower slatted shoe bench, cushioned seat, and 6 cast-iron coat hooks.', 260.00, 100.00, 180.00, 40.00, 70.00, 20.00, 'industrial', 'Reclaimed Pine & Black Iron Pipes', 'Dark Oak / Iron', '#3A2E28', '/storage/furniture/models/STG-004.glb', 1, '2026-09-12 04:57:01', '2026-09-15 03:39:35');
 
 -- --------------------------------------------------------
 
@@ -175,48 +175,46 @@ CREATE TABLE `furniture_images` (
 --
 
 INSERT INTO `furniture_images` (`id`, `furniture_id`, `image_path`, `is_primary`, `sort_order`, `created_at`, `updated_at`) VALUES
-(1, 1, '/storage/furniture/images/SOFA-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(2, 2, '/storage/furniture/images/SOFA-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(3, 3, '/storage/furniture/images/SOFA-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(4, 4, '/storage/furniture/images/SOFA-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(5, 5, '/storage/furniture/images/SOFA-005-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(6, 6, '/storage/furniture/images/SOFA-006-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(7, 7, '/storage/furniture/images/COFF-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(8, 8, '/storage/furniture/images/COFF-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(9, 9, '/storage/furniture/images/COFF-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(10, 10, '/storage/furniture/images/COFF-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(11, 11, '/storage/furniture/images/TV-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(12, 12, '/storage/furniture/images/TV-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(13, 13, '/storage/furniture/images/TV-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(14, 14, '/storage/furniture/images/TV-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(15, 15, '/storage/furniture/images/BED-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(16, 16, '/storage/furniture/images/BED-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(17, 17, '/storage/furniture/images/BED-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(18, 18, '/storage/furniture/images/BED-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(19, 19, '/storage/furniture/images/BED-005-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(20, 20, '/storage/furniture/images/NST-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(21, 21, '/storage/furniture/images/NST-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(22, 22, '/storage/furniture/images/NST-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(23, 23, '/storage/furniture/images/NST-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(24, 24, '/storage/furniture/images/DSK-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(25, 25, '/storage/furniture/images/DSK-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(26, 26, '/storage/furniture/images/DSK-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(27, 27, '/storage/furniture/images/DSK-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(28, 28, '/storage/furniture/images/DTB-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(29, 29, '/storage/furniture/images/DTB-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(30, 30, '/storage/furniture/images/DTB-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(31, 31, '/storage/furniture/images/DCH-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(32, 32, '/storage/furniture/images/DCH-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(33, 33, '/storage/furniture/images/DCH-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(34, 34, '/storage/furniture/images/DCH-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(35, 35, '/storage/furniture/images/DCH-005-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(36, 36, '/storage/furniture/images/DCH-006-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(37, 37, '/storage/furniture/images/STG-001-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(38, 38, '/storage/furniture/images/STG-002-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(39, 39, '/storage/furniture/images/STG-003-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(40, 40, '/storage/furniture/images/STG-004-primary.webp', 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(41, 1, '/storage/furniture/images/SOFA-001-front.webp', 0, 2, '2026-09-11 23:08:05', '2026-09-11 23:08:05'),
-(42, 1, '/storage/furniture/images/SOFA-001-side.webp', 0, 3, '2026-09-11 23:08:05', '2026-09-11 23:08:05');
+(1, 1, '/storage/furniture/images/SOFA-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(2, 2, '/storage/furniture/images/SOFA-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(3, 3, '/storage/furniture/images/SOFA-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(4, 4, '/storage/furniture/images/SOFA-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(5, 5, '/storage/furniture/images/SOFA-005-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(6, 6, '/storage/furniture/images/SOFA-006-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(7, 7, '/storage/furniture/images/COFF-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(8, 8, '/storage/furniture/images/COFF-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(9, 9, '/storage/furniture/images/COFF-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(10, 10, '/storage/furniture/images/COFF-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(11, 11, '/storage/furniture/images/TV-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(12, 12, '/storage/furniture/images/TV-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(13, 13, '/storage/furniture/images/TV-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(14, 14, '/storage/furniture/images/TV-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(15, 15, '/storage/furniture/images/BED-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(16, 16, '/storage/furniture/images/BED-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(17, 17, '/storage/furniture/images/BED-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(18, 18, '/storage/furniture/images/BED-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(19, 19, '/storage/furniture/images/BED-005-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(20, 20, '/storage/furniture/images/NST-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(21, 21, '/storage/furniture/images/NST-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(22, 22, '/storage/furniture/images/NST-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(23, 23, '/storage/furniture/images/NST-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(24, 24, '/storage/furniture/images/DSK-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(25, 25, '/storage/furniture/images/DSK-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(26, 26, '/storage/furniture/images/DSK-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(27, 27, '/storage/furniture/images/DSK-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(28, 28, '/storage/furniture/images/DTB-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(29, 29, '/storage/furniture/images/DTB-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(30, 30, '/storage/furniture/images/DTB-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(31, 31, '/storage/furniture/images/DCH-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(32, 32, '/storage/furniture/images/DCH-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(33, 33, '/storage/furniture/images/DCH-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(34, 34, '/storage/furniture/images/DCH-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(35, 35, '/storage/furniture/images/DCH-005-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(36, 36, '/storage/furniture/images/DCH-006-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(37, 37, '/storage/furniture/images/STG-001-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(38, 38, '/storage/furniture/images/STG-002-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(39, 39, '/storage/furniture/images/STG-003-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(40, 40, '/storage/furniture/images/STG-004-primary.webp', 1, 1, '2026-09-12 04:57:01', '2026-09-12 04:57:01');
 
 -- --------------------------------------------------------
 
@@ -241,46 +239,46 @@ CREATE TABLE `furniture_models` (
 --
 
 INSERT INTO `furniture_models` (`id`, `furniture_id`, `model_path`, `format`, `file_size_mb`, `is_optimized`, `draco_compressed`, `created_at`, `updated_at`) VALUES
-(1, 1, '/storage/furniture/models/SOFA-001.glb', 'glb', 3.24, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(2, 2, '/storage/furniture/models/SOFA-002.glb', 'glb', 2.58, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(3, 3, '/storage/furniture/models/SOFA-003.glb', 'glb', 3.20, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(4, 4, '/storage/furniture/models/SOFA-004.glb', 'glb', 3.03, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(5, 5, '/storage/furniture/models/SOFA-005.glb', 'glb', 2.61, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(6, 6, '/storage/furniture/models/SOFA-006.glb', 'glb', 2.75, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(7, 7, '/storage/furniture/models/COFF-001.glb', 'glb', 2.03, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(8, 8, '/storage/furniture/models/COFF-002.glb', 'glb', 1.65, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(9, 9, '/storage/furniture/models/COFF-003.glb', 'glb', 3.11, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(10, 10, '/storage/furniture/models/COFF-004.glb', 'glb', 1.92, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(11, 11, '/storage/furniture/models/TV-001.glb', 'glb', 1.61, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(12, 12, '/storage/furniture/models/TV-002.glb', 'glb', 2.31, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(13, 13, '/storage/furniture/models/TV-003.glb', 'glb', 2.69, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(14, 14, '/storage/furniture/models/TV-004.glb', 'glb', 3.46, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(15, 15, '/storage/furniture/models/BED-001.glb', 'glb', 2.80, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(16, 16, '/storage/furniture/models/BED-002.glb', 'glb', 1.82, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(17, 17, '/storage/furniture/models/BED-003.glb', 'glb', 2.52, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(18, 18, '/storage/furniture/models/BED-004.glb', 'glb', 3.39, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(19, 19, '/storage/furniture/models/BED-005.glb', 'glb', 2.57, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(20, 20, '/storage/furniture/models/NST-001.glb', 'glb', 2.96, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(21, 21, '/storage/furniture/models/NST-002.glb', 'glb', 2.78, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(22, 22, '/storage/furniture/models/NST-003.glb', 'glb', 3.32, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(23, 23, '/storage/furniture/models/NST-004.glb', 'glb', 2.83, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(24, 24, '/storage/furniture/models/DSK-001.glb', 'glb', 2.05, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(25, 25, '/storage/furniture/models/DSK-002.glb', 'glb', 2.67, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(26, 26, '/storage/furniture/models/DSK-003.glb', 'glb', 2.17, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(27, 27, '/storage/furniture/models/DSK-004.glb', 'glb', 1.50, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(28, 28, '/storage/furniture/models/DTB-001.glb', 'glb', 1.80, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(29, 29, '/storage/furniture/models/DTB-002.glb', 'glb', 1.78, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(30, 30, '/storage/furniture/models/DTB-003.glb', 'glb', 1.52, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(31, 31, '/storage/furniture/models/DCH-001.glb', 'glb', 1.94, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(32, 32, '/storage/furniture/models/DCH-002.glb', 'glb', 3.00, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(33, 33, '/storage/furniture/models/DCH-003.glb', 'glb', 2.14, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(34, 34, '/storage/furniture/models/DCH-004.glb', 'glb', 2.57, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(35, 35, '/storage/furniture/models/DCH-005.glb', 'glb', 1.63, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(36, 36, '/storage/furniture/models/DCH-006.glb', 'glb', 2.61, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(37, 37, '/storage/furniture/models/STG-001.glb', 'glb', 2.60, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(38, 38, '/storage/furniture/models/STG-002.glb', 'glb', 1.94, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(39, 39, '/storage/furniture/models/STG-003.glb', 'glb', 3.20, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(40, 40, '/storage/furniture/models/STG-004.glb', 'glb', 1.99, 1, 1, '2026-09-11 17:25:33', '2026-09-11 17:25:33');
+(1, 1, '/storage/furniture/models/SOFA-001.glb', 'glb', 4.96, 1, 0, '2026-09-12 04:57:01', '2026-09-12 19:14:50'),
+(41, 15, '/storage/furniture/models/BED-001.glb', 'glb', 1.18, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(42, 16, '/storage/furniture/models/BED-002.glb', 'glb', 23.21, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(43, 7, '/storage/furniture/models/COFF-001.glb', 'glb', 41.87, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:58:52'),
+(44, 8, '/storage/furniture/models/COFF-002.glb', 'glb', 83.32, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(45, 31, '/storage/furniture/models/DCH-001.glb', 'glb', 81.01, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(46, 32, '/storage/furniture/models/DCH-002.glb', 'glb', 82.45, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(47, 33, '/storage/furniture/models/DCH-003.glb', 'glb', 18.62, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(48, 34, '/storage/furniture/models/DCH-004.glb', 'glb', 1.69, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(49, 35, '/storage/furniture/models/DCH-005.glb', 'glb', 0.84, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(50, 24, '/storage/furniture/models/DSK-001.glb', 'glb', 16.64, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:39:07'),
+(51, 25, '/storage/furniture/models/DSK-002.glb', 'glb', 16.64, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(52, 28, '/storage/furniture/models/DTB-001.glb', 'glb', 13.26, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:58:52'),
+(53, 29, '/storage/furniture/models/DTB-002.glb', 'glb', 0.26, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(54, 30, '/storage/furniture/models/DTB-003.glb', 'glb', 4.27, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(55, 20, '/storage/furniture/models/NST-001.glb', 'glb', 4.67, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(56, 2, '/storage/furniture/models/SOFA-002.glb', 'glb', 1.53, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(57, 3, '/storage/furniture/models/SOFA-003.glb', 'glb', 10.15, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(58, 5, '/storage/furniture/models/SOFA-005.glb', 'glb', 4.42, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(59, 37, '/storage/furniture/models/STG-001.glb', 'glb', 0.01, 1, 0, '2026-09-14 21:34:30', '2026-09-15 03:39:35'),
+(60, 39, '/storage/furniture/models/STG-003.glb', 'glb', 28.75, 1, 0, '2026-09-14 21:34:30', '2026-09-15 02:15:47'),
+(61, 11, '/storage/furniture/models/TV-001.glb', 'glb', 0.01, 1, 0, '2026-09-14 21:34:30', '2026-09-15 03:39:35'),
+(62, 12, '/storage/furniture/models/TV-002.glb', 'glb', 1.34, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(63, 14, '/storage/furniture/models/TV-004.glb', 'glb', 1.34, 1, 0, '2026-09-14 21:34:30', '2026-09-14 21:34:30'),
+(64, 4, '/storage/furniture/models/SOFA-004.glb', 'glb', 1.11, 1, 0, '2026-09-15 02:15:47', '2026-09-15 02:15:47'),
+(65, 6, '/storage/furniture/models/SOFA-006.glb', 'glb', 37.91, 1, 0, '2026-09-15 03:25:35', '2026-09-15 03:25:35'),
+(66, 19, '/storage/furniture/models/BED-005.glb', 'glb', 0.01, 1, 0, '2026-09-15 03:31:28', '2026-09-15 03:31:28'),
+(67, 17, '/storage/furniture/models/BED-003.glb', 'glb', 0.01, 1, 0, '2026-09-15 03:39:34', '2026-09-15 03:39:34'),
+(68, 18, '/storage/furniture/models/BED-004.glb', 'glb', 0.01, 1, 0, '2026-09-15 03:39:34', '2026-09-15 03:39:34'),
+(69, 9, '/storage/furniture/models/COFF-003.glb', 'glb', 0.05, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(70, 10, '/storage/furniture/models/COFF-004.glb', 'glb', 0.03, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(71, 36, '/storage/furniture/models/DCH-006.glb', 'glb', 0.03, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(72, 26, '/storage/furniture/models/DSK-003.glb', 'glb', 0.00, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(73, 27, '/storage/furniture/models/DSK-004.glb', 'glb', 0.01, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(74, 21, '/storage/furniture/models/NST-002.glb', 'glb', 0.05, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(75, 22, '/storage/furniture/models/NST-003.glb', 'glb', 0.03, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(76, 23, '/storage/furniture/models/NST-004.glb', 'glb', 0.02, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(77, 38, '/storage/furniture/models/STG-002.glb', 'glb', 0.00, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(78, 40, '/storage/furniture/models/STG-004.glb', 'glb', 0.05, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35'),
+(79, 13, '/storage/furniture/models/TV-003.glb', 'glb', 0.03, 1, 0, '2026-09-15 03:39:35', '2026-09-15 03:39:35');
 
 -- --------------------------------------------------------
 
@@ -309,7 +307,81 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2026_09_12_000008_create_room_projects_table', 1),
 (9, '2026_09_12_000009_create_room_project_furniture_table', 1),
 (10, '2026_09_12_000010_create_room_analyses_table', 1),
-(11, '2026_09_12_000011_create_favorites_table', 1);
+(11, '2026_09_12_000011_create_favorites_table', 1),
+(12, '2026_09_15_000001_create_orders_tables', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_number` varchar(64) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `status` varchar(32) NOT NULL DEFAULT 'confirmed',
+  `payment_method` varchar(32) NOT NULL DEFAULT 'cod',
+  `payment_status` varchar(32) NOT NULL DEFAULT 'pending',
+  `subtotal` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `shipping_fee` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `discount_amount` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `total_amount` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `shipping_first_name` varchar(100) NOT NULL,
+  `shipping_last_name` varchar(100) NOT NULL,
+  `shipping_email` varchar(150) NOT NULL,
+  `shipping_phone` varchar(50) NOT NULL,
+  `shipping_address_line1` varchar(255) NOT NULL,
+  `shipping_address_line2` varchar(255) DEFAULT NULL,
+  `shipping_city` varchar(100) NOT NULL,
+  `shipping_province` varchar(100) NOT NULL DEFAULT 'Metro Manila',
+  `shipping_postal_code` varchar(20) DEFAULT NULL,
+  `notes` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_number`, `user_id`, `status`, `payment_method`, `payment_status`, `subtotal`, `shipping_fee`, `discount_amount`, `total_amount`, `shipping_first_name`, `shipping_last_name`, `shipping_email`, `shipping_phone`, `shipping_address_line1`, `shipping_address_line2`, `shipping_city`, `shipping_province`, `shipping_postal_code`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 'ORD-20260915-MPHO', NULL, 'confirmed', 'cod', 'pending', 1698.00, 0.00, 0.00, 1698.00, 'Maria', 'Santos', 'maria.santos@example.com', '+63 917 123 4567', 'Unit 14B Minimalist Tower, Ayala Ave', 'Bel-Air', 'Makati', 'Metro Manila', '1209', 'Please call upon arrival at the lobby', '2026-09-14 20:36:55', '2026-09-14 20:36:55'),
+(2, 'ORD-20260915-QA0E', NULL, 'confirmed', 'cod', 'pending', 1698.00, 0.00, 0.00, 1698.00, 'Maria', 'Santos', 'maria.santos@example.com', '+63 917 123 4567', 'Unit 14B Minimalist Tower, Ayala Ave', 'Bel-Air', 'Makati', 'Metro Manila', '1209', 'Please call upon arrival at the lobby', '2026-09-14 20:37:06', '2026-09-14 20:37:06'),
+(3, 'ORD-20260915-RWTA', NULL, 'confirmed', 'cod', 'pending', 1698.00, 0.00, 0.00, 1698.00, 'Maria', 'Santos', 'maria.santos@example.com', '+63 917 123 4567', 'Unit 14B Minimalist Tower, Ayala Ave', 'Bel-Air', 'Makati', 'Metro Manila', '1209', 'Please call upon arrival at the lobby', '2026-09-14 20:37:16', '2026-09-14 20:37:16'),
+(4, 'ORD-20260915-0B8W', NULL, 'confirmed', 'cod', 'pending', 210.00, 350.00, 21.00, 539.00, 'Test', 'Shopper', 'shopper@example.com', '09171234567', '123 Minimalist St', NULL, 'Makati', 'Metro Manila', NULL, NULL, '2026-09-14 20:44:03', '2026-09-14 20:44:03'),
+(5, 'ORD-20260915-A3GL', NULL, 'confirmed', 'cod', 'pending', 1340.00, 350.00, 0.00, 1690.00, 'Demo', 'Customer', 'customer@smartspace.local', '+63 90541613231', 'asdasd', 'asdasd', 'asdasd', 'Metro Manila', '6545', 'asdasdasd', '2026-09-14 21:17:32', '2026-09-14 21:17:32'),
+(6, 'ORD-20260915-5ILV', NULL, 'confirmed', 'cod', 'pending', 849.00, 350.00, 0.00, 1199.00, 'Demo', 'Customer', 'customer@smartspace.local', '+63 90541613231', 'asdasd', 'asdasd', 'asdasd', 'Metro Manila', '6545', 'asdasdasd', '2026-09-14 21:18:18', '2026-09-14 21:18:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_items`
+--
+
+CREATE TABLE `order_items` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` bigint(20) UNSIGNED NOT NULL,
+  `furniture_id` bigint(20) UNSIGNED NOT NULL,
+  `quantity` int(11) NOT NULL DEFAULT 1,
+  `unit_price` decimal(12,2) NOT NULL,
+  `total_price` decimal(12,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `furniture_id`, `quantity`, `unit_price`, `total_price`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 2, 849.00, 1698.00, '2026-09-14 20:36:55', '2026-09-14 20:36:55'),
+(2, 2, 1, 2, 849.00, 1698.00, '2026-09-14 20:37:06', '2026-09-14 20:37:06'),
+(3, 3, 1, 2, 849.00, 1698.00, '2026-09-14 20:37:16', '2026-09-14 20:37:16'),
+(4, 4, 36, 1, 210.00, 210.00, '2026-09-14 20:44:03', '2026-09-14 20:44:03'),
+(5, 5, 40, 1, 260.00, 260.00, '2026-09-14 21:17:32', '2026-09-14 21:17:32'),
+(6, 5, 39, 2, 540.00, 1080.00, '2026-09-14 21:17:32', '2026-09-14 21:17:32'),
+(7, 6, 1, 1, 849.00, 849.00, '2026-09-14 21:18:18', '2026-09-14 21:18:18');
 
 -- --------------------------------------------------------
 
@@ -335,26 +407,26 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `name`, `token`, `abilities`, `last_used_at`, `expires_at`, `created_at`, `updated_at`) VALUES
-(1, 'App\\Models\\User', 3, 'smartspace_auth', '1936a15cf477d3615bc938adc1cfe9183085f4133a8a9e8227afa833e57235ef', '[\"*\"]', '2026-09-11 17:32:40', NULL, '2026-09-11 17:32:40', '2026-09-11 17:32:40'),
-(2, 'App\\Models\\User', 3, 'smartspace_auth', 'eacdf5f22a39a6c3bf14d08af3bb05e66a171908838c4cb22d34b3ace600c8e0', '[\"*\"]', NULL, NULL, '2026-09-11 17:32:40', '2026-09-11 17:32:40'),
-(3, 'App\\Models\\User', 2, 'test_token', '69a7979745f28c0e35dfda94f87f664264474b2ad118d0c732f7f0e5fa9ee349', '[\"*\"]', '2026-09-11 17:32:41', NULL, '2026-09-11 17:32:41', '2026-09-11 17:32:41'),
-(4, 'App\\Models\\User', 2, 'test_token_fav', 'e067154a64393d0d806014a117fd19752434afa1550fc844a55079b30f0f227e', '[\"*\"]', '2026-09-11 17:32:41', NULL, '2026-09-11 17:32:41', '2026-09-11 17:32:41'),
-(5, 'App\\Models\\User', 4, 'smartspace_auth', 'dc2a0b9f246cf963decac3c5bfa51fc55f127b57843d72b1e78fb100ea70d343', '[\"*\"]', '2026-09-11 17:32:53', NULL, '2026-09-11 17:32:53', '2026-09-11 17:32:53'),
-(6, 'App\\Models\\User', 4, 'smartspace_auth', '666f26b167a0d0561d867a73187e7383b8dd7e6f3fe1807807857756806a5876', '[\"*\"]', NULL, NULL, '2026-09-11 17:32:53', '2026-09-11 17:32:53'),
-(7, 'App\\Models\\User', 2, 'test_token', '347361da4f84d0a52f4c768ba3a78245789ca9522c3e3bff3ca45f0a45159711', '[\"*\"]', '2026-09-11 17:32:53', NULL, '2026-09-11 17:32:53', '2026-09-11 17:32:53'),
-(8, 'App\\Models\\User', 2, 'test_token_fav', 'a982e57b22932961be7357300833a1930cd3c66584988045ef361d9efd7a8ab1', '[\"*\"]', '2026-09-11 17:32:53', NULL, '2026-09-11 17:32:53', '2026-09-11 17:32:53'),
-(9, 'App\\Models\\User', 5, 'smartspace_auth', '2684e88cb26e35aee730d273bfcad0c5bb0c9b64bc3c5bf259bb82040f2e8fc0', '[\"*\"]', '2026-09-11 17:33:22', NULL, '2026-09-11 17:33:22', '2026-09-11 17:33:22'),
-(10, 'App\\Models\\User', 5, 'smartspace_auth', 'c85e89948bb5b0e14a1e549da12425799427d06719d859c06ccf4f05542c8aac', '[\"*\"]', NULL, NULL, '2026-09-11 17:33:22', '2026-09-11 17:33:22'),
-(11, 'App\\Models\\User', 2, 'test_token', '4604b2b196359845540b34b3897d55d26683d17b35a9606361478b48d1451e91', '[\"*\"]', '2026-09-11 17:33:22', NULL, '2026-09-11 17:33:22', '2026-09-11 17:33:22'),
-(12, 'App\\Models\\User', 2, 'test_token_fav', 'dece6346737c571d5b70449c5bf7dfd30a5046d68c724ac4cd966a8902fd869f', '[\"*\"]', '2026-09-11 17:33:22', NULL, '2026-09-11 17:33:22', '2026-09-11 17:33:22'),
-(13, 'App\\Models\\User', 6, 'smartspace_auth', '5902baea2db2f992791e884ae5e38b97881ee601ec3b5d1d1af5925940550283', '[\"*\"]', '2026-09-11 18:11:38', NULL, '2026-09-11 18:11:38', '2026-09-11 18:11:38'),
-(14, 'App\\Models\\User', 6, 'smartspace_auth', '227a596e639db9308ee05d5744a23ccf947bfefe7432cdbba567beb7bba95fe5', '[\"*\"]', NULL, NULL, '2026-09-11 18:11:38', '2026-09-11 18:11:38'),
-(15, 'App\\Models\\User', 2, 'test_token', '1015930a7831467d3bf66cbe907eacbe6b26f1c95591d33b452788d081467087', '[\"*\"]', '2026-09-11 18:11:38', NULL, '2026-09-11 18:11:38', '2026-09-11 18:11:38'),
-(16, 'App\\Models\\User', 2, 'test_token_fav', '8229f8fcfba141ece0287d49744bef9d9e5b937d6e1d0fa562338ae1b2a9a240', '[\"*\"]', '2026-09-11 18:11:38', NULL, '2026-09-11 18:11:38', '2026-09-11 18:11:38'),
-(17, 'App\\Models\\User', 2, 'smartspace_auth', '55f1aaf89c5a0a14a3f928a02841d199940239e0e881ce8723d0d06cbc57c1a3', '[\"*\"]', NULL, NULL, '2026-09-11 19:39:31', '2026-09-11 19:39:31'),
-(18, 'App\\Models\\User', 1, 'smartspace_auth', '1fff3a87fe5abcc250d73fc3e7e233853637b2934d32d74fd4b8c0778cdf244c', '[\"*\"]', NULL, NULL, '2026-09-11 19:39:36', '2026-09-11 19:39:36'),
-(19, 'App\\Models\\User', 2, 'smartspace_auth', '9db901016ebf354f343dfb53c2f5cf5686f0dd369cab691e88b813b9c5aa5c65', '[\"*\"]', '2026-09-11 19:50:28', NULL, '2026-09-11 19:42:27', '2026-09-11 19:50:28'),
-(22, 'App\\Models\\User', 7, 'smartspace_auth', '72949aae8257eea1b8b7b58f64ac2676f173be85c0a17be5b443218e44fe556f', '[\"*\"]', '2026-09-11 23:13:39', NULL, '2026-09-11 21:03:52', '2026-09-11 23:13:39');
+(1, 'App\\Models\\User', 2, 'smartspace_auth', '92e6b2a76a1d76a350fa40b838ec7199b13d56b7a7a835d97e9f00454b4eb386', '[\"*\"]', '2026-09-15 04:12:37', NULL, '2026-09-12 04:57:21', '2026-09-15 04:12:37'),
+(2, 'App\\Models\\User', 2, 'test_rec', '6d14fe463a35a22680778464fe672af05c444845b44f9ab707feb98be3ac2ccf', '[\"*\"]', '2026-09-12 05:22:49', NULL, '2026-09-12 05:22:49', '2026-09-12 05:22:49'),
+(3, 'App\\Models\\User', 2, 'test_rec', '8850c8fa18ab19782d92d3d9f77092609927e6924e2fc2043636b77e73d1e444', '[\"*\"]', '2026-09-12 05:23:01', NULL, '2026-09-12 05:23:01', '2026-09-12 05:23:01'),
+(4, 'App\\Models\\User', 2, 'verify_token', 'b2a16bf595d9b326e9eee2d3f7a0e71b289625e16ce45b13b451447f4ed6517e', '[\"*\"]', '2026-09-12 06:40:14', NULL, '2026-09-12 06:40:14', '2026-09-12 06:40:14'),
+(5, 'App\\Models\\User', 9, 'smartspace_auth', '210805788fe8397c59141885c87358efdbc4a3c6f5efada057cb5cb368decc38', '[\"*\"]', '2026-09-12 07:42:10', NULL, '2026-09-12 07:42:10', '2026-09-12 07:42:10'),
+(6, 'App\\Models\\User', 9, 'smartspace_auth', 'de25e56aaed43c919db2b848b670296757d443b0ab2a393c1782377cffc365cf', '[\"*\"]', NULL, NULL, '2026-09-12 07:42:10', '2026-09-12 07:42:10'),
+(7, 'App\\Models\\User', 2, 'test_token', '00bbbb0b4b0bc391936b3aae6ac09e36aa0b6128c90c6070bf70c5c91c1319c3', '[\"*\"]', '2026-09-12 07:42:11', NULL, '2026-09-12 07:42:11', '2026-09-12 07:42:11'),
+(8, 'App\\Models\\User', 2, 'test_token_fav', 'e6b42d6fd64f15c85c1924f2a66b61d53ca6a477167d5ef2827787d889327d4e', '[\"*\"]', '2026-09-12 07:42:11', NULL, '2026-09-12 07:42:11', '2026-09-12 07:42:11'),
+(9, 'App\\Models\\User', 13, 'smartspace_auth', '130cef7367fd41135184b8f231326f1be7b370201aa5c258b3ca3faecf627dc8', '[\"*\"]', '2026-09-12 07:44:15', NULL, '2026-09-12 07:44:15', '2026-09-12 07:44:15'),
+(10, 'App\\Models\\User', 13, 'smartspace_auth', '68f5932471bd6607e823c08651e89ff102fdf6bd9af21b4cc6c6de50cf0ec5c2', '[\"*\"]', NULL, NULL, '2026-09-12 07:44:15', '2026-09-12 07:44:15'),
+(11, 'App\\Models\\User', 2, 'test_token', 'f70a652056163f4fb58b74b2863697c45702d2f87b1d31d54bf356b1f0b44aee', '[\"*\"]', '2026-09-12 07:44:15', NULL, '2026-09-12 07:44:15', '2026-09-12 07:44:15'),
+(12, 'App\\Models\\User', 2, 'test_token_fav', '284ada71006a6c8ca3e79d09b11440663c82638005a6bb090a17b025873b441f', '[\"*\"]', '2026-09-12 07:44:15', NULL, '2026-09-12 07:44:15', '2026-09-12 07:44:15'),
+(13, 'App\\Models\\User', 17, 'smartspace_auth', '05a3b387ca855e2ea8bb86342d062418c43dcc14ed09074c0900774cd7cc7049', '[\"*\"]', '2026-09-12 19:13:36', NULL, '2026-09-12 19:13:36', '2026-09-12 19:13:36'),
+(14, 'App\\Models\\User', 17, 'smartspace_auth', '5ee15e81617c08453d2a6accbe9a867e117b1bffefb72ae3ffb1929a147af988', '[\"*\"]', NULL, NULL, '2026-09-12 19:13:36', '2026-09-12 19:13:36'),
+(15, 'App\\Models\\User', 2, 'test_token', '5b290ddd74d7e57441013fea707569283fea593408cec2377d6a9b7de327b941', '[\"*\"]', '2026-09-12 19:13:37', NULL, '2026-09-12 19:13:37', '2026-09-12 19:13:37'),
+(16, 'App\\Models\\User', 2, 'test_token_fav', '3bae3ef09cbc02d5b8cb2f5c8f27e29ed2d3d283f193fa89f841bb720563f3fe', '[\"*\"]', '2026-09-12 19:13:37', NULL, '2026-09-12 19:13:37', '2026-09-12 19:13:37'),
+(17, 'App\\Models\\User', 21, 'smartspace_auth', 'f7a1674df8fc1799f28b1db87f30e814b235502a946504e468fa3cbb9bb61a47', '[\"*\"]', '2026-09-14 20:37:15', NULL, '2026-09-14 20:37:15', '2026-09-14 20:37:15'),
+(18, 'App\\Models\\User', 21, 'smartspace_auth', 'ca5e2c44c0c891014d3150269ad237925579aa3121172f77625f2e852af8f49e', '[\"*\"]', NULL, NULL, '2026-09-14 20:37:15', '2026-09-14 20:37:15'),
+(19, 'App\\Models\\User', 2, 'test_token', 'f8f3bc0e241b8bfa64d4a289e3d286f12b2f01930af0d1e5d2615deca2c99ad3', '[\"*\"]', '2026-09-14 20:37:15', NULL, '2026-09-14 20:37:15', '2026-09-14 20:37:15'),
+(20, 'App\\Models\\User', 2, 'test_token_fav', '6d51e4c5e77c9d94c704bdaec2c98e6cde26a89a7d0e465cbcdd49d493412b58', '[\"*\"]', '2026-09-14 20:37:16', NULL, '2026-09-14 20:37:16', '2026-09-14 20:37:16');
 
 -- --------------------------------------------------------
 
@@ -376,8 +448,8 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin', 'System administrator with full catalog and system management access.', '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(2, 'Customer', 'customer', 'Standard user who can design rooms, save projects, and favorite furniture.', '2026-09-11 17:25:33', '2026-09-11 17:25:33');
+(1, 'Administrator', 'admin', 'System administrator with full catalog and system management access.', '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(2, 'Customer', 'customer', 'Standard user who can design rooms, save projects, and favorite furniture.', '2026-09-12 04:57:01', '2026-09-12 04:57:01');
 
 -- --------------------------------------------------------
 
@@ -400,6 +472,26 @@ CREATE TABLE `room_analyses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `room_analyses`
+--
+
+INSERT INTO `room_analyses` (`id`, `user_id`, `room_project_id`, `image_path`, `detected_room_type`, `detected_style`, `detected_colors`, `detected_objects`, `confidence`, `ai_provider`, `raw_response`, `created_at`, `updated_at`) VALUES
+(1, 2, 1, 'analyses/4UkKv1BLFxKr1RY3k7LsyxMWmtT6kxd7Cpq2oMfW.webp', 'living_room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"living_room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:25:29', '2026-09-12 05:25:29'),
+(2, 2, 1, 'analyses/GA9CpPthHtuiaZAoIWVTpRTy0OtzKUZxd5vqfWHQ.webp', 'living_room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"living_room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:27:17', '2026-09-12 05:27:17'),
+(3, 2, 1, 'analyses/3uzz0ncKF8dKaHmJjRXukjrNhUoqHSdMfif9jg8k.webp', 'living_room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"living_room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:30:38', '2026-09-12 05:30:38'),
+(4, 2, 1, 'analyses/ZsjCyxGFYK5cAbWAqApCNP9KpqvcO0CpcxjQU7wP.webp', 'Living Room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Living Room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:30:42', '2026-09-12 05:30:42'),
+(5, 2, 1, 'analyses/HW3PgjAQIDSzP0Dcy6VeYtPhku1ABXY4VrpwW56b.webp', 'Living Room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Living Room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:30:44', '2026-09-12 05:30:44'),
+(6, 2, 1, 'analyses/FVyeX1kpL6SNX6HZzVEiH08F5U2gU0JRrcRmWZBM.webp', 'Living Room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Living Room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:30:45', '2026-09-12 05:30:45'),
+(7, 2, 1, 'analyses/l9VSwWVeAaOmzLM7LO35IkmlJVU9NNLgC9ewT0zH.webp', 'Living Room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Living Room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:30:48', '2026-09-12 05:30:48'),
+(8, 2, 1, 'analyses/K5KuVwWgqPUY58EvMReqE1RE5uzMTwrM8I6dAnI7.webp', 'Living Room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Living Room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 05:30:48', '2026-09-12 05:30:48'),
+(10, 2, 1, 'analyses/Wy4Ge26ED0u3wIB5F7wxD254YFf1NuI85eCvnkjH.webp', 'living_room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"living_room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 07:11:39', '2026-09-12 07:11:39'),
+(11, 2, 1, 'analyses/xpz3WVdrtKMuldQYGEC34rv8WdMKQQ0oeIMuiTgk.webp', 'living_room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"living_room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 07:11:42', '2026-09-12 07:11:42'),
+(12, 2, 1, 'analyses/jXNwxXcdM6jogwlMyLZmkLwmzYj1aQbTKXMeXCG8.webp', 'living_room', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"living_room\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 07:11:48', '2026-09-12 07:11:48'),
+(13, 2, 1, 'analyses/XsMIZRBlOLILDdi6tEfDox5MA7weOn2CYObe9TGP.webp', 'Bedroom', 'Industrial', '[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Bedroom\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#010101\",\"#A09B94\",\"#9A958D\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 07:11:52', '2026-09-12 07:11:52'),
+(14, 2, 1, 'analyses/oIZSfYlfzQ7Xs8lgn26NP0uC6o1E3AoxwSUbKRkr.png', 'Bedroom', 'Industrial', '[\"#000000\",\"#020303\",\"#5C5C5C\",\"#0C393C\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Bedroom\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#020303\",\"#5C5C5C\",\"#0C393C\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 07:11:56', '2026-09-12 07:11:56'),
+(15, 2, 1, 'analyses/PcnTpzYS1QZSxV2w4kd8K5recBCEpuEJWQhhFMOJ.png', 'Bedroom', 'Industrial', '[\"#000000\",\"#020303\",\"#5C5C5C\",\"#0C393C\"]', '[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"]', 0.820, 'rule_based', '{\"detected_room_type\":\"Bedroom\",\"detected_style\":\"Industrial\",\"dominant_colors\":[\"#000000\",\"#020303\",\"#5C5C5C\",\"#0C393C\"],\"detected_objects\":[\"Image color clusters\",\"Ambient luminance profile\",\"Base boundary\"],\"visual_clutter\":\"Medium\",\"confidence\":0.82,\"provider\":\"rule_based\",\"is_mock\":false,\"summary\":\"Rule-based heuristic perception: Quantized dominant palette from image histogram. Detected Industrial stylistic tendency based on luminance and color saturation metrics.\"}', '2026-09-12 07:11:57', '2026-09-12 07:11:57');
 
 -- --------------------------------------------------------
 
@@ -428,9 +520,10 @@ CREATE TABLE `room_projects` (
 --
 
 INSERT INTO `room_projects` (`id`, `user_id`, `name`, `room_type`, `width_cm`, `length_cm`, `height_cm`, `style`, `room_image_path`, `compatibility_score`, `score_breakdown`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Nordic Living Room Concept', 'living_room', 420.00, 500.00, 260.00, 'scandinavian', NULL, 100.00, '{\"total_score\":100,\"is_valid\":true,\"verdict\":\"Excellent Fit\",\"badge\":\"\\ud83d\\udfe2\",\"description\":\"Optimal furniture arrangement with generous walking circulation and complete clearance compliance.\",\"room_dimensions\":{\"width_m\":4.2,\"length_m\":5,\"height_m\":2.6,\"area_sqm\":21},\"item_count\":4,\"breakdown\":{\"boundary_fit\":{\"score\":30,\"max\":30,\"status\":\"pass\",\"violation_count\":0,\"violations\":[]},\"collision\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"collision_count\":0,\"collisions\":[]},\"clearance\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"warning_count\":0,\"warnings\":[]},\"utilization\":{\"score\":10,\"max\":10,\"walking_ratio\":0.8049,\"occupied_percentage\":19.5,\"room_area_sqm\":21,\"furniture_area_sqm\":4.1,\"status\":\"excellent\"},\"room_fitness\":{\"score\":10,\"max\":10,\"matched_items\":4,\"total_items\":4,\"status\":\"pass\",\"unmatched\":[]}},\"evaluation_notes\":\"All items safely contained within room perimeter. Zero collision overlaps. Full front and side clearance corridors maintained. Space utilization: 19.5% occupied (excellent circulation).\"}', '2026-09-11 17:25:33', '2026-09-11 17:25:37'),
-(6, 7, 'Nordik Living Room', 'living_room', 450.00, 500.00, 280.00, 'scandinavian', NULL, 100.00, '{\"total_score\":100,\"is_valid\":true,\"verdict\":\"Excellent Fit\",\"badge\":\"\\ud83d\\udfe2\",\"description\":\"Optimal furniture arrangement with generous walking circulation and complete clearance compliance.\",\"room_dimensions\":{\"width_m\":4.5,\"length_m\":5,\"height_m\":2.8,\"area_sqm\":22.5},\"item_count\":7,\"breakdown\":{\"boundary_fit\":{\"score\":30,\"max\":30,\"status\":\"pass\",\"violation_count\":0,\"violations\":[]},\"collision\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"collision_count\":0,\"collisions\":[]},\"clearance\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"warning_count\":0,\"warnings\":[]},\"utilization\":{\"score\":10,\"max\":10,\"walking_ratio\":0.8406,\"occupied_percentage\":15.9,\"room_area_sqm\":22.5,\"furniture_area_sqm\":3.59,\"status\":\"excellent\"},\"room_fitness\":{\"score\":10,\"max\":10,\"matched_items\":7,\"total_items\":7,\"status\":\"pass\",\"unmatched\":[]}},\"evaluation_notes\":\"All items safely contained within room perimeter. Zero collision overlaps. Full front and side clearance corridors maintained. Space utilization: 15.9% occupied (excellent circulation).\"}', '2026-09-11 21:06:03', '2026-09-11 21:58:06'),
-(7, 7, 'AI-Assisted Living Space', 'living_room', 420.00, 500.00, 280.00, 'scandinavian', NULL, 100.00, '{\"total_score\":100,\"is_valid\":true,\"verdict\":\"Excellent Fit\",\"badge\":\"\\ud83d\\udfe2\",\"description\":\"Optimal furniture arrangement with generous walking circulation and complete clearance compliance.\",\"room_dimensions\":{\"width_m\":4.2,\"length_m\":5,\"height_m\":2.8,\"area_sqm\":21},\"item_count\":0,\"breakdown\":{\"boundary_fit\":{\"score\":30,\"max\":30,\"status\":\"pass\",\"violation_count\":0,\"violations\":[]},\"collision\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"collision_count\":0,\"collisions\":[]},\"clearance\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"warning_count\":0,\"warnings\":[]},\"utilization\":{\"score\":10,\"max\":10,\"walking_ratio\":1,\"occupied_percentage\":0,\"room_area_sqm\":21,\"furniture_area_sqm\":0,\"status\":\"excellent\"},\"room_fitness\":{\"score\":10,\"max\":10,\"matched_items\":0,\"total_items\":0,\"status\":\"pass\"}},\"evaluation_notes\":\"All items safely contained within room perimeter. Zero collision overlaps. Full front and side clearance corridors maintained. Space utilization: 0% occupied (excellent circulation).\"}', '2026-09-11 21:16:38', '2026-09-11 21:16:38');
+(1, 2, 'Nordic Living Room Concept', 'living_room', 420.00, 500.00, 260.00, 'scandinavian', NULL, 100.00, '{\"total_score\":100,\"is_valid\":true,\"verdict\":\"Excellent Fit\",\"badge\":\"\\ud83d\\udfe2\",\"description\":\"Optimal furniture arrangement with generous walking circulation and complete clearance compliance.\",\"room_dimensions\":{\"width_m\":4.2,\"length_m\":5,\"height_m\":2.6,\"area_sqm\":21},\"item_count\":4,\"breakdown\":{\"boundary_fit\":{\"score\":30,\"max\":30,\"status\":\"pass\",\"violation_count\":0,\"violations\":[]},\"collision\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"collision_count\":0,\"collisions\":[]},\"clearance\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"warning_count\":0,\"warnings\":[]},\"utilization\":{\"score\":10,\"max\":10,\"walking_ratio\":0.8049,\"occupied_percentage\":19.5,\"room_area_sqm\":21,\"furniture_area_sqm\":4.1,\"status\":\"excellent\"},\"room_fitness\":{\"score\":10,\"max\":10,\"matched_items\":4,\"total_items\":4,\"status\":\"pass\",\"unmatched\":[]}},\"evaluation_notes\":\"All items safely contained within room perimeter. Zero collision overlaps. Full front and side clearance corridors maintained. Space utilization: 19.5% occupied (excellent circulation).\"}', '2026-09-12 04:57:01', '2026-09-12 07:44:01'),
+(5, 2, 'Scenario A — High Compliance Living Room', 'living_room', 420.00, 500.00, 280.00, 'scandinavian', NULL, 100.00, '{\"total_score\":100,\"is_valid\":true,\"verdict\":\"Excellent Fit\",\"badge\":\"\\ud83d\\udfe2\",\"description\":\"Optimal furniture arrangement with generous walking circulation and complete clearance compliance.\",\"room_dimensions\":{\"width_m\":4.2,\"length_m\":5,\"height_m\":2.8,\"area_sqm\":21},\"item_count\":5,\"breakdown\":{\"boundary_fit\":{\"score\":30,\"max\":30,\"status\":\"pass\",\"violation_count\":0,\"violations\":[]},\"collision\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"collision_count\":0,\"collisions\":[]},\"clearance\":{\"score\":25,\"max\":25,\"status\":\"pass\",\"warning_count\":0,\"warnings\":[]},\"utilization\":{\"score\":10,\"max\":10,\"walking_ratio\":0.803,\"occupied_percentage\":19.7,\"room_area_sqm\":21,\"furniture_area_sqm\":4.14,\"status\":\"excellent\"},\"room_fitness\":{\"score\":10,\"max\":10,\"matched_items\":5,\"total_items\":5,\"status\":\"pass\",\"unmatched\":[]}},\"evaluation_notes\":\"All items safely contained within room perimeter. Zero collision overlaps. Full front and side clearance corridors maintained. Space utilization: 19.7% occupied (excellent circulation).\"}', '2026-09-12 07:35:22', '2026-09-12 07:38:19'),
+(6, 2, 'Scenario B — Conflict & Recovery Demo', 'living_room', 300.00, 320.00, 260.00, 'industrial', NULL, 29.00, '{\"total_score\":29,\"is_valid\":false,\"verdict\":\"Does Not Fit\",\"badge\":\"\\ud83d\\udd34\",\"description\":\"Items collide or extend beyond room boundaries. Layout adjustment required.\",\"room_dimensions\":{\"width_m\":3,\"length_m\":3.2,\"height_m\":2.6,\"area_sqm\":9.6},\"item_count\":2,\"breakdown\":{\"boundary_fit\":{\"score\":0,\"max\":30,\"status\":\"fail\",\"violation_count\":1,\"violations\":[{\"sku\":\"SOFA-003\",\"name\":\"Manhattan L-Shaped Sectional Sofa\",\"breaches\":{\"east_wall_breach_m\":1},\"message\":\"Item \'Manhattan L-Shaped Sectional Sofa\' exceeds the perimeter walls of the room.\"}]},\"collision\":{\"score\":0,\"max\":25,\"status\":\"fail\",\"collision_count\":1,\"collisions\":[{\"item_a\":{\"sku\":\"SOFA-003\",\"name\":\"Manhattan L-Shaped Sectional Sofa\"},\"item_b\":{\"sku\":\"DTB-001\",\"name\":\"Circa 4-Seater Round Dining Table\"},\"overlap_type\":\"3D AABB Intersection\",\"message\":\"Physical collision detected between \'Manhattan L-Shaped Sectional Sofa\' and \'Circa 4-Seater Round Dining Table\'.\"}]},\"clearance\":{\"score\":19,\"max\":25,\"status\":\"warning\",\"warning_count\":2,\"warnings\":[{\"sku\":\"SOFA-003\",\"name\":\"Manhattan L-Shaped Sectional Sofa\",\"required_clearance_m\":0.9,\"available_clearance_m\":0.54,\"deficit_m\":0.36,\"penalty_pts\":2,\"message\":\"Front clearance zone for \'Manhattan L-Shaped Sectional Sofa\' is restricted (available: 54 cm, required: 90 cm).\"},{\"sku\":\"DTB-001\",\"name\":\"Circa 4-Seater Round Dining Table\",\"required_clearance_m\":0.8,\"available_clearance_m\":0.16,\"deficit_m\":0.64,\"penalty_pts\":4,\"message\":\"Front clearance zone for \'Circa 4-Seater Round Dining Table\' is restricted (available: 16 cm, required: 80 cm).\"}]},\"utilization\":{\"score\":5,\"max\":10,\"walking_ratio\":0.3927,\"occupied_percentage\":60.7,\"room_area_sqm\":9.6,\"furniture_area_sqm\":5.83,\"status\":\"tight\"},\"room_fitness\":{\"score\":5,\"max\":10,\"matched_items\":1,\"total_items\":2,\"status\":\"warning\",\"unmatched\":[{\"sku\":\"DTB-001\",\"name\":\"Circa 4-Seater Round Dining Table\",\"category\":\"dining-tables\",\"message\":\"Item \'Circa 4-Seater Round Dining Table\' (dining-tables) is atypical for a living_room.\"}]}},\"evaluation_notes\":\"Boundary breach: 1 item(s) exceed room boundaries. Overlap detected: 1 furniture collision(s). 2 clearance warning(s) detected. Space utilization: 60.7% occupied (tight circulation).\"}', '2026-09-12 07:35:22', '2026-09-12 07:35:22'),
+(7, 2, 'Scenario C — AI Vision Sandbox', 'living_room', 400.00, 500.00, 280.00, 'scandinavian', NULL, NULL, NULL, '2026-09-12 07:35:39', '2026-09-12 07:35:39');
 
 -- --------------------------------------------------------
 
@@ -456,17 +549,17 @@ CREATE TABLE `room_project_furniture` (
 --
 
 INSERT INTO `room_project_furniture` (`id`, `room_project_id`, `furniture_id`, `position_x`, `position_y`, `position_z`, `rotation_y`, `scale`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0.0000, 0.0000, -1.2000, 0.0000, 1.000, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(2, 1, 7, 0.0000, 0.0000, 0.2000, 0.0000, 1.000, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(3, 1, 12, 0.0000, 0.0000, 1.8000, 180.0000, 1.000, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(4, 1, 39, -1.5000, 0.0000, 0.4000, 60.0000, 1.000, '2026-09-11 17:25:33', '2026-09-11 17:25:33'),
-(25, 6, 40, -1.7470, 0.0000, -2.2060, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06'),
-(26, 6, 39, 1.7780, 0.0000, -1.8800, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06'),
-(27, 6, 40, 0.0000, 0.0000, 0.0000, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06'),
-(28, 6, 39, 1.4030, 0.0000, 0.7990, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06'),
-(29, 6, 39, 0.8500, 0.0000, -0.9060, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06'),
-(30, 6, 38, -0.6000, 0.0000, -0.6000, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06'),
-(31, 6, 38, 0.1010, 0.0000, -2.1140, 0.0000, 1.000, '2026-09-11 21:58:06', '2026-09-11 21:58:06');
+(10, 1, 1, 0.0000, 0.0000, -1.2000, 0.0000, 1.000, '2026-09-12 05:12:08', '2026-09-12 05:12:08'),
+(11, 1, 7, 0.0000, 0.0000, 0.2000, 0.0000, 1.000, '2026-09-12 05:12:08', '2026-09-12 05:12:08'),
+(12, 1, 12, 0.0000, 0.0000, 1.8000, 180.0000, 1.000, '2026-09-12 05:12:08', '2026-09-12 05:12:08'),
+(13, 1, 39, -1.2500, 0.0000, 0.4000, 60.0000, 1.000, '2026-09-12 05:12:08', '2026-09-12 07:44:01'),
+(45, 5, 1, 0.0000, 0.0000, -1.6000, 0.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19'),
+(46, 5, 7, 0.0000, 0.0000, 0.1000, 0.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19'),
+(47, 5, 11, 0.0000, 0.0000, 2.0000, 180.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19'),
+(48, 5, 9, 1.5500, 0.0000, -1.6000, 0.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19'),
+(49, 5, 37, -1.8000, 0.0000, 0.0000, 90.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19'),
+(50, 6, 3, 1.1000, 0.0000, 0.4000, 0.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19'),
+(51, 6, 28, 0.6000, 0.0000, 0.4000, 0.0000, 1.000, '2026-09-12 07:38:19', '2026-09-12 07:38:19');
 
 -- --------------------------------------------------------
 
@@ -492,13 +585,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `avatar`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'SmartSpace Admin', 'admin@smartspace.local', '2026-09-11 17:25:33', '$2y$12$HT1L78kxPwhhd7pbFt32FOfqQUOAy3.YNr7itIxZU90b9Y1KZRDkq', NULL, NULL, '2026-09-11 17:25:33', '2026-09-11 19:39:07'),
-(2, 2, 'Demo Customer', 'customer@smartspace.local', '2026-09-11 17:25:33', '$2y$12$ayjwLxKVRq3r4m2n/PoGNeqRugCjGvHki2iir55saqDvlaCM6Pu7O', NULL, NULL, '2026-09-11 17:25:33', '2026-09-11 19:39:07'),
-(3, 2, 'Test Spatial Architect', 'architect_6aa4abb8b4c48@smartspace.local', NULL, '$2y$04$asPIMK8NQqmELUPy4cUj0Oa2JARNeFqLwdXTg2qTpD9k7D/mzYXNm', NULL, NULL, '2026-09-11 17:32:40', '2026-09-11 17:32:40'),
-(4, 2, 'Test Spatial Architect', 'architect_6aa4abc556608@smartspace.local', NULL, '$2y$04$MRXJ5IZKxm/JcIX5uREnRepRQLRgt/odS0H26GRB0Sa.VUknWOKLK', NULL, NULL, '2026-09-11 17:32:53', '2026-09-11 17:32:53'),
-(5, 2, 'Test Spatial Architect', 'architect_6aa4abe21742c@smartspace.local', NULL, '$2y$04$pU7djT0TAOSzjVzCntyQY.FB5jD5Lpg6QS9F7Lx09B9Af4GPOogHy', NULL, NULL, '2026-09-11 17:33:22', '2026-09-11 17:33:22'),
-(6, 2, 'Test Spatial Architect', 'architect_6aa4b4d9e2542@smartspace.local', NULL, '$2y$04$U3d9MT6ZT9oO8X60FqEAOujas3Fr2UXrMat/YZKvtvQiyEIcSPu2.', NULL, NULL, '2026-09-11 18:11:38', '2026-09-11 18:11:38'),
-(7, 2, 'Alex Rivera', 'alex@example.com', NULL, '$2y$12$xBLwipteyESEu2t4XSlNme/BUXUBWE.BshsIAFXTvth2k3AsImEUa', NULL, NULL, '2026-09-11 21:03:52', '2026-09-11 21:03:52');
+(1, 1, 'SmartSpace Admin', 'admin@smartspace.local', '2026-09-12 04:57:01', '$2y$12$Fw1AyHyY/1vnDQEMAdFeUeIUXyjLX8jPk9wgCkD5OZRxwNlohLUse', NULL, NULL, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(2, 2, 'Demo Customer', 'customer@smartspace.local', '2026-09-12 04:57:01', '$2y$12$YJUQK4hEmWvasOWRFpxMVeZArLYXz6D2aoyOdbH0hCSUWuo.x.cLy', NULL, NULL, '2026-09-12 04:57:01', '2026-09-12 04:57:01'),
+(9, 2, 'Test Spatial Architect', 'architect_6aa572d243081@smartspace.local', NULL, '$2y$04$uS9Hciv.Lx0yK557Lc/Ib.pjN75oBCfRICPfPU89cRO88neCx1kpK', NULL, NULL, '2026-09-12 07:42:10', '2026-09-12 07:42:10'),
+(13, 2, 'Test Spatial Architect', 'architect_6aa5734f67b9d@smartspace.local', NULL, '$2y$04$G1FblLgOhgsDwbzCedM7be77/bwwVImdtQLyujCAv59eWKRfIBxlK', NULL, NULL, '2026-09-12 07:44:15', '2026-09-12 07:44:15'),
+(17, 2, 'Test Spatial Architect', 'architect_6aa614e019043@smartspace.local', NULL, '$2y$04$OC99fgcnhxTdql0KBUxkrOG30J.W60N61yrMwvD6N/i2/.p7PfKOS', NULL, NULL, '2026-09-12 19:13:36', '2026-09-12 19:13:36'),
+(21, 2, 'Test Spatial Architect', 'architect_6aa8cb7b52ed8@smartspace.local', NULL, '$2y$04$obHC6e1RID8ue46h1A/0zO/NlWfazYUQDfiOhjeuM0AuET7s2/ZKG', NULL, NULL, '2026-09-14 20:37:15', '2026-09-14 20:37:15');
 
 --
 -- Indexes for dumped tables
@@ -549,6 +641,22 @@ ALTER TABLE `furniture_models`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `orders_order_number_unique` (`order_number`),
+  ADD KEY `orders_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `order_items_order_id_foreign` (`order_id`),
+  ADD KEY `order_items_furniture_id_foreign` (`furniture_id`);
 
 --
 -- Indexes for table `personal_access_tokens`
@@ -605,73 +713,85 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `furniture`
 --
 ALTER TABLE `furniture`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `furniture_images`
 --
 ALTER TABLE `furniture_images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `furniture_models`
 --
 ALTER TABLE `furniture_models`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `order_items`
+--
+ALTER TABLE `order_items`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `room_analyses`
 --
 ALTER TABLE `room_analyses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `room_projects`
 --
 ALTER TABLE `room_projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `room_project_furniture`
 --
 ALTER TABLE `room_project_furniture`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
@@ -707,6 +827,19 @@ ALTER TABLE `furniture_images`
 --
 ALTER TABLE `furniture_models`
   ADD CONSTRAINT `furniture_models_furniture_id_foreign` FOREIGN KEY (`furniture_id`) REFERENCES `furniture` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_furniture_id_foreign` FOREIGN KEY (`furniture_id`) REFERENCES `furniture` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_items_order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `room_analyses`
