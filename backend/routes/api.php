@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\FavoriteController;
 use App\Http\Controllers\Api\V1\FurnitureController;
+use App\Http\Controllers\Api\V1\OrderController;
 use App\Http\Controllers\Api\V1\RoomProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,10 @@ Route::prefix('v1')->group(function () {
     Route::get('/furniture/featured', [FurnitureController::class, 'featured']);
     Route::get('/furniture/styles', [FurnitureController::class, 'styles']);
     Route::get('/furniture/{id}', [FurnitureController::class, 'show']);
+
+    // 4. E-Commerce Furniture Orders
+    Route::post('/orders', [OrderController::class, 'store']);
+    Route::get('/orders/{orderNumber}', [OrderController::class, 'show']);
 
     // 4. Protected Endpoints (Requires Sanctum Authentication)
     Route::middleware('auth:sanctum')->group(function () {

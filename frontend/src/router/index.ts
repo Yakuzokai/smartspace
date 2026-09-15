@@ -6,13 +6,13 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'home',
     component: () => import('@/pages/HomePage.vue'),
-    meta: { title: 'SmartSpace — AI-Assisted Spatial Planning' },
+    meta: { title: 'SmartSpace — Minimalist Furniture & Spatial Planning' },
   },
   {
     path: '/catalog',
     name: 'catalog',
     component: () => import('@/pages/CatalogPage.vue'),
-    meta: { title: 'Furniture Catalog — SmartSpace' },
+    meta: { title: 'Furniture Collection — SmartSpace' },
   },
   {
     path: '/furniture/:id',
@@ -22,10 +22,28 @@ const routes: RouteRecordRaw[] = [
     meta: { title: 'Product Details — SmartSpace' },
   },
   {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('@/pages/CartPage.vue'),
+    meta: { title: 'Shopping Bag — SmartSpace' },
+  },
+  {
+    path: '/checkout',
+    name: 'checkout',
+    component: () => import('@/pages/CheckoutPage.vue'),
+    meta: { title: 'Checkout — SmartSpace' },
+  },
+  {
+    path: '/order-confirmation',
+    name: 'order-confirmation',
+    component: () => import('@/pages/OrderConfirmationPage.vue'),
+    meta: { title: 'Order Confirmed — SmartSpace' },
+  },
+  {
     path: '/favorites',
     name: 'favorites',
     component: () => import('@/pages/FavoritesPage.vue'),
-    meta: { requiresAuth: true, title: 'My Favorites — SmartSpace' },
+    meta: { requiresAuth: true, title: 'My Wishlist — SmartSpace' },
   },
   {
     path: '/projects',

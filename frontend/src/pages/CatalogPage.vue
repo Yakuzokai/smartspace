@@ -61,11 +61,11 @@ function onPageChange(page: number) {
       <div class="flex items-center gap-2 text-xs font-mono text-muted-gray">
         <router-link to="/" class="hover:text-forest">Home</router-link>
         <span>/</span>
-        <span class="text-forest font-semibold">Furniture Catalog</span>
+        <span class="text-forest font-semibold">Shop</span>
       </div>
-      <h1 class="font-display font-bold text-3xl text-forest">Curated Furniture Collection</h1>
+      <h1 class="font-display font-bold text-3xl text-forest tracking-tight">Curated Furniture Collection</h1>
       <p class="text-xs text-muted-gray">
-        40 physical assets with authoritative bounding boxes, verified clearances, and locked 1.000 scale.
+        Explore minimalist Scandinavian and Japanese designs with locked 1:1 scale specifications.
       </p>
     </div>
 

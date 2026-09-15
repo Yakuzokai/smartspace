@@ -3,6 +3,7 @@ import { onMounted } from 'vue'
 import { useAuthStore } from '@/stores/auth'
 import AppNavbar from '@/components/common/AppNavbar.vue'
 import AppFooter from '@/components/common/AppFooter.vue'
+import CartDrawer from '@/components/cart/CartDrawer.vue'
 
 const authStore = useAuthStore()
 
@@ -18,5 +19,6 @@ onMounted(() => {
       <router-view />
     </main>
     <AppFooter />
+    <CartDrawer />
   </div>
 </template>

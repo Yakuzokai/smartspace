@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { catalogService } from '@/services/catalogService'
 import { useFavoritesStore } from '@/stores/favorites'
 import { useAuthStore } from '@/stores/auth'
+import { useCartStore } from '@/stores/cart'
 import ImageGallery from '@/components/detail/ImageGallery.vue'
 import Product3DViewer from '@/components/detail/Product3DViewer.vue'
 import SpatialSpecCard from '@/components/detail/SpatialSpecCard.vue'
@@ -16,11 +17,14 @@ const route = useRoute()
 const router = useRouter()
 const favoritesStore = useFavoritesStore()
 const authStore = useAuthStore()
+const cartStore = useCartStore()
 
 const furniture = ref<Furniture | null>(null)
 const loading = ref(true)
 const error = ref<string | null>(null)
 const visualMode = ref<'gallery' | '3d'>('gallery')
+const quantity = ref(1)
+const justAdded = ref(false)
 
 function activate3D() {
   visualMode.value = '3d'
@@ -62,6 +66,21 @@ async function toggleFavorite() {
     console.error('Failed to toggle favorite', err)
   }
 }
+
+function handleAddToCart() {
+  if (!furniture.value || furniture.value.availability?.status === 'out_of_stock') return
+  cartStore.addItem(furniture.value, quantity.value, true)
+  justAdded.value = true
+  setTimeout(() => {
+    justAdded.value = false
+  }, 2000)
+}
+
+function handleBuyNow() {
+  if (!furniture.value || furniture.value.availability?.status === 'out_of_stock') return
+  cartStore.addItem(furniture.value, quantity.value, false)
+  router.push({ name: 'checkout' })
+}
 </script>
 
 <template>
@@ -81,7 +100,7 @@ async function toggleFavorite() {
       <h2 class="font-display font-bold text-xl text-forest">Furniture Not Found</h2>
       <p class="text-xs text-muted-gray max-w-sm mx-auto">{{ error || 'The requested product does not exist in the catalog.' }}</p>
       <router-link to="/catalog" class="inline-block px-4 py-2 rounded-xl bg-forest hover:bg-dark-green text-cream text-xs font-semibold shadow-subtle transition-all">
-        Return to Catalog
+        Return to Shop
       </router-link>
     </div>
 
@@ -92,7 +111,7 @@ async function toggleFavorite() {
       <nav class="flex items-center gap-2 text-xs font-mono text-muted-gray">
         <router-link to="/" class="hover:text-forest">Home</router-link>
         <span>/</span>
-        <router-link to="/catalog" class="hover:text-forest">Catalog</router-link>
+        <router-link to="/catalog" class="hover:text-forest">Shop</router-link>
         <span v-if="furniture.category">/</span>
         <router-link
           v-if="furniture.category"
@@ -108,7 +127,7 @@ async function toggleFavorite() {
       <!-- Main Layout: 2 Columns -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Left Column (lg: 7 cols): Mode Switcher, Images/3D & Milestone Action Banners -->
+        <!-- Left Column (lg: 7 cols): Visual Mode Switcher, Images/3D & Milestone Action Banners -->
         <div class="lg:col-span-7 space-y-5">
           <!-- Visual Mode Switcher (Gallery vs Interactive 3D Model) -->
           <div class="flex items-center justify-between gap-3">
@@ -163,7 +182,7 @@ async function toggleFavorite() {
           <MilestoneActionBanner :furniture="furniture" @view3d="activate3D" />
         </div>
 
-        <!-- Right Column (lg: 5 cols): Specs, Dimensions, Pricing, Action -->
+        <!-- Right Column (lg: 5 cols): Specs, Pricing, Purchase CTAs -->
         <div class="lg:col-span-5 space-y-6">
           
           <div class="p-6 rounded-3xl bg-cream border border-light-border shadow-card space-y-5">
@@ -188,8 +207,8 @@ async function toggleFavorite() {
             <!-- Price & Stock Strip -->
             <div class="flex items-center justify-between py-3.5 border-y border-light-border">
               <div>
-                <span class="text-[10px] font-mono uppercase text-muted-gray block">Authoritative Price</span>
-                <span class="font-display font-extrabold text-3xl text-warm-beige">
+                <span class="text-[10px] font-mono uppercase text-muted-gray block">Price (Tax Incl.)</span>
+                <span class="font-display font-extrabold text-3xl text-forest">
                   ₱{{ furniture.price.toLocaleString() }}
                 </span>
               </div>
@@ -202,11 +221,11 @@ async function toggleFavorite() {
             <!-- Material & Color Swatch -->
             <div class="grid grid-cols-2 gap-3 text-xs">
               <div class="p-3.5 rounded-xl bg-off-white border border-light-border space-y-1 shadow-subtle">
-                <span class="text-muted-gray text-[11px] block">Material Composition</span>
+                <span class="text-muted-gray text-[11px] block">Material</span>
                 <span class="text-charcoal font-medium">{{ furniture.material }}</span>
               </div>
               <div class="p-3.5 rounded-xl bg-off-white border border-light-border space-y-1 shadow-subtle">
-                <span class="text-muted-gray text-[11px] block">Finish & Color</span>
+                <span class="text-muted-gray text-[11px] block">Color Finish</span>
                 <div class="flex items-center gap-2">
                   <span
                     class="w-3.5 h-3.5 rounded-full border border-light-border shadow-sm shrink-0"
@@ -225,20 +244,89 @@ async function toggleFavorite() {
               </p>
             </div>
 
-            <!-- Actions: Favorite Button -->
-            <div class="pt-2 flex items-center gap-3">
-              <button
-                type="button"
-                class="flex-1 py-3 px-4 rounded-xl border font-semibold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-subtle"
-                :class="favoritesStore.isFavorite(furniture.id) ? 'bg-warm-beige border-warm-beige text-forest shadow-glow-warm' : 'bg-forest hover:bg-dark-green border-forest text-cream shadow-glow'"
-                @click="toggleFavorite"
-              >
-                <i
-                  class="text-sm"
-                  :class="favoritesStore.isFavorite(furniture.id) ? 'bi bi-heart-fill text-forest' : 'bi bi-heart text-cream'"
-                ></i>
-                <span>{{ favoritesStore.isFavorite(furniture.id) ? 'Saved to Favorites' : 'Save to Favorites' }}</span>
-              </button>
+            <!-- E-Commerce Purchasing Block -->
+            <div class="pt-3 border-t border-light-border space-y-3">
+              <!-- Quantity Stepper -->
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-semibold text-charcoal">Quantity</span>
+                <div class="flex items-center border border-light-border rounded-xl bg-off-white overflow-hidden text-xs">
+                  <button
+                    type="button"
+                    class="w-9 h-9 flex items-center justify-center text-charcoal hover:bg-cream transition-colors cursor-pointer"
+                    :disabled="quantity <= 1"
+                    @click="quantity = Math.max(1, quantity - 1)"
+                  >
+                    −
+                  </button>
+                  <span class="w-10 text-center font-mono font-semibold text-charcoal">{{ quantity }}</span>
+                  <button
+                    type="button"
+                    class="w-9 h-9 flex items-center justify-center text-charcoal hover:bg-cream transition-colors cursor-pointer"
+                    @click="quantity++"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
+              <!-- Main Purchase CTAs -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                <button
+                  type="button"
+                  :disabled="furniture.availability?.status === 'out_of_stock'"
+                  class="w-full py-3.5 px-4 rounded-xl bg-forest hover:bg-dark-green text-cream font-semibold text-xs shadow-glow transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  @click="handleAddToCart"
+                >
+                  <i class="bi" :class="justAdded ? 'bi-check2' : 'bi-bag-plus'"></i>
+                  <span>{{ justAdded ? 'Added to Bag!' : 'Add to Bag' }}</span>
+                </button>
+
+                <button
+                  type="button"
+                  :disabled="furniture.availability?.status === 'out_of_stock'"
+                  class="w-full py-3.5 px-4 rounded-xl bg-warm-beige hover:bg-warm-beige-hover text-forest font-semibold text-xs shadow-glow-warm transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                  @click="handleBuyNow"
+                >
+                  <span>Buy Now</span>
+                  <i class="bi bi-arrow-right text-xs"></i>
+                </button>
+              </div>
+
+              <!-- Secondary Actions (Wishlist) -->
+              <div class="pt-1">
+                <button
+                  type="button"
+                  class="w-full py-2.5 px-4 rounded-xl border border-light-border hover:border-forest text-charcoal hover:text-forest bg-off-white text-xs font-medium transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  @click="toggleFavorite"
+                >
+                  <i
+                    class="text-sm"
+                    :class="favoritesStore.isFavorite(furniture.id) ? 'bi bi-heart-fill text-rose-500' : 'bi bi-heart text-muted-gray'"
+                  ></i>
+                  <span>{{ favoritesStore.isFavorite(furniture.id) ? 'Saved to Wishlist' : 'Add to Wishlist' }}</span>
+                </button>
+              </div>
+
+              <!-- Value Props & Guarantee Strip -->
+              <div class="pt-3 border-t border-light-border grid grid-cols-2 gap-2 text-[11px] text-muted-gray">
+                <div class="flex items-center gap-1.5">
+                  <i class="bi bi-truck text-forest"></i>
+                  <span>Free delivery ₱5,000+</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <i class="bi bi-arrow-counterclockwise text-forest"></i>
+                  <span>30-Day In-Home Trial</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <i class="bi bi-rulers text-forest"></i>
+                  <span>1.000 Scale Guaranteed</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <i class="bi bi-shield-check text-forest"></i>
+                  <span>5-Year Warranty</span>
+                </div>
+              </div>
+
             </div>
 
           </div>

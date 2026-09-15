@@ -3,10 +3,12 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import { useFavoritesStore } from '@/stores/favorites'
+import { useCartStore } from '@/stores/cart'
 
 const router = useRouter()
 const authStore = useAuthStore()
 const favoritesStore = useFavoritesStore()
+const cartStore = useCartStore()
 
 const mobileMenuOpen = ref(false)
 const userDropdownOpen = ref(false)
@@ -35,7 +37,7 @@ async function handleLogout() {
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full border-b border-light-border bg-off-white/95 backdrop-blur-xl transition-colors">
+  <header class="sticky top-0 z-40 w-full border-b border-light-border bg-off-white/95 backdrop-blur-xl transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
@@ -48,7 +50,7 @@ async function handleLogout() {
             SmartSpace
           </span>
           <span class="text-[10px] font-mono tracking-widest text-muted-gray uppercase leading-none mt-1">
-            Spatial Planning
+            Furniture & Design
           </span>
         </div>
       </router-link>
@@ -59,7 +61,7 @@ async function handleLogout() {
           <input
             v-model="navSearchQuery"
             type="text"
-            placeholder="Search sofas, oak tables, desks, minimalist..."
+            placeholder="Search minimalist sofas, oak tables, desks..."
             class="w-full pl-9 pr-4 py-1.5 rounded-full bg-cream border border-light-border text-xs text-charcoal placeholder-muted-gray focus:outline-none focus:border-forest focus:ring-1 focus:ring-forest transition-all"
           />
           <i class="bi bi-search text-muted-gray absolute left-3 top-2 pointer-events-none text-xs"></i>
@@ -74,7 +76,7 @@ async function handleLogout() {
           active-class="!text-forest font-semibold"
         >
           <i class="bi bi-grid-3x3-gap text-xs"></i>
-          <span>Catalog</span>
+          <span>Shop</span>
         </router-link>
         <router-link
           to="/projects"
@@ -82,17 +84,17 @@ async function handleLogout() {
           active-class="!text-forest font-semibold"
         >
           <i class="bi bi-house-gear text-xs"></i>
-          <span>Room Projects</span>
+          <span>Room Planner</span>
         </router-link>
       </nav>
 
-      <!-- Right Action Area: Favorites & User Account -->
-      <div class="flex items-center gap-3">
+      <!-- Right Action Area: Favorites, Cart & User Account -->
+      <div class="flex items-center gap-2 sm:gap-3">
         <!-- Favorites Link with Badge -->
         <router-link
           to="/favorites"
           class="relative p-2 rounded-lg text-muted-gray hover:text-forest hover:bg-cream transition-colors"
-          title="My Favorites"
+          title="My Wishlist"
         >
           <i class="bi bi-heart text-lg"></i>
           <span
@@ -102,6 +104,22 @@ async function handleLogout() {
             {{ favoritesStore.count }}
           </span>
         </router-link>
+
+        <!-- Shopping Bag Trigger with Dynamic Badge -->
+        <button
+          type="button"
+          class="relative p-2 rounded-lg text-muted-gray hover:text-forest hover:bg-cream transition-colors cursor-pointer"
+          title="Open Shopping Bag"
+          @click="cartStore.openDrawer"
+        >
+          <i class="bi bi-bag text-lg"></i>
+          <span
+            v-if="cartStore.count > 0"
+            class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-forest text-[10px] font-bold text-cream flex items-center justify-center shadow-subtle animate-in zoom-in-50 duration-200"
+          >
+            {{ cartStore.count }}
+          </span>
+        </button>
 
         <!-- User Profile Dropdown (Authenticated) -->
         <div v-if="authStore.isAuthenticated" class="relative">
@@ -129,6 +147,9 @@ async function handleLogout() {
               <p class="text-xs font-semibold text-charcoal truncate">{{ authStore.currentUser?.name }}</p>
               <p class="text-[11px] text-muted-gray truncate">{{ authStore.currentUser?.email }}</p>
             </div>
+            <router-link to="/cart" class="block px-4 py-2 text-xs text-charcoal hover:bg-warm-beige/15 hover:text-forest">
+              Shopping Bag ({{ cartStore.count }})
+            </router-link>
             <router-link to="/projects" class="block px-4 py-2 text-xs text-charcoal hover:bg-warm-beige/15 hover:text-forest">
               My Room Projects
             </router-link>
@@ -191,15 +212,23 @@ async function handleLogout() {
           class="block px-3 py-2 rounded-lg text-sm text-charcoal hover:bg-cream hover:text-forest"
           @click="mobileMenuOpen = false"
         >
-          Catalog
+          Shop Collection
         </router-link>
         <router-link
           to="/projects"
           class="block px-3 py-2 rounded-lg text-sm text-charcoal hover:bg-cream hover:text-forest"
           @click="mobileMenuOpen = false"
         >
-          Room Projects
+          3D Room Planner
         </router-link>
+        <button
+          type="button"
+          class="w-full text-left px-3 py-2 rounded-lg text-sm text-charcoal hover:bg-cream hover:text-forest flex items-center justify-between"
+          @click="cartStore.openDrawer(); mobileMenuOpen = false"
+        >
+          <span>Shopping Bag</span>
+          <span class="px-2 py-0.5 rounded-full bg-forest text-cream text-xs font-mono">{{ cartStore.count }}</span>
+        </button>
         <router-link
           to="/favorites"
           class="block px-3 py-2 rounded-lg text-sm text-charcoal hover:bg-cream hover:text-forest"
