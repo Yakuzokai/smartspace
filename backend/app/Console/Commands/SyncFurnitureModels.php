@@ -93,6 +93,20 @@ class SyncFurnitureModels extends Command
             }
         }
 
+        // Clean up any furniture whose physical GLB model no longer exists on disk
+        $activeSkus = collect($syncedRows)->pluck(0)->all();
+        $unlinkedCount = 0;
+        foreach ($allFurniture as $item) {
+            if (!in_array($item->sku, $activeSkus) && $item->glb_model_path) {
+                if (!$isDryRun) {
+                    $item->glb_model_path = null;
+                    $item->saveQuietly();
+                    FurnitureModel::where('furniture_id', $item->id)->delete();
+                }
+                $unlinkedCount++;
+            }
+        }
+
         if (!empty($syncedRows)) {
             $this->info("▶ SYNCHRONIZED 3D GLB MODELS ({$syncedCount})");
             $this->table(

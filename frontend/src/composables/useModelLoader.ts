@@ -199,8 +199,14 @@ export function useModelLoader() {
     } else if (categorySlug.includes('bed') || categorySlug.includes('mattress')) {
       buildBedArchetype(group, w, h, d, primaryMat, cushionMat, woodMat)
     } else if (
-      categorySlug.includes('storage') ||
       categorySlug.includes('book') ||
+      categorySlug.includes('shelf') ||
+      furniture.name.toLowerCase().includes('bookcase') ||
+      furniture.name.toLowerCase().includes('shelf')
+    ) {
+      buildBookcaseArchetype(group, w, h, d, metalMat, woodMat)
+    } else if (
+      categorySlug.includes('storage') ||
       categorySlug.includes('wardrobe') ||
       categorySlug.includes('media') ||
       categorySlug.includes('tv')
@@ -433,6 +439,59 @@ export function useModelLoader() {
     const doorMesh = new THREE.Mesh(doorGeom, doorMat)
     doorMesh.position.set(0, baseH + carcassH / 2, -d / 2 - 0.008)
     group.add(doorMesh)
+  }
+
+  // 6. Bookcase / Open Shelving Archetype: Steel uprights + open wood tiers
+  function buildBookcaseArchetype(
+    group: THREE.Group,
+    w: number,
+    h: number,
+    d: number,
+    frameMat: THREE.Material,
+    shelfMat: THREE.Material
+  ) {
+    const postThickness = 0.024
+    const shelfThickness = 0.022
+    const numShelves = 5
+
+    // 4 Corner vertical steel uprights
+    const postGeom = new THREE.BoxGeometry(postThickness, h, postThickness)
+    const inset = postThickness / 2
+    const postPositions = [
+      [-w / 2 + inset, h / 2, -d / 2 + inset],
+      [w / 2 - inset, h / 2, -d / 2 + inset],
+      [-w / 2 + inset, h / 2, d / 2 - inset],
+      [w / 2 - inset, h / 2, d / 2 - inset],
+    ]
+    postPositions.forEach(([x, y, z]) => {
+      const post = new THREE.Mesh(postGeom, frameMat)
+      post.position.set(x, y, z)
+      group.add(post)
+    })
+
+    // 5 Horizontal open timber shelves
+    const shelfGeom = new THREE.BoxGeometry(w - 0.004, shelfThickness, d - 0.004)
+    const availableHeight = h - shelfThickness - 0.08
+    const step = availableHeight / (numShelves - 1)
+    for (let i = 0; i < numShelves; i++) {
+      const shelf = new THREE.Mesh(shelfGeom, shelfMat)
+      shelf.position.set(0, 0.08 + i * step + shelfThickness / 2, 0)
+      group.add(shelf)
+    }
+
+    // Rear architectural diagonal cross-brace
+    const braceMat = frameMat
+    const braceRadius = 0.004
+    const braceLength = Math.sqrt(w * w + h * 0.4 * (h * 0.4))
+    const braceGeom = new THREE.CylinderGeometry(braceRadius, braceRadius, braceLength, 8)
+
+    const b1 = new THREE.Mesh(braceGeom, braceMat)
+    b1.position.set(0, h * 0.5, -d / 2 + inset)
+    b1.rotation.z = Math.atan2(h * 0.4, w)
+    const b2 = new THREE.Mesh(braceGeom, braceMat)
+    b2.position.set(0, h * 0.5, -d / 2 + inset)
+    b2.rotation.z = -Math.atan2(h * 0.4, w)
+    group.add(b1, b2)
   }
 
   // 6. General Architectural Archetype (Fallback)
