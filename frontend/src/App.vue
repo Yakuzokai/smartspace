@@ -16,7 +16,11 @@ onMounted(() => {
   <div class="min-h-screen flex flex-col bg-off-white text-charcoal selection:bg-forest selection:text-cream">
     <AppNavbar />
     <main class="flex-1">
-      <router-view />
+      <router-view v-slot="{ Component, route }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" :key="route.path" />
+        </transition>
+      </router-view>
     </main>
     <AppFooter />
     <CartDrawer />

@@ -322,8 +322,8 @@ function disposeThreeScene() {
   }
   if (renderer) {
     renderer.dispose()
-    if (renderer.domElement && renderer.domElement.parentNode) {
-      renderer.domElement.parentNode.removeChild(renderer.domElement.parentNode)
+    if (renderer.domElement) {
+      renderer.domElement.remove()
     }
     renderer = null
   }
